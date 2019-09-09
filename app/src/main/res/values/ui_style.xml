@@ -15,4 +15,15 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
     </style>
+
+    <!-- 评分控件样式-->
+    <style name="RatingStyle" parent="@android:style/Widget.RatingBar">
+        <!-- 定义星星图片 -->
+        <item name="android:progressDrawable">@drawable/appraise_rating_bar</item>
+        <!-- 根据自定义星星图片的大小,设置相应的值,否则可能显示不全 -->
+        <item name="android:minHeight">20dp</item>
+        <item name="android:maxHeight">20dp</item>
+        //这里放一些你觉得公共的属性(你可以在控件里覆盖这里的属性)
+    </style>
+
 </resources>

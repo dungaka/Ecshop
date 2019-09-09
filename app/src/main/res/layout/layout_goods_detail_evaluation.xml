@@ -3,13 +3,14 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:paddingLeft="@dimen/common_padding_left"
-    android:paddingRight="@dimen/common_padding_left"
+
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:orientation="horizontal"
+        android:paddingLeft="@dimen/common_padding_left"
+        android:paddingRight="@dimen/common_padding_left"
         android:gravity="center_vertical"
         android:layout_height="45dp">
 
@@ -31,6 +32,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:orientation="horizontal"
+        android:paddingLeft="@dimen/common_padding_left"
+        android:paddingRight="@dimen/common_padding_left"
         android:layout_marginTop="5dp"
         android:gravity="center_vertical"
         android:layout_height="50dp">
@@ -52,8 +55,48 @@
             android:layout_weight="1"
             android:layout_height="wrap_content"/>
 
+        <android.support.v7.widget.AppCompatRatingBar
+            android:layout_width="wrap_content"
+            style="@style/RatingStyle"
+            android:max="5"
+            android:isIndicator="false"
+            android:progress="3"
+            android:layout_height="20dp"/>
 
     </LinearLayout>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:id="@+id/tv_comment_content"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="@dimen/common_padding_left"
+        android:paddingRight="@dimen/common_padding_left"
+        android:text="5号店西班牙冰后半甜白葡萄酒水果酒半醒红酒女士酒5号店西班牙冰后半甜白葡萄"
+        android:textSize="13dp"
+        android:textColor="@color/global_text_color"
+        android:layout_marginLeft="3dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"/>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
+        android:background="@color/gray_light"
+        android:layout_height="2dp"/>
+
+    <TextView
+        android:id="@+id/tv_show_more_comments"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/bg_round_stroke_gray"
+        android:gravity="center"
+        android:drawableRight="@drawable/ic_arrow_gray_right"
+        android:text="@string/goods_show_more_comment"
+        android:textColor="@color/global_middle_text_color"
+        android:textSize="12sp" />
 
 </LinearLayout>

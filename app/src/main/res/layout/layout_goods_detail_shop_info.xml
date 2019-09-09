@@ -14,9 +14,9 @@
         android:id="@+id/iv_shop_image"
         android:layout_width="58dp"
         app:type="round"
-        app:corner_radius="10dp"
+        app:corner_radius="3dp"
         android:layout_height="58dp"
-        android:background="@mipmap/qiaokeli" />
+        android:src="@mipmap/qiaokeli" />
 
 
     <LinearLayout
@@ -109,6 +109,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/bg_round_stroke_gray"
                 android:gravity="center"
+                android:drawableRight="@drawable/ic_arrow_gray_right"
                 android:text="@string/goods_enter_shop"
                 android:textColor="@color/global_middle_text_color"
                 android:textSize="12sp" />

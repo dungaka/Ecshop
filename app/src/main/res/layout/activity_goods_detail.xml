@@ -137,13 +137,14 @@
         android:ellipsize="end"
         android:textSize="14sp" />
 
-    <include layout="@layout/layout_divide_5_line"/>
+        <include layout="@layout/layout_divide_5_line"/>
 
-    <include layout="@layout/layout_goods_detail_shop_info"/>
+        <include layout="@layout/layout_goods_detail_shop_info"/>
 
-    <include layout="@layout/layout_divide_5_line"/>
+        <include layout="@layout/layout_divide_5_line"/>
 
-    <include  layout="@layout/layout_goods_detail_evaluation"/>
+        <include  layout="@layout/layout_goods_detail_evaluation"/>
 
-</LinearLayout>
+        <include layout="@layout/layout_divide_5_line"/>
+    </LinearLayout>
 </android.support.v4.widget.NestedScrollView>
