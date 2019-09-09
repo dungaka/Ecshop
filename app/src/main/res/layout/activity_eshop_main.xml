@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.EcShopMainActivity">
+
+    <!-- 用于放置主页面四个Fragment -->
+    <FrameLayout
+        android:id="@+id/layout_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <com.chaychan.library.BottomBarLayout
+        android:id="@+id/bbl"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:background="@drawable/horizontal_bar_bg"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <com.chaychan.library.BottomBarItem
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:iconNormal="@mipmap/ic_home_selected"
+            app:iconSelected="@mipmap/ic_home"
+            app:itemMarginTop="5dp"
+            app:itemText="@string/main_home"
+            app:itemTextSize="12sp"
+            app:textColorNormal="@color/black"
+            app:textColorSelected="@color/colortheme" />
+
+        <com.chaychan.library.BottomBarItem
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:iconNormal="@mipmap/ic_fenlei"
+            app:iconSelected="@mipmap/ic_fenlei_selected"
+            app:itemMarginTop="5dp"
+            app:itemText="@string/main_category"
+            app:itemTextSize="12sp"
+            app:textColorNormal="@color/black"
+            app:textColorSelected="@color/colortheme" />
+
+
+        <com.chaychan.library.BottomBarItem
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:iconNormal="@mipmap/ic_nearby"
+            app:iconSelected="@mipmap/ic_nearby"
+            app:itemMarginTop="5dp"
+            app:itemText="@string/main_nearby"
+            app:itemTextSize="12sp"
+            app:textColorNormal="@color/black"
+            app:textColorSelected="@color/colortheme" />
+
+        <com.chaychan.library.BottomBarItem
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:iconNormal="@mipmap/ic_homecar"
+            app:iconSelected="@mipmap/ic_homecar_selected"
+            app:itemMarginTop="5dp"
+            app:itemText="@string/main_shopping_cart"
+            app:itemTextSize="12sp"
+            app:textColorNormal="@color/black"
+            app:textColorSelected="@color/colortheme" />
+
+        <com.chaychan.library.BottomBarItem
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:iconNormal="@mipmap/ic_mine"
+            app:iconSelected="@mipmap/ic_mine_selected"
+            app:itemMarginTop="5dp"
+            app:itemText="@string/main_mine"
+            app:itemTextSize="12sp"
+            app:textColorNormal="@color/black"
+            app:textColorSelected="@color/colortheme" />
+
+    </com.chaychan.library.BottomBarLayout>
+
+</LinearLayout>

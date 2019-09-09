@@ -1,0 +1,52 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.jakewharton.butterknife'
+
+android {
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    defaultConfig {
+        applicationId "com.langt.zjgx"
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    testImplementation 'junit:junit:4.12'
+
+    annotationProcessor "com.jakewharton:butterknife-compiler:9.0.0-rc1"
+    api rootProject.ext.dependencies.appcompatV7
+    api rootProject.ext.dependencies.design
+    api rootProject.ext.dependencies.glide
+    api rootProject.ext.dependencies.recyclerview
+    api rootProject.ext.dependencies.retrofit
+    api rootProject.ext.dependencies.convertergson
+    api rootProject.ext.dependencies.adapterrxjava
+    api rootProject.ext.dependencies.retrofit
+    api rootProject.ext.dependencies.rxjava
+    api rootProject.ext.dependencies.rxandroid
+    api rootProject.ext.dependencies.gson
+    api rootProject.ext.dependencies.okhttp
+    api rootProject.ext.dependencies.oklogger
+    api rootProject.ext.dependencies.rxpermission
+    api rootProject.ext.dependencies.eventbus
+    api rootProject.ext.dependencies.butterknife
+    api rootProject.ext.dependencies.bottombarlayout
+    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0'
+    implementation 'me.relex:circleindicator:1.2.2@aar'
+    implementation 'com.github.hackware1993:MagicIndicator:1.5.0'
+    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.50'
+    implementation 'q.rorbin:VerticalTabLayout:1.2.5'
+
+
+
+}

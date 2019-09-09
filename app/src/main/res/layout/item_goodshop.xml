@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:padding="15dp">
+
+    <ImageView
+        android:id="@+id/iv_goods"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@mipmap/qiaokeli"/>
+
+
+    <TextView
+        android:id="@+id/tv_shop_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/iv_goods"
+        android:layout_marginLeft="10dp"
+        android:textSize="15sp"
+        android:textColor="@color/black"
+        android:text="露露欢乐超市"/>
+    <TextView
+        android:id="@+id/tv_goods_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:textSize="15sp"
+        android:layout_toRightOf="@id/iv_goods"
+        android:layout_below="@id/tv_shop_name"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/black"
+        android:text="意大利进口乐福乸"/>
+
+    <TextView
+        android:id="@+id/id_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:textColor="@color/colortheme"
+        android:layout_below="@id/tv_goods_info"
+        android:layout_alignLeft="@id/tv_goods_info"
+        android:layout_marginTop="15dp"
+        android:text="¥"/>
+    <TextView
+        android:id="@+id/tv_goods_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="17sp"
+        android:textColor="@color/colortheme"
+        android:layout_toRightOf="@id/id_tv"
+        android:layout_alignBottom="@id/id_tv"
+        android:layout_marginLeft="@dimen/size_10"
+        android:text="129.0"/>
+    <TextView
+        android:id="@+id/tv_sell_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:textColor="@color/black"
+        android:layout_alignBottom="@id/iv_goods"
+        android:layout_toRightOf="@id/iv_goods"
+        android:layout_alignLeft="@id/tv_shop_name"
+        android:text="已售：120"/>
+
+    <TextView
+        android:id="@+id/tv_distance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:textColor="@color/black"
+        android:layout_alignBottom="@id/iv_goods"
+        android:layout_alignParentRight="true"
+        android:text="1.63km"/>
+
+</RelativeLayout>

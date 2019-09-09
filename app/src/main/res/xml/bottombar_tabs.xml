@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tabs>
+    <tab
+        id="@+id/tab_home"
+        icon="@drawable/ic_home_black_24dp"
+        activeTabColor='@color/colortheme'
+        title="@string/main_home" />
+    <tab
+        id="@+id/tab_category"
+        icon="@mipmap/ic_fenlei"
+        activeTabColor='@color/colortheme'
+        title="@string/main_category" />
+
+    <tab
+        id="@+id/tab_nearby"
+        icon="@mipmap/ic_nearby"
+        activeTabColor='@color/colortheme'
+        title="@string/main_nearby"/>
+    <tab
+        id="@+id/tab_cart"
+        icon="@mipmap/ic_homecar"
+        activeTabColor='@color/colortheme'
+        title="@string/main_shopping_cart"/>
+
+    <tab
+        id="@+id/tab_mine"
+        icon="@mipmap/ic_mine"
+        activeTabColor='@color/colortheme'
+        title="@string/main_mine" />
+</tabs>
