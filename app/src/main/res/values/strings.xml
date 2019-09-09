@@ -30,6 +30,7 @@
     <string name="goods_title_info">商品</string>
     <string name="goods_title_details">详情</string>
     <string name="goods_title_comments">评价</string>
+    <string name="goods_title_recommend">推荐</string>
     <string name="goods_buy_it_now">立即购买</string>
     <string name="goods_add_to_shopping_cart">加入购物车</string>
     <string name="goods_comments">商品评价</string>
@@ -38,6 +39,8 @@
     <string name="goods_msg_must_choose_number">请选择数量</string>
     <string name="goods_msg_add_success">添加成功</string>
     <string name="goods_inventory">库存</string>
+    <string name="goods_price">￥%1$s</string>
+    <string name="goods_goods_unit">/%1$s</string>
 
     <string name="cart_title">购物车</string>
     <string name="cart_action_sign_in">去登陆</string>
@@ -142,6 +145,7 @@
     <string name="settings_pref_custom_service_tel">客服电话</string>
 
     <string name="action_share">分享</string>
+    <string name="action_collect">收藏</string>
     <string name="action_confirm">确认</string>
     <string name="action_cancel">取消</string>
     <string name="action_edit">编辑</string>

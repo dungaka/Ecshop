@@ -26,4 +26,13 @@ public class Banner {
     public String getUrl() {
         return mUrl;
     }
+
+    public Banner() {
+    }
+
+    public Banner(Picture mPicture, String mDesc, String mUrl) {
+        this.mPicture = mPicture;
+        this.mDesc = mDesc;
+        this.mUrl = mUrl;
+    }
 }

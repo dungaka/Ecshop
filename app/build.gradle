@@ -4,17 +4,32 @@ apply plugin: 'com.jakewharton.butterknife'
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
     defaultConfig {
-        applicationId "com.langt.zjgx"
+        applicationId applicationId
         minSdkVersion rootProject.ext.android.minSdkVersion
         targetSdkVersion rootProject.ext.android.targetSdkVersion
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+
+    signingConfigs {
+        release {
+            keyAlias KEY_ALIAS
+            keyPassword KEY_PASSWORD
+            storeFile file(STORE_FILE_PATH)
+            storePassword STORE_PASSWORD
+            v2SigningEnabled false
+        }
+    }
+
     buildTypes {
         release {
-            minifyEnabled false
+            debuggable true
+            zipAlignEnabled true
+            minifyEnabled true
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
     }
 }

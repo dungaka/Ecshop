@@ -37,4 +37,6 @@
     <!-- 视图Z轴高度 -->
     <dimen name="elevation_app_bar">4dp</dimen>
 
+    <dimen name="common_padding_left">15dp</dimen>
+
 </resources>
