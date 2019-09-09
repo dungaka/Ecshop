@@ -56,6 +56,7 @@ dependencies {
     api rootProject.ext.dependencies.eventbus
     api rootProject.ext.dependencies.butterknife
     api rootProject.ext.dependencies.bottombarlayout
+    api rootProject.ext.dependencies.roundimageview
     implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0'
     implementation 'me.relex:circleindicator:1.2.2@aar'
     implementation 'com.github.hackware1993:MagicIndicator:1.5.0'

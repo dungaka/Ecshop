@@ -30,7 +30,8 @@ ext{
             logger                   :'com.orhanobut:logger:1.15',
             easyhttp                 :'com.zhouyou:rxeasyhttp:2.1.5',
             bottombar                : 'com.roughike:bottom-bar:2.3.1',
-            bottombarlayout          :'com.github.chaychan:BottomBarLayout:1.2.0'
+            bottombarlayout          :'com.github.chaychan:BottomBarLayout:1.2.0',
+            roundimageview           :'org.raphets:roundimageview:1.2.0'
 
     ]
 }

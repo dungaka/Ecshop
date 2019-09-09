@@ -24,4 +24,9 @@
     <color name="white">#ffffff</color>
     <color name="black">#000000</color>
     <color name="color_f6">#F6F6F6</color>
+
+    <color name="global_text_color">#333333</color>
+    <color name="global_middle_text_color">#666666</color>
+    <color name="global_hint_text_color">#999999</color>
+    <color name="global_divide_line_color">#999999</color>
 </resources>

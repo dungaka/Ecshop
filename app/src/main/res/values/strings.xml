@@ -41,6 +41,9 @@
     <string name="goods_inventory">库存</string>
     <string name="goods_price">￥%1$s</string>
     <string name="goods_goods_unit">/%1$s</string>
+    <string name="goods_shop_grade">店铺评分：%1$s</string>
+    <string name="goods_collect_shop">收藏店铺</string>
+    <string name="goods_enter_shop">进入店铺</string>
 
     <string name="cart_title">购物车</string>
     <string name="cart_action_sign_in">去登陆</string>

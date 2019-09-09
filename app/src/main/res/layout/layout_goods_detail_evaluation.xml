@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingLeft="@dimen/common_padding_left"
+    android:paddingRight="@dimen/common_padding_left"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_height="45dp">
+
+        <View
+            android:layout_width="3dp"
+            android:background="#E4391B"
+            android:layout_marginRight="10dp"
+            android:layout_height="20dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="@string/goods_title_comments"
+            android:textSize="15sp"
+            android:textColor="@color/global_text_color"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_marginTop="5dp"
+        android:gravity="center_vertical"
+        android:layout_height="50dp">
+
+        <org.raphets.roundimageview.RoundImageView
+            android:layout_width="44dp"
+            android:src="@mipmap/qiaokeli"
+            android:id="@+id/iv_user_portrait"
+            app:type="circle"
+            android:layout_height="44dp"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:id="@+id/tv_user_name"
+            android:text="邻家小猫"
+            android:textSize="13dp"
+            android:textColor="@color/global_text_color"
+            android:layout_marginLeft="3dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"/>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

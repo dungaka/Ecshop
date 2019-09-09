@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:paddingLeft="@dimen/common_padding_left"
+    android:paddingTop="10dp"
+    android:paddingRight="@dimen/common_padding_left"
+    android:paddingBottom="10dp">
+
+    <org.raphets.roundimageview.RoundImageView
+        android:id="@+id/iv_shop_image"
+        android:layout_width="58dp"
+        app:type="round"
+        app:corner_radius="10dp"
+        android:layout_height="58dp"
+        android:background="@mipmap/qiaokeli" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_shop_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:lines="1"
+                android:textColor="@color/global_text_color"
+                android:textSize="14sp"
+                android:text="天天回家超市" />
+
+            <TextView
+                android:id="@+id/tv_shop_grade"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/global_hint_text_color"
+                android:textSize="12sp"
+                android:text="@string/goods_shop_grade" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_shop_location"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:layout_weight="1"
+                android:drawableLeft="@drawable/ic_location"
+                android:drawablePadding="3dp"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:lines="1"
+                android:text="郑州市管城区裕鸿国际D座"
+                android:textColor="@color/global_hint_text_color"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tv_shop_distance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="103m"
+                android:textColor="@color/global_hint_text_color"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_collect_shop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="35dp"
+                android:background="@drawable/bg_round_stroke_gray"
+                android:gravity="center"
+                android:text="@string/goods_collect_shop"
+                android:textColor="@color/global_middle_text_color"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tv_enter_shop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_round_stroke_gray"
+                android:gravity="center"
+                android:text="@string/goods_enter_shop"
+                android:textColor="@color/global_middle_text_color"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</LinearLayout>
