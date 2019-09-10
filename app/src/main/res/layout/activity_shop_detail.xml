@@ -10,6 +10,14 @@
         android:layout_height="wrap_content"
         app:showBack="true" />
 
-    <include layout="@layout/layout_shop_info_content"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include layout="@layout/layout_shop_info_content" />
+
+        <include layout="@layout/layout_shop_detail_bottom"/>
+
+    </RelativeLayout>
 
 </LinearLayout>

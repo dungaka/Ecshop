@@ -66,6 +66,9 @@
     <string name="shop_manjianzhuanqu">满减专区</string>
     <string name="shop_xianshiqianggou">限时抢购</string>
     <string name="shop_youhuiquan">优惠券</string>
+    <string name="shop_please_input_search_goods_name">请输入搜索的商品</string>
+    <string name="shop_goods_seal_count">销量：%1$s</string>
+    <string name="shop_goods_choose_specification">选规格</string>
 
     <string name="cart_title">购物车</string>
     <string name="cart_action_sign_in">去登陆</string>

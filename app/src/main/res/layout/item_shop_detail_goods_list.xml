@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:padding="10dp">
+
+    <org.raphets.roundimageview.RoundImageView
+        android:id="@+id/iv_goods_pic"
+        android:layout_width="78dp"
+        android:layout_height="78dp"
+        android:layout_marginRight="10dp"
+        android:src="@mipmap/qiaokeli"
+        app:corner_radius="6dp"
+        app:type="round" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/GoodsNameStyle"
+            android:id="@+id/tv_goods_name"
+            android:layout_height="wrap_content"
+            tools:text="03绿树果南非西柚新鲜红心葡萄柚孕妇水果应季蜜柚产地." />
+
+        <TextView
+            android:id="@+id/tv_goods_price"
+            style="@style/GoodsPriceNumberTextStyle"
+            android:layout_marginTop="3dp"
+            android:text="@string/goods_price"
+            android:textSize="15sp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/tv_shop_seal_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                tools:text="@string/shop_goods_seal_count"
+                android:textColor="@color/global_middle_text_color"
+                android:textSize="12sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:id="@+id/tv_choose_specification"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/bg_round_stroke_gray"
+                android:gravity="center"
+                android:text="@string/shop_goods_choose_specification"
+                android:textColor="@color/global_text_color"
+                android:textSize="14sp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+
+</LinearLayout>
