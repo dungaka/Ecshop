@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.langt.zjgx.widget.CommonTitle
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:showBack="true"
+        app:titleCenter="@string/shop_base_info_title" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/common_padding_left"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="@dimen/common_padding_left"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/bg_round_color_solid_white"
+        android:orientation="vertical"
+        android:paddingLeft="40dp"
+        android:paddingTop="10dp"
+        android:paddingRight="@dimen/common_padding_left"
+        android:paddingBottom="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/CommonItemLeftTextStyle"
+                android:layout_marginRight="10dp"
+                android:textSize="12sp"
+                android:drawableLeft="@drawable/ic_shop_base_info_shop_name"
+                android:drawablePadding="10dp"
+                android:text="@string/shop_base_info_shop_name" />
+
+            <TextView
+                android:id="@+id/tv_shop_name"
+                style="@style/CommonItemLeftTextStyle"
+                android:textSize="12sp"
+                tools:text="小小酒馆" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/CommonItemLeftTextStyle"
+                android:layout_marginRight="10dp"
+                android:textSize="12sp"
+                android:drawableLeft="@drawable/ic_shop_base_info_business_time"
+                android:drawablePadding="10dp"
+                android:text="@string/shop_base_info_business_time" />
+
+            <TextView
+                android:id="@+id/tv_shop_business_time"
+                android:textSize="12sp"
+                style="@style/CommonItemLeftTextStyle"
+                tools:text="24小时营业" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/CommonItemLeftTextStyle"
+                android:layout_marginRight="10dp"
+                android:textSize="12sp"
+                android:drawableLeft="@drawable/ic_shop_base_info_location"
+                android:drawablePadding="10dp"
+                android:text="@string/shop_base_info_shop_address" />
+
+            <TextView
+                android:id="@+id/tv_shop_address"
+                android:textSize="12sp"
+                style="@style/CommonItemLeftTextStyle"
+                tools:text="管城区紫荆山路商城路裕鸿国际" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/common_padding_left"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="@dimen/common_padding_left"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/bg_round_color_solid_white"
+        android:orientation="vertical"
+        android:paddingLeft="40dp"
+        android:paddingTop="10dp"
+        android:paddingRight="@dimen/common_padding_left"
+        android:paddingBottom="10dp">
+
+        <TextView
+            style="@style/CommonItemLeftTextStyle"
+            android:textSize="12sp"
+            android:text="@string/shop_base_info_shop_qualification" />
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

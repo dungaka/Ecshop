@@ -52,6 +52,14 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
 
+        <!-- 店铺基本信息-->
+        <activity
+            android:name=".shop.ShopBaseInfoActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+
     </application>
 
 </manifest>

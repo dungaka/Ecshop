@@ -27,10 +27,12 @@ public class ShopDetailGoodsListAdapter extends BaseQuickAdapter<GoodsBean, Base
         TextView tv_goods_name = helper.getView(R.id.tv_goods_name);
         TextView tv_goods_price = helper.getView(R.id.tv_goods_price);
         TextView tv_shop_seal_num = helper.getView(R.id.tv_shop_seal_num);
-        TextView tv_choose_specification = helper.getView(R.id.tv_choose_specification);
+//        TextView tv_choose_specification = helper.getView(R.id.tv_choose_specification);
 
         tv_goods_name.setText("03绿树果南非西柚新鲜红心葡萄柚孕妇水果应季蜜柚产地.");
         tv_goods_price.setText(mContext.getString(R.string.goods_price,"125.00"));
         tv_shop_seal_num.setText(mContext.getString(R.string.shop_goods_seal_count,"125.00"));
+
+        helper.addOnClickListener(R.id.tv_choose_specification);
     }
 }

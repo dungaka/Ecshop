@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/transparent"
+    android:clipChildren="false"
+    android:clipToPadding="false">
+
+    <LinearLayout
+        android:id="@+id/ShopDetailBuyLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@color/white"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/common_padding_left"
+            android:layout_marginRight="@dimen/common_padding_left"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:paddingTop="20dp">
+
+            <ImageView
+                android:id="@+id/iv_goods_pic"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginRight="10dp"
+                android:scaleType="fitCenter"
+                android:src="@mipmap/qiaokeli"
+                android:translationY="-30dp" />
+
+            <TextView
+                android:id="@+id/tv_goods_name"
+                style="@style/GoodsNameStyle"
+                android:layout_toRightOf="@id/iv_goods_pic"
+                tools:text="03慕兰卡小白心里软面包2kg酸奶夹心口袋吐司面包 多口味可" />
+
+            <TextView
+                android:id="@+id/tv_goods_price"
+                style="@style/GoodsPriceNumberTextStyle"
+                android:layout_below="@id/tv_goods_name"
+                android:layout_marginTop="13dp"
+                android:layout_toRightOf="@id/iv_goods_pic"
+                android:text="@string/goods_price"
+                android:textSize="15sp" />
+
+        </RelativeLayout>
+
+        <TextView
+            style="@style/CommonItemLeftTextStyle"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/common_padding_left"
+            android:text="@string/shop_goods_specification" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_goods_specification_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:paddingLeft="@dimen/common_padding_left" />
+
+        <include layout="@layout/layout_divide_5_line" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:paddingLeft="@dimen/common_padding_left"
+            android:paddingTop="15dp"
+            android:paddingRight="@dimen/common_padding_left"
+            android:paddingBottom="15dp">
+
+            <TextView
+                style="@style/CommonItemLeftTextStyle"
+                android:text="@string/shop_goods_buy_number" />
+
+            <com.langt.zjgx.widget.SimpleNumberPicker
+                android:id="@+id/number_picker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                app:min_number="1" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_add_to_shopping_cart"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="#ff7a01"
+            android:gravity="center"
+            android:text="@string/shop_goods_add_to_shopping_cart"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+    </LinearLayout>
+</RelativeLayout>

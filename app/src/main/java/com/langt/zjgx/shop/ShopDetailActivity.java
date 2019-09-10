@@ -1,16 +1,21 @@
 package com.langt.zjgx.shop;
 
+import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.langt.zjgx.R;
 import com.langt.zjgx.base.BaseActivity;
 import com.langt.zjgx.base.BasePresenter;
+import com.langt.zjgx.goods.GoodsDetailActivity;
 import com.langt.zjgx.home.model.Banner;
 import com.langt.zjgx.home.model.GoodsBean;
 import com.langt.zjgx.shop.adapter.ShopDetailGoodsListAdapter;
+import com.langt.zjgx.shop.fragment.ChooseGoodsSpecificationDialogFragment;
 import com.langt.zjgx.widget.banner.BannerAdapter;
 import com.langt.zjgx.widget.banner.BannerLayout;
 
@@ -18,6 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.OnClick;
 import q.rorbin.verticaltablayout.VerticalTabLayout;
 import q.rorbin.verticaltablayout.adapter.TabAdapter;
 import q.rorbin.verticaltablayout.widget.ITabView;
@@ -128,10 +134,35 @@ public class ShopDetailActivity extends BaseActivity {
         goodsBeanList = new ArrayList<>();
         goodsListAdapter = new ShopDetailGoodsListAdapter(goodsBeanList);
         rv_goods_list.setAdapter(goodsListAdapter);
+        goodsListAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                startActivity(new Intent(ShopDetailActivity.this, GoodsDetailActivity.class));
+            }
+        });
+        goodsListAdapter.setOnItemChildClickListener(new BaseQuickAdapter.OnItemChildClickListener() {
+            @Override
+            public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
+                if (view.getId() == R.id.tv_choose_specification) {
+                    // 显示选择商品规格的弹窗
+                    ChooseGoodsSpecificationDialogFragment dialogFragment = new ChooseGoodsSpecificationDialogFragment();
+                    dialogFragment.show(getSupportFragmentManager(),"dialogFragment");
+                }
+            }
+        });
 
         for (int i = 0; i < 10; i++) {
             goodsBeanList.add(new GoodsBean(""));
         }
         goodsListAdapter.notifyDataSetChanged();
+    }
+
+    @OnClick({R.id.tv_enter_shop})
+    public void onClick(View view){
+        switch (view.getId()) {
+            case R.id.tv_enter_shop:
+                startActivity(new Intent(this,ShopBaseInfoActivity.class));
+                break;
+        }
     }
 }

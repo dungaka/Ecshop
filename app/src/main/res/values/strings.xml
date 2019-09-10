@@ -69,6 +69,15 @@
     <string name="shop_please_input_search_goods_name">请输入搜索的商品</string>
     <string name="shop_goods_seal_count">销量：%1$s</string>
     <string name="shop_goods_choose_specification">选规格</string>
+    <string name="shop_goods_specification">规格</string>
+    <string name="shop_goods_buy_number">购买数量</string>
+    <string name="shop_goods_add_to_shopping_cart">加入购物车</string>
+
+    <string name="shop_base_info_title">店铺基本信息</string>
+    <string name="shop_base_info_shop_name">店铺名称：</string>
+    <string name="shop_base_info_business_time">营业时间：</string>
+    <string name="shop_base_info_shop_address">店铺地址：</string>
+    <string name="shop_base_info_shop_qualification">营业资质：</string>
 
     <string name="cart_title">购物车</string>
     <string name="cart_action_sign_in">去登陆</string>
