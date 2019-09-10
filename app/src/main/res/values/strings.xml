@@ -49,6 +49,15 @@
     <string name="goods_my_shop_recommend">本店推荐</string>
     <string name="goods_nearly_recommend">附近热推</string>
 
+    <string name="goods_appeal_title">商品申诉</string>
+    <string name="goods_appeal_type">申诉类型:</string>
+    <string name="goods_appeal_theme">主&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;题:</string>
+    <string name="goods_appeal_theme_hint">请输入主题</string>
+    <string name="goods_appeal_content">内&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;容:</string>
+    <string name="goods_appeal_content_hint">请输入内容</string>
+    <string name="goods_appeal_picture">图&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;片:</string>
+    <string name="goods_appeal_commit">提交申诉</string>
+
     <string name="cart_title">购物车</string>
     <string name="cart_action_sign_in">去登陆</string>
     <string name="cart_action_summit_order">提交订单</string>

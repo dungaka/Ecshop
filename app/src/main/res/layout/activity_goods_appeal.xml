@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <com.langt.zjgx.widget.CommonTitle
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:showBack="true"
+        app:titleCenter="@string/goods_appeal_title" />
+
+    <include layout="@layout/layout_divide_5_line" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/common_padding_left"
+        android:paddingTop="10dp"
+        android:paddingRight="@dimen/common_padding_left"
+        android:paddingBottom="10dp">
+
+        <TextView
+            android:id="@+id/tv_shop_name"
+            style="@style/CommonItemLeftTextStyle"
+            android:text="天天回家超市" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical">
+
+            <org.raphets.roundimageview.RoundImageView
+                android:id="@+id/iv_shop_image"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:layout_marginRight="10dp"
+                android:src="@mipmap/qiaokeli"
+                app:corner_radius="3dp"
+                app:type="round" />
+
+            <TextView
+                android:id="@+id/tv_goods_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/iv_shop_image"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:text="可乐鸡翅可乐鸡翅可乐鸡翅可乐鸡翅可乐鸡翅可乐鸡翅可乐鸡翅可乐鸡翅"
+                android:textColor="@color/global_text_color"
+                android:textSize="14sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_goods_name"
+                android:layout_marginTop="1dp"
+                android:layout_toRightOf="@id/iv_shop_image"
+                android:gravity="bottom"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/id_tv"
+                    style="@style/GoodsPriceIdentifyTextStyle" />
+
+                <TextView
+                    android:id="@+id/tv_goods_price"
+                    style="@style/GoodsPriceNumberTextStyle"
+                    android:text="129.0" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <include layout="@layout/layout_divide_5_line" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/common_padding_left"
+        android:paddingTop="10dp"
+        android:paddingRight="@dimen/common_padding_left"
+        android:paddingBottom="10dp">
+
+        <TextView
+            style="@style/CommonItemLeftTextStyle"
+            android:layout_marginRight="10dp"
+            android:text="@string/goods_appeal_type" />
+
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/spinner_goods_appeal_reason"
+            android:dropDownVerticalOffset="20dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:spinnerMode="dropdown" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/common_padding_left"
+        android:paddingTop="10dp"
+        android:paddingRight="@dimen/common_padding_left"
+        android:paddingBottom="10dp">
+
+        <TextView
+            style="@style/CommonItemLeftTextStyle"
+            android:layout_marginRight="10dp"
+            android:text="@string/goods_appeal_theme" />
+
+        <EditText
+            android:id="@+id/et_appeal_theme"
+            style="@style/CommonInputTextStyle"
+            android:background="@drawable/shape_rect_goods_appeal_et"
+            android:hint="@string/goods_appeal_theme_hint"
+            android:minHeight="34dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="top"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/common_padding_left"
+        android:paddingTop="10dp"
+        android:paddingRight="@dimen/common_padding_left"
+        android:paddingBottom="10dp">
+
+        <TextView
+            style="@style/CommonItemLeftTextStyle"
+            android:layout_gravity="top"
+            android:layout_marginRight="10dp"
+            android:text="@string/goods_appeal_content" />
+
+        <EditText
+            android:id="@+id/et_appeal_content"
+            style="@style/CommonInputTextStyle"
+            android:background="@drawable/shape_rect_goods_appeal_et"
+            android:gravity="top"
+            android:hint="@string/goods_appeal_theme_hint"
+            android:minHeight="200dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="top"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/common_padding_left"
+        android:paddingTop="10dp"
+        android:paddingRight="@dimen/common_padding_left"
+        android:paddingBottom="10dp">
+
+        <TextView
+            style="@style/CommonItemLeftTextStyle"
+            android:layout_gravity="top"
+            android:layout_marginRight="10dp"
+            android:text="@string/goods_appeal_picture" />
+
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/btn_summit"
+        style="@style/CommonCommitBtnStyle"
+        android:layout_marginLeft="@dimen/common_padding_left"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="@dimen/common_padding_left"
+        android:text="@string/goods_appeal_commit" />
+
+
+</LinearLayout>

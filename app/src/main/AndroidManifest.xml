@@ -37,6 +37,13 @@
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
+        <!-- 商品申诉-->
+        <activity
+            android:name=".goods.GoodsAppealActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
         <!-- 店铺详情-->
         <activity
             android:name=".shop.ShopDetailActivity"

@@ -45,16 +45,6 @@ public class EcShopMainActivity extends BaseActivity  {
     }
 
     @Override
-    public void hideLoading() {
-
-    }
-
-    @Override
-    public void showLoading() {
-
-    }
-
-    @Override
     public void initView() {
         retrieveFragments();
 

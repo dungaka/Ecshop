@@ -22,14 +22,4 @@ public class ShopDetailActivity extends BaseActivity {
     public void initView() {
 
     }
-
-    @Override
-    public void hideLoading() {
-
-    }
-
-    @Override
-    public void showLoading() {
-
-    }
 }

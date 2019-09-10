@@ -1,13 +1,13 @@
 package com.langt.zjgx.base;
 
-import android.app.Dialog;
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.langt.zjgx.R;
 import com.langt.zjgx.widget.LoadingDialog;
 
 import butterknife.ButterKnife;
@@ -38,9 +38,23 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
         setContentView(getLayoutId());
         mUnbinder = ButterKnife.bind(this);
         this.presenter = createPresenter();
-
+        initBack();
         initView();
         initData();
+    }
+
+    private void initBack() {
+        TextView tvBack = findViewById(R.id.tv_back);
+        if (tvBack != null) {
+            if (tvBack.getVisibility() == View.VISIBLE) {
+                tvBack.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        onBackPressed();
+                    }
+                });
+            }
+        }
     }
 
     protected void onDestroy() {
@@ -59,15 +73,15 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
         this.toast.show();
     }
 
-    public void showLoadingDialog(String str) {
+    @Override
+    public void hideLoading() {
+        LoadingDialog.cancelDialogForLoading();
+    }
+
+    @Override
+    public void showLoading() {
         LoadingDialog.showDialogForLoading(this);
     }
-
-    public void closeLoadingDialog() {
-        Log.d("Loading", "取消加载框");
-      LoadingDialog.cancelDialogForLoading();
-    }
-
 
     public void showError(String str) {
         showtoast(str);

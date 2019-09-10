@@ -128,16 +128,6 @@ public class GoodsDetailActivity extends BaseActivity
     }
 
     @Override
-    public void hideLoading() {
-
-    }
-
-    @Override
-    public void showLoading() {
-
-    }
-
-    @Override
     public void onTabItemClick(int position, View view) {
         magicIndicator.onPageSelected(position);
         magicIndicator.onPageScrolled(position, 0, 0);
@@ -184,7 +174,7 @@ public class GoodsDetailActivity extends BaseActivity
                 onBackPressed();
                 break;
             case R.id.iv_complain_goods:
-                // TODO: 2019/9/9 申诉
+                startActivity(new Intent(this,GoodsAppealActivity.class));
                 break;
             case R.id.tv_collect:
                 break;

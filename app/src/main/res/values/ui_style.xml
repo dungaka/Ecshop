@@ -26,4 +26,40 @@
         //这里放一些你觉得公共的属性(你可以在控件里覆盖这里的属性)
     </style>
 
+    <!--    文本条目左边文本样式-->
+    <style name="CommonItemLeftTextStyle">
+        <item name="android:textColor">@color/global_text_color</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:lines">1</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <!--    文本条目左边文本样式-->
+    <style name="CommonInputTextStyle">
+        <item name="android:textColor">@color/global_text_color</item>
+        <item name="android:textColorHint">@color/global_hint_text_color</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingBottom">5dp</item>
+        <item name="android:background">@color/white</item>
+    </style>
+
+    <!--    文本条目左边文本样式-->
+    <style name="CommonCommitBtnStyle">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingBottom">5dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/btn_summit_style</item>
+    </style>
+
 </resources>

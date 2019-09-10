@@ -38,5 +38,7 @@
     <dimen name="elevation_app_bar">4dp</dimen>
 
     <dimen name="common_padding_left">15dp</dimen>
+    <!--通用标题高度-->
+    <dimen name="top_bar_height">45dp</dimen>
 
 </resources>

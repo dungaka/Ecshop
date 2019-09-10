@@ -23,13 +23,4 @@ public class SplashActivity extends BaseActivity {
         startActivity(new Intent(this, EcShopMainActivity.class));
     }
 
-    @Override
-    public void hideLoading() {
-
-    }
-
-    @Override
-    public void showLoading() {
-
-    }
 }
