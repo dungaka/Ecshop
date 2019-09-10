@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:layout_gravity="center_horizontal"
+    android:id="@+id/ll_rootView"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_width="120dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <org.raphets.roundimageview.RoundImageView
+            android:id="@+id/iv_goods_pic"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@mipmap/qiaokeli"
+            app:corner_radius="5dp"
+            app:type="round" />
+
+        <TextView
+            android:id="@+id/tv_goods_name"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:ellipsize="end"
+            android:lines="2"
+            android:textColor="@color/global_text_color"
+            android:textSize="13sp"
+            tools:text="巧克力曲奇饼干巧克力曲奇饼干巧克力曲奇饼干巧克力曲奇饼干" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="10dp"
+        android:id="@+id/view_divide"
+        android:layout_height="match_parent" />
+
+
+</LinearLayout>

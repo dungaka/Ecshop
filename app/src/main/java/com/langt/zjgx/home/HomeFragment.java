@@ -20,6 +20,7 @@ import com.langt.zjgx.base.BasePresenter;
 import com.langt.zjgx.goods.GoodsDetailActivity;
 import com.langt.zjgx.home.model.Banner;
 import com.langt.zjgx.home.model.GoodsBean;
+import com.langt.zjgx.shop.ShopDetailActivity;
 import com.langt.zjgx.ui.GoodsListFragment;
 import com.langt.zjgx.widget.banner.BannerAdapter;
 import com.langt.zjgx.widget.banner.BannerLayout;
@@ -128,7 +129,7 @@ public class HomeFragment extends BaseFragment {
         adapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-                startActivity(new Intent(getActivity(), GoodsDetailActivity.class));
+                startActivity(new Intent(getActivity(), ShopDetailActivity.class));
             }
         });
 

@@ -1,10 +1,13 @@
 package com.langt.zjgx.adapter;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.view.View;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.langt.zjgx.R;
+import com.langt.zjgx.goods.GoodsDetailActivity;
 import com.langt.zjgx.home.model.GoodsBean;
 
 import java.util.List;
@@ -33,5 +36,13 @@ public class GoodsAdapter extends BaseQuickAdapter<GoodsBean, BaseViewHolder> {
         helper.setText(R.id.tv_distance,item.getDistance());
         helper.setText(R.id.tv_goods_name,item.getGoodsInfo());
         helper.setText(R.id.tv_price,item.getGoodsPrice());
+
+        helper.getView(R.id.rootView).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mContext.startActivity(new Intent(mContext, GoodsDetailActivity.class));
+            }
+        });
+
     }
 }

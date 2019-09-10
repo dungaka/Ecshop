@@ -92,30 +92,34 @@
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
-            <TextView
+            <com.langt.zjgx.widget.DrawableCenterTextView
                 android:id="@+id/tv_collect_shop"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="35dp"
                 android:background="@drawable/bg_round_stroke_gray"
                 android:gravity="center"
+                android:paddingRight="10dp"
+                android:paddingLeft="10dp"
                 android:text="@string/goods_collect_shop"
                 android:textColor="@color/global_middle_text_color"
                 android:textSize="12sp" />
 
-            <TextView
+            <com.langt.zjgx.widget.DrawableCenterTextView
                 android:id="@+id/tv_enter_shop"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/bg_round_stroke_gray"
                 android:gravity="center"
+                android:drawablePadding="5dp"
+                android:paddingRight="10dp"
+                android:paddingLeft="10dp"
                 android:drawableRight="@drawable/ic_arrow_gray_right"
                 android:text="@string/goods_enter_shop"
                 android:textColor="@color/global_middle_text_color"
                 android:textSize="12sp" />
 
         </LinearLayout>
-
 
     </LinearLayout>
 </LinearLayout>

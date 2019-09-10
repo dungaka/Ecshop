@@ -45,6 +45,9 @@
     <string name="goods_collect_shop">收藏店铺</string>
     <string name="goods_enter_shop">进入店铺</string>
     <string name="goods_show_more_comment">查看更多评价</string>
+    <string name="goods_show_more">查看更多</string>
+    <string name="goods_my_shop_recommend">本店推荐</string>
+    <string name="goods_nearly_recommend">附近热推</string>
 
     <string name="cart_title">购物车</string>
     <string name="cart_action_sign_in">去登陆</string>

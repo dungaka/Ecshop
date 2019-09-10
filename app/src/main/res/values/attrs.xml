@@ -7,4 +7,15 @@
     <declare-styleable name="SimpleNumberPicker">
         <attr name="min_number" format="integer"/>
     </declare-styleable>
+
+    <!--控制TextView的Drawable属性的大小-->
+    <declare-styleable name="DrawableTextView">
+        <attr name="drawableWidth" format="dimension|reference" />
+        <attr name="drawableHeight" format="dimension|reference" />
+    </declare-styleable>
+
+    <!--商品详情中推荐的控件-->
+    <declare-styleable name="GoodsRecommendListView">
+        <attr name="recommendTitle" format="string|reference" />
+    </declare-styleable>
 </resources>

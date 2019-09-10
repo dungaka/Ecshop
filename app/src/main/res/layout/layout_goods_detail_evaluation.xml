@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical">
 
     <LinearLayout
@@ -23,6 +23,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:text="@string/goods_title_comments"
+            android:id="@+id/tv_comment_title"
             android:textSize="15sp"
             android:textColor="@color/global_text_color"
             android:layout_height="wrap_content"/>
@@ -77,6 +78,13 @@
         android:layout_marginLeft="3dp"
         android:layout_weight="1"
         android:layout_height="wrap_content"/>
+<!--    tools:listitem="@layout/item_comment_image"-->
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:id="@+id/rv_comment_pic"
+        android:paddingLeft="@dimen/common_padding_left"
+        android:paddingRight="@dimen/common_padding_left"
+        android:layout_height="wrap_content"/>
 
 
     <View
@@ -85,15 +93,19 @@
         android:background="@color/gray_light"
         android:layout_height="2dp"/>
 
-    <TextView
+    <com.langt.zjgx.widget.DrawableCenterTextView
         android:id="@+id/tv_show_more_comments"
         android:layout_width="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="3dp"
+        android:paddingBottom="3dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="10dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
         android:background="@drawable/bg_round_stroke_gray"
-        android:gravity="center"
+        android:drawablePadding="3dp"
         android:drawableRight="@drawable/ic_arrow_gray_right"
         android:text="@string/goods_show_more_comment"
         android:textColor="@color/global_middle_text_color"
