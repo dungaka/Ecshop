@@ -12,6 +12,7 @@ import android.view.Window;
 import android.widget.TextView;
 
 import com.langt.zjgx.R;
+import com.langt.zjgx.widget.SimpleNumberPicker;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -26,6 +27,10 @@ public class ChooseGoodsSpecificationDialogFragment extends DialogFragment {
     TextView tv_goods_price;
     @BindView(R.id.rv_goods_specification_list)
     RecyclerView rv_goods_specification_list;
+    @BindView(R.id.number_picker)
+    SimpleNumberPicker number_picker;
+    @BindView(R.id.tv_add_to_shopping_cart)
+    TextView tv_add_to_shopping_cart;
 
     @Nullable
     @Override
