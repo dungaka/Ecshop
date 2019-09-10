@@ -62,4 +62,14 @@
         <item name="android:background">@drawable/btn_summit_style</item>
     </style>
 
+    <style name="CommonItemPaddingStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingLeft">@dimen/common_padding_left</item>
+        <item name="android:paddingRight">@dimen/common_padding_left</item>
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:background">@color/white</item>
+    </style>
+
 </resources>

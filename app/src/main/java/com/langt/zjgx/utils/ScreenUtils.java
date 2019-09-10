@@ -2,7 +2,9 @@ package com.langt.zjgx.utils;
 
 import android.content.Context;
 import android.util.DisplayMetrics;
+import android.view.View;
 import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 
 public class ScreenUtils {
     /**
@@ -31,5 +33,13 @@ public class ScreenUtils {
         DisplayMetrics outMetrics = new DisplayMetrics();// 创建了一张白纸
         windowManager.getDefaultDisplay().getMetrics(outMetrics);// 给白纸设置宽高
         return outMetrics.heightPixels;
+    }
+
+    /**
+     * 关闭键盘
+     **/
+    public static void hideSoftInput(Context context,View paramEditText) {
+        ((InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE))
+                .hideSoftInputFromWindow(paramEditText.getWindowToken(), 0);
     }
 }

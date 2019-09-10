@@ -8,6 +8,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.langt.zjgx.R;
+import com.langt.zjgx.utils.ScreenUtils;
 import com.langt.zjgx.widget.LoadingDialog;
 
 import butterknife.ButterKnife;

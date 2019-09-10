@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.langt.zjgx.R;
 import com.langt.zjgx.base.BaseActivity;
 import com.langt.zjgx.base.BasePresenter;
+import com.langt.zjgx.utils.ScreenUtils;
 
 import org.raphets.roundimageview.RoundImageView;
 
@@ -66,12 +67,22 @@ public class GoodsAppealActivity extends BaseActivity {
 
     }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        ScreenUtils.hideSoftInput(this,tv_shop_name);
+    }
+
     @OnClick({R.id.btn_summit})
     public void onClick(View view){
         switch (view.getId()) {
             case R.id.btn_summit:
-
+                submitAppeal();
                 break;
         }
+    }
+
+    private void submitAppeal(){
+
     }
 }

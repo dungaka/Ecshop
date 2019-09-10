@@ -76,7 +76,7 @@
         android:gravity="center"
         android:maxEms="10"
         android:singleLine="true"
-        android:textColor="@color/white"
+        android:textColor="@color/global_text_color"
         android:textSize="18sp"
         tools:text="主标题主标题主标题主标题主标题主标题主标题" />
 
