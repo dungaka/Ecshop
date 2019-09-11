@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <!-- 字符串命名规范 -->
     <!--
         字符串的名称应该以一个前缀开头, 此前缀表明它们属于哪一个模块.
@@ -30,7 +30,7 @@
     <string name="goods_title_info">商品</string>
     <string name="goods_title_details">详情</string>
     <string name="goods_title_comments">评价</string>
-    <string name="goods_title_recommend">推荐</string>
+    <string name="goods_title_recommend" tools:ignore="ExtraTranslation">推荐</string>
     <string name="goods_buy_it_now">立即购买</string>
     <string name="goods_add_to_shopping_cart">加入购物车</string>
     <string name="goods_comments">商品评价</string>
@@ -125,7 +125,7 @@
     <string name="mine_help">帮助</string>
     <string name="mine_customer">客服帮助</string>
     <string name="mine_openshop">申请开店</string>
-    <string name="mine_shareapp">申请开店</string>
+    <string name="mine_shareapp">分享应用</string>
 
     <string name="address_title_add">新增地址</string>
     <string name="address_title_edit">编辑地址</string>

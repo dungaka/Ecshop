@@ -116,6 +116,7 @@ android:layout_width="match_parent"
         android:orientation="horizontal">
 
         <FrameLayout
+            android:id="@+id/fl_order_dfk"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -135,6 +136,7 @@ android:layout_width="match_parent"
         </FrameLayout>
 
         <FrameLayout
+            android:id="@+id/fl_order_ptz"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginLeft="1dp"
@@ -155,6 +157,7 @@ android:layout_width="match_parent"
         </FrameLayout>
 
         <FrameLayout
+            android:id="@+id/fl_order_yfh"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginLeft="1dp"
@@ -175,6 +178,7 @@ android:layout_width="match_parent"
         </FrameLayout>
 
         <FrameLayout
+            android:id="@+id/fl_order_dpj"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginLeft="1dp"
@@ -195,6 +199,7 @@ android:layout_width="match_parent"
         </FrameLayout>
 
         <FrameLayout
+            android:id="@+id/fl_order_tksh"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginLeft="1dp"
@@ -218,6 +223,7 @@ android:layout_width="match_parent"
 
 
     <FrameLayout
+        android:id="@+id/fl_collect"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/spacing_normal"
@@ -232,6 +238,7 @@ android:layout_width="match_parent"
     </FrameLayout>
 
     <FrameLayout
+        android:id="@+id/fl_footprint"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/spacing_normal"
@@ -242,10 +249,11 @@ android:layout_width="match_parent"
             style="@style/HorizontalItemTextView"
             android:drawableLeft="@mipmap/ic_zj_mine"
             android:gravity="center_vertical"
-            android:text="@string/mine_favorite" />
+            android:text="@string/mine_zj" />
     </FrameLayout>
 
     <FrameLayout
+        android:id="@+id/fl_address"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/spacing_tiny"
@@ -260,6 +268,7 @@ android:layout_width="match_parent"
     </FrameLayout>
 
     <FrameLayout
+        android:id="@+id/fl_apply"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/spacing_tiny"
@@ -274,6 +283,7 @@ android:layout_width="match_parent"
     </FrameLayout>
 
     <FrameLayout
+        android:id="@+id/fl_custom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/spacing_tiny"
@@ -287,6 +297,7 @@ android:layout_width="match_parent"
             android:text="@string/mine_customer" />
     </FrameLayout>
     <FrameLayout
+        android:id="@+id/fl_share"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/spacing_tiny"
