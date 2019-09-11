@@ -34,21 +34,18 @@
         <activity
             android:name=".goods.GoodsDetailActivity"
             android:configChanges="orientation|keyboardHidden"
-            android:launchMode="singleTop"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
         <!-- 商品申诉-->
         <activity
             android:name=".goods.GoodsAppealActivity"
             android:configChanges="orientation|keyboardHidden"
-            android:launchMode="singleTop"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
         <!-- 店铺详情-->
         <activity
             android:name=".shop.ShopDetailActivity"
             android:configChanges="orientation|keyboardHidden"
-            android:launchMode="singleTop"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
 
@@ -56,7 +53,6 @@
         <activity
             android:name=".shop.ShopBaseInfoActivity"
             android:configChanges="orientation|keyboardHidden"
-            android:launchMode="singleTop"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity android:name=".mine.MyOrderActivity" />
@@ -68,28 +64,24 @@
         <activity
             android:name=".home.GroupPurchaseActivity"
             android:configChanges="orientation|keyboardHidden"
-            android:launchMode="singleTop"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
         <!-- 满减专场页面-->
         <activity
             android:name=".home.FullReductionZhuanChangActivity"
             android:configChanges="orientation|keyboardHidden"
-            android:launchMode="singleTop"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
         <!-- 满减专场更多页面-->
         <activity
             android:name=".home.FullReductionZhuanChangFullActivity"
             android:configChanges="orientation|keyboardHidden"
-            android:launchMode="singleTop"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
         <!-- 优惠券列表页面-->
         <activity
             android:name=".home.DiscountCouponListActivity"
             android:configChanges="orientation|keyboardHidden"
-            android:launchMode="singleTop"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
 
