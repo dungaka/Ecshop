@@ -4,9 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:paddingLeft="@dimen/common_padding_left"
-    android:paddingTop="@dimen/common_padding_left"
-    android:paddingBottom="@dimen/common_padding_left">
+    android:padding="10dp">
 
     <TextView
         android:id="@+id/tv_recommend_title"
@@ -18,12 +16,10 @@
         android:textSize="16sp"
         tools:text="—— 推荐好店 ——" />
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recyclerView"
+    <com.langt.zjgx.goods.adapter.GoodsDetailRecommendListViewPager
+        android:id="@+id/viewPager"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:minHeight="160dp"
-        tools:listitem="@layout/item_recommend_goods" />
+        android:layout_height="160dp" />
 
     <com.langt.zjgx.widget.viewpagerrecyclerview.PageIndicatorView
         android:id="@+id/indicator"
@@ -38,8 +34,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
         android:background="@drawable/bg_round_stroke_gray"
         android:drawableRight="@drawable/ic_arrow_gray_right"
         android:drawablePadding="5dp"

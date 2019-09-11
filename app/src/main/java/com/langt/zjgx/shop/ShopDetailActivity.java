@@ -12,6 +12,7 @@ import com.langt.zjgx.R;
 import com.langt.zjgx.base.BaseActivity;
 import com.langt.zjgx.base.BasePresenter;
 import com.langt.zjgx.goods.GoodsDetailActivity;
+import com.langt.zjgx.home.DiscountCouponListActivity;
 import com.langt.zjgx.home.model.Banner;
 import com.langt.zjgx.home.model.GoodsBean;
 import com.langt.zjgx.shop.adapter.ShopDetailGoodsListAdapter;
@@ -37,6 +38,8 @@ public class ShopDetailActivity extends BaseActivity {
     TextView tv_title_center;
     @BindView(R.id.layout_banner)
     BannerLayout bannerLayout;
+    @BindView(R.id.tv_shop_location)
+    TextView tv_shop_location;
 
     @BindView(R.id.tablayout)
     VerticalTabLayout tabLayout;
@@ -48,7 +51,7 @@ public class ShopDetailActivity extends BaseActivity {
     private List<GoodsBean> goodsBeanList;
     private ShopDetailGoodsListAdapter goodsListAdapter;
 
-    private String[] tabs = {"休闲零食","蔬果生鲜","百  货","母婴精品","童装鞋帽","居家百货"};
+    private String[] tabs = {"休闲零食", "蔬果生鲜", "百  货", "母婴精品", "童装鞋帽", "居家百货"};
 
     @Override
     protected BasePresenter createPresenter() {
@@ -72,6 +75,8 @@ public class ShopDetailActivity extends BaseActivity {
             }
         };
         bannerLayout.setBannerAdapter(mBannerAdapter);
+
+        tv_shop_location.setText("河南省郑州市金水区河南省中医院内，河南中医院第二附属医院-2住院部西");
 
         // 图片地址测试
         ArrayList<Banner> bannerList = new ArrayList<>();
@@ -129,7 +134,7 @@ public class ShopDetailActivity extends BaseActivity {
 
     }
 
-    private void initGoodsListView(){
+    private void initGoodsListView() {
         rv_goods_list.setLayoutManager(new LinearLayoutManager(this));
         goodsBeanList = new ArrayList<>();
         goodsListAdapter = new ShopDetailGoodsListAdapter(goodsBeanList);
@@ -146,7 +151,7 @@ public class ShopDetailActivity extends BaseActivity {
                 if (view.getId() == R.id.tv_choose_specification) {
                     // 显示选择商品规格的弹窗
                     ChooseGoodsSpecificationDialogFragment dialogFragment = new ChooseGoodsSpecificationDialogFragment();
-                    dialogFragment.show(getSupportFragmentManager(),"dialogFragment");
+                    dialogFragment.show(getSupportFragmentManager(), "dialogFragment");
                 }
             }
         });
@@ -157,11 +162,26 @@ public class ShopDetailActivity extends BaseActivity {
         goodsListAdapter.notifyDataSetChanged();
     }
 
-    @OnClick({R.id.tv_enter_shop})
-    public void onClick(View view){
+    @OnClick({R.id.tv_enter_shop, R.id.ll_promote_one, R.id.ll_promote_two,
+            R.id.ll_promote_three, R.id.ll_promote_four})
+    public void onClick(View view) {
         switch (view.getId()) {
             case R.id.tv_enter_shop:
-                startActivity(new Intent(this,ShopBaseInfoActivity.class));
+                startActivity(new Intent(this, ShopBaseInfoActivity.class));
+                break;
+            case R.id.ll_promote_one:  // 社区拼团
+
+                break;
+            case R.id.ll_promote_two: // 满减专区
+
+                break;
+            case R.id.ll_promote_three: // 限时抢购
+
+                break;
+            case R.id.ll_promote_four: // 优惠券
+                Intent intent = new Intent(this, DiscountCouponListActivity.class);
+                intent.putExtra(DiscountCouponListActivity.KEY_ONLY_ONE_SHOP,true);
+                startActivity(intent);
                 break;
         }
     }

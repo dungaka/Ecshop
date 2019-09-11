@@ -1,13 +1,16 @@
 package com.langt.zjgx.home.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.View;
 
+import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.langt.zjgx.R;
 import com.langt.zjgx.base.BaseFragment;
 import com.langt.zjgx.base.BasePresenter;
+import com.langt.zjgx.goods.GoodsDetailActivity;
 import com.langt.zjgx.home.adapter.GroupPurchaseListAdapter;
 import com.langt.zjgx.home.model.GoodsBean;
 
@@ -51,6 +54,13 @@ public class GroupPurchaseListFragment extends BaseFragment {
         goodsBeanList = new ArrayList<>();
         adapter = new GroupPurchaseListAdapter(goodsBeanList);
         recyclerView.setAdapter(adapter);
+
+        adapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                startActivity(new Intent(getActivity(), GoodsDetailActivity.class));
+            }
+        });
     }
 
     @Override

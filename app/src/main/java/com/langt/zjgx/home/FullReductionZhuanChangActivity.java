@@ -9,6 +9,7 @@ import com.langt.zjgx.base.BaseActivity;
 import com.langt.zjgx.base.BasePresenter;
 import com.langt.zjgx.home.adapter.FullReductionZhuanChangAdapter;
 import com.langt.zjgx.home.model.ShopBean;
+import com.langt.zjgx.utils.ScreenUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,5 +52,11 @@ public class FullReductionZhuanChangActivity extends BaseActivity {
             itemList.add(new ShopBean());
         }
         adapter.notifyDataSetChanged();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        ScreenUtils.hideSoftInput(this,recyclerView);
     }
 }

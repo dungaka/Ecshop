@@ -10,7 +10,7 @@ import com.langt.zjgx.adapter.MyCommonNavigatorAdapter;
 import com.langt.zjgx.base.BaseActivity;
 import com.langt.zjgx.base.BasePresenter;
 import com.langt.zjgx.home.fragment.GroupPurchaseListFragment;
-import com.langt.zjgx.ui.GoodsListFragment;
+import com.langt.zjgx.utils.ScreenUtils;
 
 import net.lucode.hackware.magicindicator.MagicIndicator;
 import net.lucode.hackware.magicindicator.ViewPagerHelper;
@@ -32,7 +32,7 @@ public class GroupPurchaseActivity extends BaseActivity {
 
     private MyCommonNavigatorAdapter mCommonNavAdapter;
 
-    private String[] mTabs = {"全部", "酒水饮料", "美食快餐","休闲零食"};
+    private String[] mTabs = {"全部", "酒水饮料", "美食快餐", "休闲零食"};
     private List<Fragment> mFragments = new ArrayList<>();
 
     @Override
@@ -66,8 +66,14 @@ public class GroupPurchaseActivity extends BaseActivity {
         mCommonNavAdapter.setOnTabItemClickListener(new MyCommonNavigatorAdapter.OnTabItemClickListener() {
             @Override
             public void onTabItemClick(int position, View view) {
-                viewPager.setCurrentItem(position,false);
+                viewPager.setCurrentItem(position, false);
             }
         });
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        ScreenUtils.hideSoftInput(this, magicIndicator);
     }
 }

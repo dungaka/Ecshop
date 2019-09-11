@@ -3,7 +3,7 @@ package com.langt.zjgx.widget.viewpagerrecyclerview;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.support.annotation.Nullable;
-import android.support.v7.widget.RecyclerView;
+import android.support.v4.view.ViewPager;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -12,10 +12,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.langt.zjgx.R;
-import com.langt.zjgx.goods.adapter.GoodsRecommendItemAdapter;
+import com.langt.zjgx.goods.adapter.GoodsDetailRecommendListViewPager;
 import com.langt.zjgx.home.model.GoodsBean;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -25,17 +24,13 @@ import butterknife.OnClick;
 /**
  * 商品推荐列表
  */
-public class GoodsRecommendListView extends LinearLayout implements PagingScrollHelper.onPageChangeListener {
+public class GoodsRecommendListView extends LinearLayout {
     @BindView(R.id.tv_recommend_title)
     TextView tv_recommend_title;
-    @BindView(R.id.recyclerView)
-    RecyclerView mRecyclerView;
+    @BindView(R.id.viewPager)
+    GoodsDetailRecommendListViewPager viewPager;
     @BindView(R.id.indicator)
     PageIndicatorView indicator;
-
-    private List<GoodsBean> itemList;
-    private GoodsRecommendItemAdapter adapter;
-    PagingScrollHelper scrollHelper = new PagingScrollHelper();
 
     public GoodsRecommendListView(Context context) {
         this(context, null);
@@ -62,16 +57,6 @@ public class GoodsRecommendListView extends LinearLayout implements PagingScroll
             }
             a.recycle();
         }
-
-        itemList = new ArrayList<>();
-        adapter = new GoodsRecommendItemAdapter(itemList);
-        mRecyclerView.setAdapter(adapter);
-        HorizontalPageLayoutManager horizontalPageLayoutManager = new HorizontalPageLayoutManager(1, 3);
-        mRecyclerView.addItemDecoration(new PagingItemDecoration(context,horizontalPageLayoutManager));
-        scrollHelper.setUpRecycleView(mRecyclerView);
-        scrollHelper.setOnPageChangeListener(this);
-        mRecyclerView.setLayoutManager(horizontalPageLayoutManager);
-        mRecyclerView.setHorizontalScrollBarEnabled(true);
     }
 
     @OnClick({R.id.tv_show_more})
@@ -83,11 +68,6 @@ public class GoodsRecommendListView extends LinearLayout implements PagingScroll
                 }
                 break;
         }
-    }
-
-    @Override
-    public void onPageChange(int index) {
-        indicator.setSelectedPage(index);
     }
 
     private OnMoreClickListener onMoreClickListener;
@@ -107,15 +87,22 @@ public class GoodsRecommendListView extends LinearLayout implements PagingScroll
         if (itemList == null) {
             return;
         }
-        this.itemList.clear();
-        this.itemList.addAll(itemList);
-        adapter.notifyDataSetChanged();
-        scrollHelper.updateLayoutManger();
-        scrollHelper.scrollToPosition(0);
-        mRecyclerView.post(new Runnable() {
+        viewPager.init(itemList);
+        indicator.initIndicator(viewPager.getPageSize());
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
-            public void run() {
-                indicator.initIndicator(scrollHelper.getPageCount());
+            public void onPageScrolled(int i, float v, int i1) {
+
+            }
+
+            @Override
+            public void onPageSelected(int i) {
+                indicator.setSelectedPage(i);
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int i) {
+
             }
         });
     }

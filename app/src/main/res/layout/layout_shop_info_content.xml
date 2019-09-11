@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical">
 
     <com.langt.zjgx.widget.banner.BannerLayout
@@ -64,7 +65,7 @@
             android:drawablePadding="5dp"
             android:ellipsize="end"
             android:maxLines="2"
-            android:text="河南省郑州市金水区河南省中医院内，河南中医院第二附属医院-2住院部西"
+            tools:text="河南省郑州市金水区河南省中医院内，河南中医院第二附属医院-2住院部西"
             android:textColor="@color/global_text_color"
             android:textSize="14sp" />
 

@@ -6,64 +6,71 @@
     android:orientation="vertical">
 
     <LinearLayout
+        android:id="@+id/ll_shop_info"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingLeft="@dimen/common_padding_left"
-        android:paddingTop="@dimen/common_padding_left"
-        android:paddingRight="@dimen/common_padding_left">
+        android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/tv_shop_name"
-            android:layout_width="0dp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ellipsize="end"
-            android:lines="1"
-            android:textColor="@color/global_text_color"
-            android:textSize="16sp"
-            tools:text="天天回家超市" />
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/common_padding_left"
+            android:paddingTop="@dimen/common_padding_left"
+            android:paddingRight="@dimen/common_padding_left">
+
+            <TextView
+                android:id="@+id/tv_shop_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:lines="1"
+                android:textColor="@color/global_text_color"
+                android:textSize="16sp"
+                tools:text="天天回家超市" />
 
 
-        <android.support.v7.widget.AppCompatRatingBar
-            android:id="@+id/ratingBar"
-            style="@style/RatingStyle"
-            android:layout_width="wrap_content"
+            <android.support.v7.widget.AppCompatRatingBar
+                android:id="@+id/ratingBar"
+                style="@style/RatingStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:isIndicator="false"
+                android:max="5"
+                android:progress="3" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginRight="20dp"
-            android:isIndicator="false"
-            android:max="5"
-            android:progress="3" />
-    </LinearLayout>
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/common_padding_left"
+            android:paddingRight="@dimen/common_padding_left">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingLeft="@dimen/common_padding_left"
-        android:paddingRight="@dimen/common_padding_left">
+            <TextView
+                android:id="@+id/tv_shop_location"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:drawableLeft="@drawable/ic_location_gray"
+                android:drawablePadding="5dp"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:textColor="@color/global_hint_text_color"
+                android:textSize="14sp"
+                tools:text="河南省郑州市金水区河南省中医院内，河南中医院第二附属医院-2住院部西" />
 
-        <TextView
-            android:id="@+id/tv_shop_location"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="10dp"
-            android:layout_weight="1"
-            android:drawableLeft="@drawable/ic_location_gray"
-            android:drawablePadding="5dp"
-            android:ellipsize="end"
-            android:maxLines="2"
-            android:textColor="@color/global_hint_text_color"
-            android:textSize="14sp"
-            tools:text="河南省郑州市金水区河南省中医院内，河南中医院第二附属医院-2住院部西" />
-
-        <TextView
-            android:id="@+id/tv_shop_distance"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/global_middle_text_color"
-            android:textSize="14sp"
-            tools:text="1.05km" />
+            <TextView
+                android:id="@+id/tv_shop_distance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/global_middle_text_color"
+                android:textSize="14sp"
+                tools:text="1.05km" />
+        </LinearLayout>
     </LinearLayout>
 
     <android.support.v7.widget.RecyclerView
