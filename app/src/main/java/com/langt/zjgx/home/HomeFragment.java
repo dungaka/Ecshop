@@ -140,7 +140,7 @@ public class HomeFragment extends BaseFragment {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.ll_promote_one: // 多人拼
-
+                startActivity(new Intent(getActivity(), GroupPurchaseActivity.class));
                 break;
             case R.id.ll_promote_two: // 限时抢购
 

@@ -16,16 +16,7 @@
             style="@style/CommonBackIVStyle"
             android:text="@string/manjian_title" />
 
-        <EditText
-            android:id="@+id/et_searchView"
-            style="@style/SearchViewStyle"
-            android:layout_marginLeft="@dimen/common_padding_left"
-            android:layout_marginRight="@dimen/common_padding_left"
-            android:drawableRight="@drawable/ic_search_gray"
-            android:drawablePadding="10dp"
-            android:hint="@string/manjian_search_input_hint"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp" />
+        <include layout="@layout/layout_goods_list_search_view"/>
     </LinearLayout>
 
     <android.support.v7.widget.RecyclerView

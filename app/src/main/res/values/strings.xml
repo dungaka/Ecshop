@@ -84,9 +84,12 @@
     <string name="discount_coupon_receive_immediate">立即领取</string>
     <string name="discount_coupon_use_immediate">立即使用</string>
 
+    <string name="group_purchase_title">多人团</string>
+
     <string name="manjian_title">满减专场</string>
     <string name="manjian_search_input_hint">搜索您想要的宝贝</string>
     <string name="manjian_more">更多</string>
+
 
     <string name="cart_title">购物车</string>
     <string name="cart_action_sign_in">去登陆</string>
