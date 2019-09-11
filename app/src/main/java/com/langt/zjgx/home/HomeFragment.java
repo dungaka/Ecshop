@@ -17,7 +17,6 @@ import com.langt.zjgx.adapter.RecycleViewDivider;
 import com.langt.zjgx.adapter.ShopAdapter;
 import com.langt.zjgx.base.BaseFragment;
 import com.langt.zjgx.base.BasePresenter;
-import com.langt.zjgx.goods.GoodsDetailActivity;
 import com.langt.zjgx.home.model.Banner;
 import com.langt.zjgx.home.model.GoodsBean;
 import com.langt.zjgx.shop.ShopDetailActivity;
@@ -136,8 +135,9 @@ public class HomeFragment extends BaseFragment {
 
     }
 
-    @OnClick({R.id.ll_promote_four,R.id.ll_promote_five})
-    public void onClick(View view){
+    @OnClick({R.id.ll_promote_one, R.id.ll_promote_two, R.id.ll_promote_three,
+            R.id.ll_promote_four, R.id.ll_promote_five})
+    public void onClick(View view) {
         switch (view.getId()) {
             case R.id.ll_promote_one: // 多人拼
 
@@ -146,13 +146,13 @@ public class HomeFragment extends BaseFragment {
 
                 break;
             case R.id.ll_promote_three: // 满减专场
-                startActivity(new Intent(getActivity(),FullReductionZhuanChangActivity.class));
+                startActivity(new Intent(getActivity(), FullReductionZhuanChangActivity.class));
                 break;
             case R.id.ll_promote_four: // 厂家直销
 
                 break;
             case R.id.ll_promote_five: // 优惠券
-                startActivity(new Intent(getActivity(),DiscountCouponListActivity.class));
+                startActivity(new Intent(getActivity(), DiscountCouponListActivity.class));
                 break;
         }
     }

@@ -4,30 +4,51 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="@dimen/common_padding_left"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:padding="@dimen/common_padding_left">
 
     <org.raphets.roundimageview.RoundImageView
         android:id="@+id/iv_shop_image"
         android:layout_width="48dp"
         android:layout_height="48dp"
-        app:corner_radius="5dp"
         android:src="@mipmap/qiaokeli"
+        app:corner_radius="5dp"
         app:type="round" />
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
         android:orientation="vertical"
-        android:layout_height="wrap_content">
+        android:paddingTop="3dp"
+        android:paddingBottom="3dp">
 
         <TextView
             android:id="@+id/tv_shop_name"
-            tools:text="天天超市"
-            style="@style/GoodsNameStyle"/>
+            style="@style/GoodsNameStyle"
+            tools:text="天天超市" />
+
         <TextView
             android:id="@+id/tv_shop_manjian_info"
-            tools:text="天天超市"
-            style="@style/GoodsNameStyle"/>
+            style="@style/GoodsNameStyle"
+            android:layout_marginTop="5dp"
+            android:textColor="#fe821e"
+            android:textSize="12sp"
+            tools:text="满999减666" />
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_look_more"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginRight="5dp"
+        android:drawableRight="@drawable/ic_arrow_gray_right"
+        android:drawablePadding="10dp"
+        android:text="@string/manjian_more"
+        android:textColor="@color/global_text_color"
+        android:textSize="12sp" />
 
 </LinearLayout>
