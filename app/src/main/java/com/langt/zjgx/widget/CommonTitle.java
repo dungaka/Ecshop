@@ -2,7 +2,6 @@ package com.langt.zjgx.widget;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -62,23 +61,19 @@ public class CommonTitle extends RelativeLayout {
     private void initAttrs(Context context, AttributeSet attrs) {
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.CommonTitle);
 
-        int id_titleCenter = a.getResourceId(R.styleable.CommonTitle_titleCenter, 0);
+        String titleCenter = a.getString(R.styleable.CommonTitle_titleCenter);
         int id_iv_left = a.getResourceId(R.styleable.CommonTitle_iv_left, 0);
         int id_iv_right = a.getResourceId(R.styleable.CommonTitle_iv_right, 0);
         int id_tv_right = a.getResourceId(R.styleable.CommonTitle_titleRight, 0);
         boolean isShowBack = a.getBoolean(R.styleable.CommonTitle_showBack, false);
         String titleLeftText = a.getString(R.styleable.CommonTitle_title_left_text);
-
         int bgColor = a.getResourceId(R.styleable.CommonTitle_title_bg_color, R.color.white);
-        int textColor = a.getResourceId(R.styleable.CommonTitle_title_text_color, R.color.white);
         a.recycle();
 
         setBackgroundResource(bgColor);
         if (tv_titleCenter != null) {
-
-            tv_titleCenter.setTextColor(ContextCompat.getColor(context,textColor));
-            if (id_titleCenter > 0) {
-                tv_titleCenter.setText(id_titleCenter);
+            if (!TextUtils.isEmpty(titleCenter)) {
+                tv_titleCenter.setText(titleCenter);
             }
         }
 

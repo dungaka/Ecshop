@@ -15,6 +15,7 @@
     <!--<color name="black">#404245</color>-->
 
     <color name="translucent">#CC737373</color>
+    <color name="transparent">#00000000</color>
 
     <!-- 基本颜色 -->
     <color name="purple">#7A71E9</color>
@@ -28,7 +29,7 @@
     <color name="global_text_color">#333333</color>
     <color name="global_middle_text_color">#666666</color>
     <color name="global_hint_text_color">#999999</color>
-    <color name="global_divide_line_color">#999999</color>
+    <color name="global_divide_line_color">#F4F4F4</color>
     <color name="global_red_color">#EC1D3B</color>
     <color name="global_blue_color">#40B03A</color>
     <color name="global_blue_color_pressed">#9940B03A</color>

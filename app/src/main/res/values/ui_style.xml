@@ -71,5 +71,29 @@
         <item name="android:paddingBottom">10dp</item>
         <item name="android:background">@color/white</item>
     </style>
+    <!--    搜搜控件的通用样式-->
+    <style name="SearchViewStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingLeft">@dimen/common_padding_left</item>
+        <item name="android:paddingRight">@dimen/common_padding_left</item>
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:background">@drawable/bg_search_view</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColorHint">@color/global_hint_text_color</item>
+        <item name="android:textColor">@color/global_text_color</item>
+    </style>
+
+    <!--    商品名称通用样式-->
+    <style name="GoodsNameStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:maxLines">2</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:lineSpacingExtra">2dp</item>
+        <item name="android:textColor">@color/global_text_color</item>
+    </style>
 
 </resources>
