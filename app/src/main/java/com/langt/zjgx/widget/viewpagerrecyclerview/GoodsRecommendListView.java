@@ -11,12 +11,9 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.chaychan.library.UIUtils;
 import com.langt.zjgx.R;
 import com.langt.zjgx.goods.adapter.GoodsRecommendItemAdapter;
 import com.langt.zjgx.home.model.GoodsBean;
-import com.langt.zjgx.utils.LogUtils;
-import com.langt.zjgx.widget.SpaceItemDecoration;
 
 import java.util.ArrayList;
 import java.util.List;

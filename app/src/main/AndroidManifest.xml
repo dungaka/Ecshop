@@ -59,6 +59,13 @@
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
+        <!-- 满减专场页面-->
+        <activity
+            android:name=".home.FullReductionZhuanChangActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
         <!-- 优惠券列表页面-->
         <activity
             android:name=".home.DiscountCouponListActivity"

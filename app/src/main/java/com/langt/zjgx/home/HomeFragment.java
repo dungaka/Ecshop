@@ -146,7 +146,7 @@ public class HomeFragment extends BaseFragment {
 
                 break;
             case R.id.ll_promote_three: // 满减专场
-
+                startActivity(new Intent(getActivity(),FullReductionZhuanChangActivity.class));
                 break;
             case R.id.ll_promote_four: // 厂家直销
 

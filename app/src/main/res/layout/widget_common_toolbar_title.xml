@@ -7,17 +7,7 @@
 
     <TextView
         android:id="@+id/tv_back"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:drawableLeft="@drawable/ic_back"
-        android:drawablePadding="4dp"
-        android:ellipsize="end"
-        android:gravity="center"
-        android:lines="1"
-        android:maxWidth="120dp"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:textColor="@color/white"
+        style="@style/CommonBackIVStyle"
         android:visibility="gone" />
 
     <ImageView

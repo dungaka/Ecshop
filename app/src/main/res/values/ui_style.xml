@@ -16,6 +16,23 @@
         <item name="android:layout_height">wrap_content</item>
     </style>
 
+    <!--通用返回按钮样式-->
+    <style name="CommonBackIVStyle">
+        <item name="android:drawableLeft">@drawable/ic_back</item>
+        <item name="android:drawablePadding">10dp</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:gravity">center</item>
+        <item name="android:lines">1</item>
+        <item name="android:maxWidth">120dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:textColor">@color/global_text_color</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:layout_height">@dimen/top_bar_height</item>
+    </style>
+
     <!-- 评分控件样式-->
     <style name="RatingStyle" parent="@android:style/Widget.RatingBar">
         <!-- 定义星星图片 -->
@@ -50,7 +67,7 @@
         <item name="android:background">@color/white</item>
     </style>
 
-    <!--    文本条目左边文本样式-->
+    <!--    通用蓝色体检按钮样式-->
     <style name="CommonCommitBtnStyle">
         <item name="android:textColor">@color/white</item>
         <item name="android:textSize">15sp</item>
@@ -62,6 +79,7 @@
         <item name="android:background">@drawable/btn_summit_style</item>
     </style>
 
+    <!--    通用条目padding样式-->
     <style name="CommonItemPaddingStyle">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -71,7 +89,7 @@
         <item name="android:paddingBottom">10dp</item>
         <item name="android:background">@color/white</item>
     </style>
-    <!--    搜搜控件的通用样式-->
+    <!--    搜索控件的通用样式-->
     <style name="SearchViewStyle">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>

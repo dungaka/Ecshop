@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="45dp"
+    android:gravity="bottom"
+    android:orientation="horizontal"
+    android:paddingLeft="10dp">
+
+    <TextView
+        android:id="@+id/id_tv"
+        style="@style/GoodsPriceIdentifyTextStyle" />
+
+    <TextView
+        android:id="@+id/tv_goods_price"
+        style="@style/GoodsPriceNumberTextStyle"
+        android:text="129.0" />
+
+    <TextView
+        android:id="@+id/tv_goods_unit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="/件"
+        android:textColor="@color/global_hint_text_color"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/tv_goods_original_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:textColor="@color/global_hint_text_color"
+        android:textSize="12sp"
+        tools:text="125" />
+
+</LinearLayout>

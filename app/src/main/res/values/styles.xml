@@ -71,12 +71,4 @@
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:windowNoTitle">true</item>
     </style>
-    <!--普通dialog-->
-    <style name="CommonBackIVStyle">
-        <item name="android:src">@drawable/ic_back</item>
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_gravity">center_vertical</item>
-        <item name="android:layout_marginLeft">@dimen/common_padding_left</item>
-        <item name="android:layout_height">wrap_content</item>
-    </style>
 </resources>

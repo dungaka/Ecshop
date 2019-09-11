@@ -1,5 +1,6 @@
 package com.langt.zjgx.home;
 
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
@@ -8,6 +9,7 @@ import com.langt.zjgx.base.BaseActivity;
 import com.langt.zjgx.base.BasePresenter;
 import com.langt.zjgx.home.adapter.DiscountCouponListAdapter;
 import com.langt.zjgx.home.model.ShopBean;
+import com.langt.zjgx.widget.DividerDecoration;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,6 +39,7 @@ public class DiscountCouponListActivity extends BaseActivity {
     @Override
     public void initView() {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.addItemDecoration(new DividerDecoration(context, ContextCompat.getColor(this, R.color.global_divide_line_color), 5));
         itemList = new ArrayList<>();
         adapter = new DiscountCouponListAdapter(itemList);
         recyclerView.setAdapter(adapter);

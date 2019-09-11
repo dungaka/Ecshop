@@ -12,6 +12,11 @@
         app:showBack="true"
         app:titleCenter="@string/discount_coupon_list_title" />
 
+    <View
+        android:layout_width="match_parent"
+        android:background="@color/global_divide_line_color"
+        android:layout_height="2dp"/>
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"

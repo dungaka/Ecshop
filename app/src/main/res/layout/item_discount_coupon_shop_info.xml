@@ -3,13 +3,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:padding="@dimen/common_padding_left">
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/common_padding_left"
+        android:paddingTop="@dimen/common_padding_left"
+        android:paddingRight="@dimen/common_padding_left">
 
         <TextView
             android:id="@+id/tv_shop_name"
@@ -37,7 +39,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/common_padding_left"
+        android:paddingRight="@dimen/common_padding_left">
 
         <TextView
             android:id="@+id/tv_shop_location"
@@ -66,5 +70,6 @@
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/common_padding_left"
         tools:listitem="@layout/item_discount_coupon" />
 </LinearLayout>

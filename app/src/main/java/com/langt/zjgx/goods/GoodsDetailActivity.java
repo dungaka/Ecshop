@@ -42,8 +42,6 @@ public class GoodsDetailActivity extends BaseActivity
 
     @BindView(R.id.scrollView)
     NestedScrollView scrollView;
-    @BindView(R.id.iv_back)
-    View iv_back;
     @BindView(R.id.magic_indicator)
     MagicIndicator magicIndicator;
     @BindView(R.id.layout_goods_banner)
@@ -166,13 +164,10 @@ public class GoodsDetailActivity extends BaseActivity
 
     }
 
-    @OnClick({R.id.iv_back, R.id.iv_complain_goods, R.id.tv_collect,
+    @OnClick({R.id.iv_complain_goods, R.id.tv_collect,
             R.id.tv_share, R.id.tv_show_more_comments,R.id.layout_shop})
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.iv_back:
-                onBackPressed();
-                break;
             case R.id.iv_complain_goods:
                 startActivity(new Intent(this,GoodsAppealActivity.class));
                 break;
