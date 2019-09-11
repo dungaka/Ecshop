@@ -33,6 +33,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.OnClick;
 
 public class HomeFragment extends BaseFragment {
 
@@ -133,6 +134,27 @@ public class HomeFragment extends BaseFragment {
             }
         });
 
+    }
+
+    @OnClick({R.id.ll_promote_four,R.id.ll_promote_five})
+    public void onClick(View view){
+        switch (view.getId()) {
+            case R.id.ll_promote_one: // 多人拼
+
+                break;
+            case R.id.ll_promote_two: // 限时抢购
+
+                break;
+            case R.id.ll_promote_three: // 满减专场
+
+                break;
+            case R.id.ll_promote_four: // 厂家直销
+
+                break;
+            case R.id.ll_promote_five: // 优惠券
+                startActivity(new Intent(getActivity(),DiscountCouponListActivity.class));
+                break;
+        }
     }
 
     private void createGoods() {

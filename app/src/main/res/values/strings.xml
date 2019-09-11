@@ -79,6 +79,11 @@
     <string name="shop_base_info_shop_address">店铺地址：</string>
     <string name="shop_base_info_shop_qualification">营业资质：</string>
 
+    <string name="discount_coupon_list_title">免费领券</string>
+    <string name="discount_coupon_validity_duration">有效期：%1$s</string>
+    <string name="discount_coupon_receive_immediate">立即领取</string>
+    <string name="discount_coupon_use_immediate">立即使用</string>
+
     <string name="cart_title">购物车</string>
     <string name="cart_action_sign_in">去登陆</string>
     <string name="cart_action_summit_order">提交订单</string>

@@ -67,10 +67,8 @@ public class CommonTitle extends RelativeLayout {
         int id_tv_right = a.getResourceId(R.styleable.CommonTitle_titleRight, 0);
         boolean isShowBack = a.getBoolean(R.styleable.CommonTitle_showBack, false);
         String titleLeftText = a.getString(R.styleable.CommonTitle_title_left_text);
-        int bgColor = a.getResourceId(R.styleable.CommonTitle_title_bg_color, R.color.white);
         a.recycle();
 
-        setBackgroundResource(bgColor);
         if (tv_titleCenter != null) {
             if (!TextUtils.isEmpty(titleCenter)) {
                 tv_titleCenter.setText(titleCenter);
