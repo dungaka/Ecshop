@@ -30,7 +30,7 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
 
     public abstract void initView();
 
-    public void onErrorCode(BaseModel baseModel) {
+    public void onErrorCode(BaseBean baseModel) {
     }
 
     protected void onCreate(Bundle bundle) {

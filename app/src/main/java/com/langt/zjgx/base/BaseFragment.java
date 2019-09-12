@@ -34,7 +34,7 @@ public abstract class BaseFragment<P extends BasePresenter> extends Fragment imp
     public void initView(View view) {
     }
 
-    public void onErrorCode(BaseModel baseModel) {
+    public void onErrorCode(BaseBean baseModel) {
     }
 
     @Nullable

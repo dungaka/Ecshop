@@ -35,7 +35,7 @@ public abstract class BaseObserver<T> extends DisposableObserver<T> {
 
     public void onNext(T t) {
         try {
-            BaseModel baseModel = (BaseModel) t;
+            BaseBean baseModel = (BaseBean) t;
             if (baseModel.isSuccess()) {
                 onSuccess(t);
             } else if (this.view != null) {

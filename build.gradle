@@ -33,3 +33,13 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+ext {
+    compileSdkVersion = 27
+    minSdkVersion = 16
+    targetSdkVersion = 27
+    versionCode = 1
+    versionName = "4.3.81"
+    abiFilters = ['armeabi-v7a', 'arm64-v8a']//'arm64-v8a', 'armeabi-v7a', 'x86', 'armeabi'
+    arguments = "-DANDROID_STL=c++_shared"
+    cppFlags = "-std=c++11"
+}

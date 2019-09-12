@@ -90,6 +90,8 @@
     <string name="manjian_search_input_hint">搜索您想要的宝贝</string>
     <string name="manjian_more">更多</string>
 
+    <string name="message_title">消息</string>
+    <string name="message_title_appeal">申诉</string>
 
     <string name="cart_title">购物车</string>
     <string name="cart_action_sign_in">去登陆</string>
@@ -133,6 +135,7 @@
     <string name="address_title_manage2">地址管理</string>
     <string name="address_consignee">收件人姓名</string>
     <string name="address_tel">手机号码</string>
+    <string name="address_phone">联系电话:</string>
     <string name="address_region">所在地区</string>
     <string name="address_detail">详细地址</string>
     <string name="address_zipcode">邮政编码</string>
@@ -206,4 +209,5 @@
     <string name="msg_wait">请稍后…</string>
 
     <string name="error_network">网络错误, 请检查网络设置</string>
+    <string name="error_loadmessage_fail">加载消息失败</string>
 </resources>

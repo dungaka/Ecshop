@@ -37,6 +37,7 @@ public class MyOrderActivity extends BaseActivity {
 
     private List<Fragment> mFragments = new ArrayList<>();
     private String[] mTabs = {"全部", "待付款", "拼团中","待取/收货","待评价","退款售后"};
+    private int index;
 
 
     @Override
@@ -52,6 +53,7 @@ public class MyOrderActivity extends BaseActivity {
     @Override
     public void initView() {
 
+        index = getIntent().getIntExtra("index",0);
         CommonNavigator commonNavigator = new CommonNavigator(this);
         commonNavigator.setAdapter(mCommonNavAdapter);
         commonNavigator.setAdjustMode(false);
@@ -66,6 +68,8 @@ public class MyOrderActivity extends BaseActivity {
         MainFragmentVuPagerAdapter mVuPagerAdapter = new MainFragmentVuPagerAdapter(getSupportFragmentManager(), mFragments);
         viewPager.setAdapter(mVuPagerAdapter);
         ViewPagerHelper.bind(magicIndicator, viewPager);
+        viewPager.setCurrentItem(index);
+
 
     }
 

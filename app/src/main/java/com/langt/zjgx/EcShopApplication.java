@@ -1,19 +1,99 @@
 package com.langt.zjgx;
 
 import android.app.Application;
+import android.util.Log;
+
+import com.scwang.smartrefresh.layout.SmartRefreshLayout;
+import com.scwang.smartrefresh.layout.footer.ClassicsFooter;
+import com.scwang.smartrefresh.layout.header.ClassicsHeader;
+import com.tencent.imsdk.TIMMessage;
+import com.tencent.imsdk.session.SessionWrapper;
+import com.tencent.qcloud.tim.uikit.TUIKit;
+import com.tencent.qcloud.tim.uikit.base.IMEventListener;
+
+
+import java.util.List;
 
 public class EcShopApplication extends Application {
-
+    private static final String TAG = "EcShopApplication";
+    private static final int TIM_APP_ID = 0;
     private static EcShopApplication context;
 
+
+    static {
+        //设置全局的Header和Footer构建器
+        SmartRefreshLayout.setDefaultRefreshHeaderCreator((context, layout) ->
+                new ClassicsHeader(context));
+        SmartRefreshLayout.setDefaultRefreshFooterCreator((context, layout) ->
+                new ClassicsFooter(context)
+                        .setProgressResource(R.drawable.ic_refresh)
+                        .setDrawableSize(20));
+    }
     @Override
     public void onCreate() {
         super.onCreate();
         context = this;
+        initLocation();
+        initTIM();
+
     }
 
 
     public static EcShopApplication getContext(){
         return context;
+    }
+
+    /**
+     * 地图定位初始化
+     */
+    private void initLocation() {
+
+    }
+
+    /**
+     * 云通信TIM初始化
+     */
+    private void initTIM() {
+        if (SessionWrapper.isMainProcess(this)) {
+            TUIKit.init(this, TIM_APP_ID, TUIKit.getConfigs());
+            TUIKit.setIMEventListener(new IMEventListener() {
+                @Override
+                public void onForceOffline() {
+                    super.onForceOffline();
+                    // 被其他终端踢下线
+                    Log.i(TAG, "onForceOffline: 被踢下线");
+
+                }
+
+                @Override
+                public void onUserSigExpired() {
+                    super.onUserSigExpired();
+                    // 用户签名过期了，需要刷新 userSig 重新登录 IM SDK
+                    Log.i(TAG, "onUserSigExpired: 用户签名过期");
+                }
+
+                @Override
+                public void onConnected() {
+                    Log.i(TAG, "onConnected");
+                }
+
+                @Override
+                public void onDisconnected(int code, String desc) {
+                    Log.i(TAG, "onDisconnected");
+                }
+
+                @Override
+                public void onWifiNeedAuth(String name) {
+                    Log.i(TAG, "onWifiNeedAuth");
+                }
+
+                @Override
+                public void onNewMessages(List<TIMMessage> msgs) {
+                    super.onNewMessages(msgs);
+//                    Log.i(TAG, "onNewMessages: 收到新消息");
+                }
+
+            });
+        }
     }
 }

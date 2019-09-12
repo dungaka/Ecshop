@@ -6,7 +6,7 @@ public interface BaseView {
     void hideLoading();
 
 
-    void onErrorCode(BaseModel baseModel);
+    void onErrorCode(BaseBean baseModel);
 
 
     void showError(String str);

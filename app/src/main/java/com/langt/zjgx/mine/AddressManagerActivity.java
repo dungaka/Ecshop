@@ -1,8 +1,12 @@
 package com.langt.zjgx.mine;
 
+import android.content.Intent;
+
 import com.langt.zjgx.R;
 import com.langt.zjgx.base.BaseActivity;
 import com.langt.zjgx.base.BasePresenter;
+
+import butterknife.OnClick;
 
 public class AddressManagerActivity extends BaseActivity {
     @Override
@@ -17,6 +21,14 @@ public class AddressManagerActivity extends BaseActivity {
 
     @Override
     public void initView() {
+
+    }
+
+
+    @OnClick(R.id.tv_add_address)
+    void createAddr(){
+        Intent intent = new Intent(this,NewAddrActivity.class);
+        startActivity(intent);
 
     }
 }

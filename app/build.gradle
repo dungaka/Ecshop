@@ -32,6 +32,11 @@ android {
             signingConfig signingConfigs.release
         }
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
@@ -57,6 +62,7 @@ dependencies {
     api rootProject.ext.dependencies.butterknife
     api rootProject.ext.dependencies.bottombarlayout
     api rootProject.ext.dependencies.roundimageview
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.5.0'
     implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0'
     implementation 'me.relex:circleindicator:1.2.2@aar'
     implementation 'com.github.hackware1993:MagicIndicator:1.5.0'
@@ -67,6 +73,8 @@ dependencies {
     implementation('com.journeyapps:zxing-android-embedded:3.6.0') { transitive = false }
     // 使用微信分享、登录、收藏、支付等功能
     implementation 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:+'
+    // 云通信
+    implementation project(':tuikit')
 
 
 
