@@ -43,4 +43,8 @@
         <attr name="allowHorizontalScroll" format="boolean" />
         <attr name="isSupportExit" format="boolean" />
     </declare-styleable>
+
+    <declare-styleable name="SnapUpCountDownTimerView">
+        <attr name="viewSize" format="integer"/>
+    </declare-styleable>
 </resources>

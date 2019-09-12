@@ -112,6 +112,8 @@
                 android:textSize="14sp"
                 tools:text="五号点西班牙冰块" />
 
+            <include layout="@layout/layout_goods_detail_tuanpin_from_start"/>
+
             <include layout="@layout/layout_divide_5_line" />
 
             <include

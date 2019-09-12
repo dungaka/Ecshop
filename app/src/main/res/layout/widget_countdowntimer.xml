@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/tv_day"
+        style="@style/RushBuyCountDownTimerViewStyle"
+        android:background="@drawable/bg_snap_up" />
+
+
+    <TextView
+        style="@style/SnapUpViewColon"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:paddingLeft="2dp"
+        android:paddingRight="2dp"
+        android:gravity="center"
+        android:text="天"
+        android:textStyle="normal" />
+
+
+    <TextView
+        android:id="@+id/tv_hour"
+        style="@style/RushBuyCountDownTimerViewStyle"
+        android:background="@drawable/bg_snap_up" />
+
+
+    <TextView
+        style="@style/SnapUpViewColon"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent" />
+
+
+    <TextView
+        android:id="@+id/tv_min"
+        style="@style/RushBuyCountDownTimerViewStyle"
+        android:background="@drawable/bg_snap_up" />
+
+
+    <TextView
+        style="@style/SnapUpViewColon"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent" />
+
+    <TextView
+        android:id="@+id/tv_sec"
+        style="@style/RushBuyCountDownTimerViewStyle"
+        android:background="@drawable/bg_snap_up" />
+
+</LinearLayout>

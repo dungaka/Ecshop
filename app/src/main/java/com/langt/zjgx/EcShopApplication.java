@@ -1,8 +1,13 @@
 package com.langt.zjgx;
 
 import android.app.Application;
+import android.text.TextUtils;
 import android.util.Log;
 
+import com.langt.zjgx.utils.LogUtils;
+import com.langt.zjgx.utils.carsh.IHandlerException;
+import com.langt.zjgx.utils.carsh.OnExceptionCallBack;
+import com.langt.zjgx.utils.carsh.SecyrityCrash;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.footer.ClassicsFooter;
 import com.scwang.smartrefresh.layout.header.ClassicsHeader;
@@ -35,7 +40,7 @@ public class EcShopApplication extends Application {
         context = this;
         initLocation();
         initTIM();
-
+        initBugly();
     }
 
 
@@ -95,5 +100,14 @@ public class EcShopApplication extends Application {
 
             });
         }
+    }
+
+    private void initBugly() {
+        SecyrityCrash.install();
+        SecyrityCrash.setOnExceptionCallBack((t, e, handler) -> {
+            // 发生异常
+            LogUtils.e("捕获全局异常：" + e.getMessage());
+            e.printStackTrace();
+        });
     }
 }

@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.support.v4.widget.NestedScrollView;
-import android.text.Html;
 import android.view.View;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -14,13 +13,12 @@ import com.langt.zjgx.R;
 import com.langt.zjgx.adapter.MyCommonNavigatorAdapter;
 import com.langt.zjgx.base.BaseActivity;
 import com.langt.zjgx.base.BasePresenter;
-import com.langt.zjgx.home.HomeFragment;
 import com.langt.zjgx.home.model.Banner;
 import com.langt.zjgx.home.model.GoodsBean;
 import com.langt.zjgx.shop.ShopDetailActivity;
-import com.langt.zjgx.utils.ImageUtils;
 import com.langt.zjgx.utils.LogUtils;
 import com.langt.zjgx.utils.StringUtils;
+import com.langt.zjgx.widget.SnapUpCountDownTimerView;
 import com.langt.zjgx.widget.banner.BannerAdapter;
 import com.langt.zjgx.widget.banner.BannerLayout;
 import com.langt.zjgx.widget.viewpagerrecyclerview.GoodsRecommendListView;
@@ -64,6 +62,16 @@ public class GoodsDetailActivity extends BaseActivity
     // 商品详情
     @BindView(R.id.tv_goods_detail_title)
     TextView tv_goods_detail_title;
+
+    // 拼团开始
+    @BindView(R.id.tv_tuanpin_limit_purchase_count)
+    TextView tv_tuanpin_limit_purchase_count;
+    @BindView(R.id.tv_tuanpin_finish_rate)
+    TextView tv_tuanpin_finish_rate;
+    @BindView(R.id.tv_tuanpin_anim)
+    TextView tv_tuanpin_anim;
+    @BindView(R.id.timerView)
+    SnapUpCountDownTimerView timerView;
 
     private BannerAdapter<Banner> mBannerAdapter;
 
@@ -111,11 +119,8 @@ public class GoodsDetailActivity extends BaseActivity
         // 商品价格,规格信息
         tv_goods_original_price.setText(getString(R.string.goods_price, "125.00"));
         tv_goods_original_price.getPaint().setFlags(Paint.STRIKE_THRU_TEXT_FLAG);
-
-        tv_goods_name.setText(Html.fromHtml("<img src='" + R.drawable.ic_goods_type_qianggou + "'/>" + "  生活不止眼前的苟且，还有诗和远方的苟且 还有诗和远方的苟且还有诗和远方的苟且",
-                ImageUtils.getGoodTypeImageGetterInstance(this),
-                null));
-
+        StringUtils.setGoodsNameWithImage(tv_goods_name, this,
+                R.drawable.ic_goods_type_qianggou, "  生活不止眼前的苟且，还有诗和远方的苟且 还有诗和远方的苟且还有诗和远方的苟且");
         // 商品推荐信息展示
         List<GoodsBean> list = new ArrayList<>();
         for (int i = 0; i < 13; i++) {
@@ -123,6 +128,20 @@ public class GoodsDetailActivity extends BaseActivity
         }
         view_my_shop_recommend.setItemList(list);
         view_goods_nearly_recommend.setItemList(list);
+
+        initTuanPinView();
+    }
+
+    private void initTuanPinView(){
+        tv_tuanpin_limit_purchase_count.setText("10件");
+        tv_tuanpin_finish_rate.setText("80%");
+        tv_tuanpin_anim.setText("100件");
+        timerView.start(4 * 24 * 60 * 60 * 1000 + 4 * 60 * 60 * 1000 + 35 * 60 * 1000);
+    }
+
+    @Override
+    public void initData() {
+
     }
 
     @Override
@@ -136,40 +155,27 @@ public class GoodsDetailActivity extends BaseActivity
                 scrollView.fullScroll(ScrollView.FOCUS_UP);
                 break;
             case 1:
-                scrollView.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        scrollView.smoothScrollTo(0, tv_comment_title.getTop());
-                        scrollView.smoothScrollTo(0, tv_comment_title.getTop());
-                    }
+                scrollView.post(() -> {
+                    scrollView.smoothScrollTo(0, tv_comment_title.getTop());
+                    scrollView.smoothScrollTo(0, tv_comment_title.getTop());
                 });
                 break;
             case 2:
-                scrollView.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        scrollView.smoothScrollTo(0, view_my_shop_recommend.getTop());
-                    }
-                });
+                scrollView.post(() -> scrollView.smoothScrollTo(0, view_my_shop_recommend.getTop()));
                 break;
             case 3:
-                scrollView.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        scrollView.smoothScrollTo(0, tv_goods_detail_title.getTop());
-                    }
-                });
+                scrollView.post(() -> scrollView.smoothScrollTo(0, tv_goods_detail_title.getTop()));
                 break;
         }
 
     }
 
     @OnClick({R.id.iv_complain_goods, R.id.tv_collect,
-            R.id.tv_share, R.id.tv_show_more_comments,R.id.layout_shop})
+            R.id.tv_share, R.id.tv_show_more_comments, R.id.layout_shop})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.iv_complain_goods:
-                startActivity(new Intent(this,GoodsAppealActivity.class));
+                startActivity(new Intent(this, GoodsAppealActivity.class));
                 break;
             case R.id.tv_collect:
                 break;
@@ -210,6 +216,14 @@ public class GoodsDetailActivity extends BaseActivity
         if (bannerLayout.getLocalVisibleRect(scrollBounds)) {//可见
             // 轮播图可见
 
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (timerView != null) {
+            timerView.stop();
         }
     }
 }
