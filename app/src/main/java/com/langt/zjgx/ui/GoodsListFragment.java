@@ -1,13 +1,11 @@
 package com.langt.zjgx.ui;
 
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 
 import com.langt.zjgx.R;
 import com.langt.zjgx.adapter.GoodsAdapter;
-import com.langt.zjgx.adapter.HomeAdapter;
 import com.langt.zjgx.base.BaseFragment;
 import com.langt.zjgx.base.BasePresenter;
 import com.langt.zjgx.home.model.GoodsBean;
@@ -47,7 +45,6 @@ public class GoodsListFragment extends BaseFragment {
         return fragment;
     }
 
-
     @Override
     public void initData() {
         super.initData();
@@ -68,6 +65,7 @@ public class GoodsListFragment extends BaseFragment {
             case "rank":
                 recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
                 GoodsAdapter adapter = new GoodsAdapter(R.layout.item_goods_grid,list);
+                adapter.setEnableLoadMore(true);
                 recyclerView.setAdapter(adapter);
                 break;
         }

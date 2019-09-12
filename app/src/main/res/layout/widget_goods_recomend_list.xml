@@ -16,18 +16,42 @@
         android:textSize="16sp"
         tools:text="—— 推荐好店 ——" />
 
-    <com.langt.zjgx.goods.adapter.GoodsDetailRecommendListViewPager
-        android:id="@+id/viewPager"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="160dp" />
+        android:layout_height="wrap_content">
 
-    <com.langt.zjgx.widget.viewpagerrecyclerview.PageIndicatorView
-        android:id="@+id/indicator"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="10dp" />
+        <TextView
+            android:id="@+id/tv_no_recommend"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:gravity="center"
+            android:layout_centerInParent="true"
+            android:text="@string/goods_details_no_recommend"
+            android:textColor="@color/global_middle_text_color"
+            android:textSize="14sp" />
+
+        <LinearLayout
+            android:id="@+id/ll_recommend_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            android:orientation="vertical">
+
+            <com.langt.zjgx.goods.adapter.GoodsDetailRecommendListViewPager
+                android:id="@+id/viewPager"
+                android:layout_width="match_parent"
+                android:layout_height="160dp" />
+
+            <com.langt.zjgx.widget.viewpagerrecyclerview.PageIndicatorView
+                android:id="@+id/indicator"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp" />
+        </LinearLayout>
+    </RelativeLayout>
+
 
     <com.langt.zjgx.widget.DrawableCenterTextView
         android:id="@+id/tv_show_more"

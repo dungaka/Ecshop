@@ -48,6 +48,7 @@
     <string name="goods_show_more">查看更多</string>
     <string name="goods_my_shop_recommend">本店推荐</string>
     <string name="goods_nearly_recommend">附近热推</string>
+    <string name="goods_details_no_recommend">暂无推荐商品</string>
 
     <string name="goods_tuanpin_purchase_limit">限购</string>
     <string name="goods_tuanpin_purchase_finish_rate">完成率</string>

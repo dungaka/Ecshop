@@ -4,18 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/transparent"
-    android:clipChildren="false"
-    android:clipToPadding="false">
+    android:background="@color/transparent">
 
     <LinearLayout
         android:id="@+id/ShopDetailBuyLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:background="@color/white"
-        android:clipChildren="false"
-        android:clipToPadding="false"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/bg_fillet_top_white_20"
         android:orientation="vertical">
 
         <RelativeLayout
@@ -24,30 +20,27 @@
             android:layout_marginLeft="@dimen/common_padding_left"
             android:layout_marginRight="@dimen/common_padding_left"
             android:clipChildren="false"
-            android:clipToPadding="false"
-            android:paddingTop="20dp">
+            android:paddingTop="10dp">
 
-            <ImageView
-                android:id="@+id/iv_goods_pic"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_marginRight="10dp"
-                android:scaleType="fitCenter"
-                android:src="@mipmap/qiaokeli"
-                android:translationY="-30dp" />
+            <View
+                android:id="@+id/view"
+                android:layout_width="98dp"
+                android:layout_height="68dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="10dp" />
 
             <TextView
                 android:id="@+id/tv_goods_name"
                 style="@style/GoodsNameStyle"
-                android:layout_toRightOf="@id/iv_goods_pic"
+                android:layout_toRightOf="@id/view"
                 tools:text="03慕兰卡小白心里软面包2kg酸奶夹心口袋吐司面包 多口味可" />
 
             <TextView
                 android:id="@+id/tv_goods_price"
                 style="@style/GoodsPriceNumberTextStyle"
                 android:layout_below="@id/tv_goods_name"
-                android:layout_marginTop="13dp"
-                android:layout_toRightOf="@id/iv_goods_pic"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@id/view"
                 android:text="@string/goods_price"
                 android:textSize="15sp" />
 
@@ -57,6 +50,8 @@
             style="@style/CommonItemLeftTextStyle"
             android:layout_height="wrap_content"
             android:paddingLeft="@dimen/common_padding_left"
+            android:layout_marginTop="10dp"
+            android:textSize="15sp"
             android:text="@string/shop_goods_specification" />
 
         <android.support.v7.widget.RecyclerView
@@ -80,6 +75,7 @@
 
             <TextView
                 style="@style/CommonItemLeftTextStyle"
+                android:textSize="15sp"
                 android:text="@string/shop_goods_buy_number" />
 
             <com.langt.zjgx.widget.SimpleNumberPicker
@@ -100,4 +96,13 @@
             android:textColor="@color/white"
             android:textSize="18sp" />
     </LinearLayout>
+
+    <ImageView
+        android:id="@+id/iv_goods_pic"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:scaleType="fitCenter"
+        android:src="@mipmap/qiaokeli"/>
 </RelativeLayout>

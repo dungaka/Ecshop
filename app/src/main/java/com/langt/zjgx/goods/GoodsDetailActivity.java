@@ -126,7 +126,7 @@ public class GoodsDetailActivity extends BaseActivity
         for (int i = 0; i < 13; i++) {
             list.add(new GoodsBean(""));
         }
-        view_my_shop_recommend.setItemList(list);
+        view_my_shop_recommend.setItemList(null);
         view_goods_nearly_recommend.setItemList(list);
 
         initTuanPinView();

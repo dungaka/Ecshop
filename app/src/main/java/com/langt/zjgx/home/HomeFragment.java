@@ -2,6 +2,9 @@ package com.langt.zjgx.home;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.design.widget.AppBarLayout;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
@@ -24,6 +27,7 @@ import com.langt.zjgx.shop.ShopDetailActivity;
 import com.langt.zjgx.ui.GoodsListFragment;
 import com.langt.zjgx.widget.banner.BannerAdapter;
 import com.langt.zjgx.widget.banner.BannerLayout;
+import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 
 import net.lucode.hackware.magicindicator.MagicIndicator;
 import net.lucode.hackware.magicindicator.ViewPagerHelper;
@@ -37,6 +41,12 @@ import butterknife.OnClick;
 
 public class HomeFragment extends BaseFragment {
 
+    @BindView(R.id.refreshLayout)
+    SmartRefreshLayout refreshLayout;
+    @BindView(R.id.appBarLayout)
+    AppBarLayout appBarLayout;
+    @BindView(R.id.coordinatorLayout)
+    CoordinatorLayout coordinatorLayout;
 
     @BindView(R.id.layout_banner)
     BannerLayout bannerLayout;
@@ -74,7 +84,7 @@ public class HomeFragment extends BaseFragment {
 
     @Override
     public void initView(View view) {
-        super.initView(view);
+        initAppBarStatus();
         mBannerAdapter = new BannerAdapter<Banner>() {
             @Override
             protected void bind(BannerAdapter.ViewHolder holder, Banner data) {
@@ -93,7 +103,6 @@ public class HomeFragment extends BaseFragment {
         bannerList.add(new Banner());
         bannerList.add(new Banner());
         mBannerAdapter.reset(bannerList);
-
 
         rcyShop.setLayoutManager(new LinearLayoutManager(getContext()));
 
@@ -118,6 +127,21 @@ public class HomeFragment extends BaseFragment {
         });
     }
 
+    /**
+     * 加载完成后
+     * 解决-->Tablayout+viewpager 刷新数据后不能滑动问题
+     */
+    private void initAppBarStatus() {
+        CoordinatorLayout.LayoutParams params = (CoordinatorLayout.LayoutParams) appBarLayout.getLayoutParams();
+        AppBarLayout.Behavior behavior = (AppBarLayout.Behavior) params.getBehavior();
+        behavior.setDragCallback(new AppBarLayout.Behavior.DragCallback() {
+            @Override
+            public boolean canDrag(@NonNull AppBarLayout appBarLayout) {
+                return true;
+            }
+        });
+    }
+
 
     @Override
     public void initData() {
@@ -137,7 +161,7 @@ public class HomeFragment extends BaseFragment {
     }
 
     @OnClick({R.id.ll_promote_one, R.id.ll_promote_two, R.id.ll_promote_three,
-            R.id.ll_promote_four, R.id.ll_promote_five,R.id.iv_message})
+            R.id.ll_promote_four, R.id.ll_promote_five, R.id.iv_message})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.iv_message:

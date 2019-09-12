@@ -31,6 +31,12 @@ public class GoodsRecommendListView extends LinearLayout {
     GoodsDetailRecommendListViewPager viewPager;
     @BindView(R.id.indicator)
     PageIndicatorView indicator;
+    @BindView(R.id.ll_recommend_layout)
+    LinearLayout ll_recommend_layout;
+    @BindView(R.id.tv_no_recommend)
+    TextView tv_no_recommend;
+    @BindView(R.id.tv_show_more)
+    TextView tv_show_more;
 
     public GoodsRecommendListView(Context context) {
         this(context, null);
@@ -85,25 +91,31 @@ public class GoodsRecommendListView extends LinearLayout {
      */
     public void setItemList(List<GoodsBean> itemList) {
         if (itemList == null) {
-            return;
+            ll_recommend_layout.setVisibility(View.GONE);
+            tv_no_recommend.setVisibility(View.VISIBLE);
+            tv_show_more.setVisibility(View.GONE);
+        } else {
+            ll_recommend_layout.setVisibility(View.VISIBLE);
+            tv_no_recommend.setVisibility(View.GONE);
+            tv_show_more.setVisibility(View.VISIBLE);
+            viewPager.init(itemList);
+            indicator.initIndicator(viewPager.getPageSize());
+            viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+                @Override
+                public void onPageScrolled(int i, float v, int i1) {
+
+                }
+
+                @Override
+                public void onPageSelected(int i) {
+                    indicator.setSelectedPage(i);
+                }
+
+                @Override
+                public void onPageScrollStateChanged(int i) {
+
+                }
+            });
         }
-        viewPager.init(itemList);
-        indicator.initIndicator(viewPager.getPageSize());
-        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int i, float v, int i1) {
-
-            }
-
-            @Override
-            public void onPageSelected(int i) {
-                indicator.setSelectedPage(i);
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int i) {
-
-            }
-        });
     }
 }
