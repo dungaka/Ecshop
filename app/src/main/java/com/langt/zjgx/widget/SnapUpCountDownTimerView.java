@@ -3,15 +3,20 @@ package com.langt.zjgx.widget;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.res.TypedArray;
+import android.graphics.drawable.GradientDrawable;
 import android.os.CountDownTimer;
+import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.chaychan.library.UIUtils;
 import com.langt.zjgx.R;
 
 import java.text.SimpleDateFormat;
@@ -37,12 +42,54 @@ public class SnapUpCountDownTimerView extends LinearLayout {
     @BindView(R.id.tv_sec)
     TextView tv_sec;
 
+    @BindView(R.id.tv_1)
+    TextView tv_1;
+    @BindView(R.id.tv_2)
+    TextView tv_2;
+    @BindView(R.id.tv_3)
+    TextView tv_3;
+
+    private int bgColor;
+    private int textSize;
+
     private MyCountDownTimer myCountDownTimer;
 
     public SnapUpCountDownTimerView(Context context, AttributeSet attrs) {
         super(context, attrs);
         View view = LayoutInflater.from(context).inflate(R.layout.widget_countdowntimer, this);
+        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.SnapUpCountDownTimerView);
+        bgColor = a.getColor(R.styleable.SnapUpCountDownTimerView_bg_color, ContextCompat.getColor(context, R.color.global_middle_text_color));
+        float textSize = a.getDimensionPixelSize(R.styleable.SnapUpCountDownTimerView_text_size, 12);
+        a.recycle();
+
         ButterKnife.bind(this, view);
+
+        tv_1.setTextColor(bgColor);
+        tv_2.setTextColor(bgColor);
+        tv_3.setTextColor(bgColor);
+
+        setTextViewDrawableColor(bgColor, tv_day, tv_hour, tv_min, tv_sec);
+        setTextViewSize(textSize, tv_1, tv_2, tv_3, tv_day, tv_hour, tv_min, tv_sec);
+    }
+
+    private void setTextViewDrawableColor(int color, TextView... textViewList) {
+        if (textViewList == null) {
+            return;
+        }
+        for (TextView textView : textViewList) {
+            GradientDrawable myGrad = (GradientDrawable) textView.getBackground();
+            myGrad.setColor(color);
+            textView.setBackground(myGrad);
+        }
+    }
+
+    private void setTextViewSize(float size, TextView... textViewList) {
+        if (textViewList == null) {
+            return;
+        }
+        for (TextView textView : textViewList) {
+            textView.setTextSize(TypedValue.COMPLEX_UNIT_PX,size);
+        }
     }
 
 
@@ -110,6 +157,7 @@ public class SnapUpCountDownTimerView extends LinearLayout {
             }
         }
     }
+
 
     /**
      * 转换为标准的时间

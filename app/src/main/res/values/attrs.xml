@@ -45,6 +45,7 @@
     </declare-styleable>
 
     <declare-styleable name="SnapUpCountDownTimerView">
-        <attr name="viewSize" format="integer"/>
+        <attr name="bg_color" format="color|reference"/>
+        <attr name="text_size" format="dimension|reference"/>
     </declare-styleable>
 </resources>

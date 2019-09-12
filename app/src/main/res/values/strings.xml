@@ -63,6 +63,12 @@
     <string name="goods_appeal_picture">图&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;片:</string>
     <string name="goods_appeal_commit">提交申诉</string>
 
+    <string name="goods_list_xianshiqianggou_title">限时抢购</string>
+    <string name="goods_list_xianshiqianggou_ing">正在抢购</string>
+    <string name="goods_list_xianshiqianggou_comming_soon">即将开始</string>
+    <string name="goods_list_xianshiqianggou_has_sale">已售：%1$s</string>
+    <string name="goods_list_xianshiqianggou_distance_end">距离结束:</string>
+
     <string name="shop_introduction">店铺简介</string>
     <string name="shop_business_time">营业时间：%1$s</string>
     <string name="shop_phone">电话</string>

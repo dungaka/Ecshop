@@ -30,7 +30,6 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
         android:textColor="@color/global_hint_text_color"
-        android:textSize="12sp"
-        tools:text="125" />
+        android:textSize="12sp"/>
 
 </LinearLayout>
