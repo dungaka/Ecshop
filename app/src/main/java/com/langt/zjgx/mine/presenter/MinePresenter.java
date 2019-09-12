@@ -18,21 +18,7 @@ public class MinePresenter extends BasePresenter {
 
     public void getCityList(){
 
-        Map<String,Object> map = new HashMap<>();
-        map.put("cmd","getCityList");
 
 
-        addDisposable(apiServer.method(StringUtils.toJson(map)), new BaseObserver<BaseBean>(baseView) {
-            @Override
-            public void onError(String str) {
-                baseView.showError(str);
-            }
-
-            @Override
-            public void onSuccess(BaseBean o) {
-                baseView.showError(o.toString());
-
-            }
-        });;
     }
 }

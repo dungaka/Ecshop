@@ -2,6 +2,7 @@ package com.langt.zjgx.base;
 
 import com.langt.zjgx.server.ApiRetrofit;
 import com.langt.zjgx.server.ApiServer;
+import com.langt.zjgx.server.HttpClient;
 
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -11,6 +12,7 @@ import io.reactivex.schedulers.Schedulers;
 
 public class BasePresenter<V extends BaseView> {
     protected ApiServer apiServer = ApiRetrofit.getInstance().getApiServer();
+    protected HttpClient apiClient = new HttpClient();
     public V baseView;
     private CompositeDisposable compositeDisposable;
 
