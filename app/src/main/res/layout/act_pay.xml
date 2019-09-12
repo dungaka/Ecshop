@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <com.langt.zjgx.widget.CommonTitle
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:showBack="true"
+        app:titleCenter="@string/cart_pay_order"/>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:layout_gravity="center">
+
+        <TextView
+            android:id="@+id/id_money"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/global_text_color"
+            android:textSize="21sp"
+            android:layout_toLeftOf="@+id/tv_money"
+            android:layout_alignBottom="@+id/tv_money"
+            android:layout_marginRight="15dp"
+            android:text="¥"/>
+        <TextView
+            android:id="@+id/tv_money"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="1314.00"
+            android:textColor="@color/global_text_color"
+            android:textSize="34sp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/global_middle_text_color"
+            android:layout_below="@id/tv_money"
+            android:gravity="center"
+            android:layout_marginTop="25dp"
+            android:textSize="14sp"
+            android:text="支付金额"/>
+
+    </RelativeLayout>
+    
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="200dp"
+        android:background="@drawable/bg_btn_pay"
+        android:text="@string/cart_pay_weixin"
+        android:textSize="18sp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        />
+</LinearLayout>

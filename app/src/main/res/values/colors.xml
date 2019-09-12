@@ -36,4 +36,6 @@
     <color name="global_blue_color">#40B03A</color>
     <color name="global_blue_color_pressed">#9940B03A</color>
     <color name="text_price">#E6191E</color>
+    <color name="text_forget">#4791f5</color>
+
 </resources>

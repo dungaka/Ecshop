@@ -100,6 +100,8 @@
     <string name="cart_msg_delete_goods">是否要删除此商品</string>
     <string name="cart_number">数量</string>
     <string name="cart_total_price">总额:</string>
+    <string name="cart_pay_order">订单支付</string>
+    <string name="cart_pay_weixin">微信支付</string>
 
     <string name="mine_title_sign_in">登&#160;&#160;录</string>
     <string name="mine_title_sign_up">注&#160;&#160;册</string>
@@ -177,7 +179,10 @@
     <string name="order_time">下单时间: %s</string>
     <string name="order_total">总额: %s</string>
     <string name="order_action_purchase">支付</string>
+    <string name="order_pay_success">支付成功</string>
     <string name="order_is_canceled">订单已取消</string>
+    <string name="order_look">查看订单</string>
+    <string name="order_gohome">返回首页</string>
 
     <string name="collect_title">收藏列表</string>
     <string name="collect_msg_already_collected">本商品已收藏</string>
@@ -210,4 +215,12 @@
 
     <string name="error_network">网络错误, 请检查网络设置</string>
     <string name="error_loadmessage_fail">加载消息失败</string>
+
+    <string name="login_hint_phone">请输入您的手机号</string>
+    <string name="login_hint_pwd">请输入登录密码</string>
+    <string name="login_hint_pwd_confirm">请确认登录密码</string>
+    <string name="login_sms">发送验证码</string>
+    <string name="login_hint_smscode">请输入验证码</string>
+    <string name="login_agreement">我已阅读并同意【众聚逛选】服务协议</string>
+    <string name="login_third_login">——————  使用第三方授权登录  ——————</string>
 </resources>

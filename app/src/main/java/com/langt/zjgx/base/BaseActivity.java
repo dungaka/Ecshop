@@ -1,6 +1,7 @@
 package com.langt.zjgx.base;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -68,10 +69,7 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
     }
 
     public void showtoast(String str) {
-        if (this.toast == null) {
-            this.toast = Toast.makeText(getApplicationContext(), str, Toast.LENGTH_SHORT);
-        }
-        this.toast.show();
+         Toast.makeText(getApplicationContext(), str, Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -88,5 +86,15 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
         showtoast(str);
     }
 
+    protected void readyGo(Class clz){
+        Intent intent = new Intent(this,clz);
+        startActivity(intent);
+    }
+
+    protected void readyGoWithBundle(Bundle bundle,Class clz){
+        Intent intent = new Intent(this,clz);
+        intent.putExtras(bundle);
+        startActivity(intent);
+    }
 
 }
