@@ -2,6 +2,7 @@ package com.langt.zjgx.home;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.view.View;
 
 import com.langt.zjgx.R;
 import com.langt.zjgx.adapter.MainFragmentVuPagerAdapter;
@@ -44,8 +45,9 @@ public class FlashSaleListActivity extends BaseActivity {
     @Override
     public void initView() {
         mTabs = new String[]{getString(R.string.goods_list_xianshiqianggou_ing), getString(R.string.goods_list_xianshiqianggou_comming_soon)};
+        MyCommonNavigatorAdapter myCommonNavigatorAdapter = new MyCommonNavigatorAdapter(mTabs);
         CommonNavigator commonNavigator = new CommonNavigator(this);
-        commonNavigator.setAdapter(new MyCommonNavigatorAdapter(mTabs));
+        commonNavigator.setAdapter(myCommonNavigatorAdapter);
         commonNavigator.setAdjustMode(true);
         magicIndicator.setNavigator(commonNavigator);
         mFragments.clear();
@@ -54,5 +56,6 @@ public class FlashSaleListActivity extends BaseActivity {
         MainFragmentVuPagerAdapter mVuPagerAdapter = new MainFragmentVuPagerAdapter(getSupportFragmentManager(), mFragments);
         viewPager.setAdapter(mVuPagerAdapter);
         ViewPagerHelper.bind(magicIndicator, viewPager);
+        myCommonNavigatorAdapter.setOnTabItemClickListener((position, view) -> viewPager.setCurrentItem(position,false));
     }
 }

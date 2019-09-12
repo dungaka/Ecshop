@@ -153,7 +153,7 @@ public class HomeFragment extends BaseFragment {
                 startActivity(new Intent(getActivity(), FullReductionZhuanChangActivity.class));
                 break;
             case R.id.ll_promote_four: // 厂家直销
-
+                startActivity(new Intent(getActivity(), FactoryDirectSaleActivity.class));
                 break;
             case R.id.ll_promote_five: // 优惠券
                 startActivity(new Intent(getActivity(), DiscountCouponListActivity.class));
