@@ -3,7 +3,9 @@ package com.langt.zjgx.shop;
 import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Gravity;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -16,9 +18,10 @@ import com.langt.zjgx.home.DiscountCouponListActivity;
 import com.langt.zjgx.home.model.Banner;
 import com.langt.zjgx.home.model.GoodsBean;
 import com.langt.zjgx.shop.adapter.ShopDetailGoodsListAdapter;
-import com.langt.zjgx.shop.fragment.ChooseGoodsSpecificationDialogFragment;
+import com.langt.zjgx.shop.popup.ShopHasChooseGoodsPopupWindow;
 import com.langt.zjgx.widget.banner.BannerAdapter;
 import com.langt.zjgx.widget.banner.BannerLayout;
+import com.langt.zjgx.widget.popup.GoodsChooseToBuyPopupWindow;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,6 +48,12 @@ public class ShopDetailActivity extends BaseActivity {
     VerticalTabLayout tabLayout;
     @BindView(R.id.rv_goods_list)
     RecyclerView rv_goods_list;
+
+    // 购物车图标
+    @BindView(R.id.iv_car)
+    ImageView iv_car;
+    @BindView(R.id.tv_bug_count)
+    TextView tv_bug_count;
 
     private BannerAdapter<Banner> mBannerAdapter;
 
@@ -150,8 +159,8 @@ public class ShopDetailActivity extends BaseActivity {
             public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
                 if (view.getId() == R.id.tv_choose_specification) {
                     // 显示选择商品规格的弹窗
-                    ChooseGoodsSpecificationDialogFragment dialogFragment = new ChooseGoodsSpecificationDialogFragment();
-                    dialogFragment.show(getSupportFragmentManager(), "dialogFragment");
+                    GoodsChooseToBuyPopupWindow popupWindow = new GoodsChooseToBuyPopupWindow(ShopDetailActivity.this);
+                    popupWindow.showAtLocation(getWindow().getDecorView(), Gravity.CENTER, 0, 0);
                 }
             }
         });
@@ -163,7 +172,8 @@ public class ShopDetailActivity extends BaseActivity {
     }
 
     @OnClick({R.id.tv_enter_shop, R.id.ll_promote_one, R.id.ll_promote_two,
-            R.id.ll_promote_three, R.id.ll_promote_four})
+            R.id.ll_promote_three, R.id.ll_promote_four, R.id.rl_car,
+            R.id.tv_confirm_bug})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.tv_enter_shop:
@@ -180,9 +190,26 @@ public class ShopDetailActivity extends BaseActivity {
                 break;
             case R.id.ll_promote_four: // 优惠券
                 Intent intent = new Intent(this, DiscountCouponListActivity.class);
-                intent.putExtra(DiscountCouponListActivity.KEY_ONLY_ONE_SHOP,true);
+                intent.putExtra(DiscountCouponListActivity.KEY_ONLY_ONE_SHOP, true);
                 startActivity(intent);
                 break;
+            case R.id.rl_car: // 购物车图标
+                showHasChooseGoodsList(tv_bug_count);
+                break;
+            case R.id.tv_confirm_bug: // 确认购买
+
+                break;
         }
+    }
+
+    /**
+     * 显示已选择商品图标
+     */
+    private void showHasChooseGoodsList(View v) {
+        int[] location = new int[2];
+        v.getLocationOnScreen(location);
+        ShopHasChooseGoodsPopupWindow popupWindow = new ShopHasChooseGoodsPopupWindow(ShopDetailActivity.this);
+        popupWindow.getContentView().measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
+        popupWindow.showAtLocation(v, Gravity.NO_GRAVITY, 0,location[1] - popupWindow.getContentView().getMeasuredHeight());
     }
 }

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:background="@color/white"
+    android:orientation="horizontal"
+    android:paddingLeft="@dimen/common_padding_left"
+    android:paddingTop="5dp"
+    android:paddingRight="@dimen/common_padding_left"
+    android:paddingBottom="5dp">
+
+    <TextView
+        android:id="@+id/tv_goods_name"
+        style="@style/GoodsNameStyle"
+        android:layout_width="0dp"
+        android:lines="1"
+        android:layout_weight="2"
+        android:text="俄罗斯进口紫皮属" />
+
+    <TextView
+        android:id="@+id/tv_goods_type"
+        style="@style/GoodsNameStyle"
+        android:layout_width="0dp"
+        android:lines="1"
+        android:layout_weight="1"
+        android:text="草莓味"
+        android:textColor="@color/global_middle_text_color" />
+
+    <TextView
+        android:id="@+id/tv_goods_price"
+        style="@style/GoodsNameStyle"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:text="@string/goods_price"
+        android:textColor="@color/global_red_color" />
+
+    <com.langt.zjgx.widget.GoodsNumberPicker
+        android:layout_width="0dp"
+        android:id="@+id/number_picker"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" />
+</LinearLayout>

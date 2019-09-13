@@ -4,14 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/transparent">
+    android:paddingLeft="@dimen/common_padding_left"
+    android:paddingRight="@dimen/common_padding_left">
 
     <LinearLayout
         android:id="@+id/ShopDetailBuyLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/white"
         android:layout_marginTop="30dp"
-        android:background="@drawable/bg_fillet_top_white_20"
         android:orientation="vertical">
 
         <RelativeLayout
