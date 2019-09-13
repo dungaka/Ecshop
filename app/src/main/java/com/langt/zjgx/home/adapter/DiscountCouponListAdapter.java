@@ -11,7 +11,7 @@ import android.widget.LinearLayout;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.langt.zjgx.R;
-import com.langt.zjgx.home.model.DisountCouponBean;
+import com.langt.zjgx.home.model.DiscountCouponBean;
 import com.langt.zjgx.home.model.ShopBean;
 
 import java.util.ArrayList;
@@ -40,9 +40,9 @@ public class DiscountCouponListAdapter extends BaseQuickAdapter<ShopBean, BaseVi
         ratingBar.setRating(4);
         RecyclerView recyclerView = helper.getView(R.id.recyclerView);
 
-        List<DisountCouponBean> couponBeanList = new ArrayList<>();
+        List<DiscountCouponBean> couponBeanList = new ArrayList<>();
         for (int i = 0; i < 4; i++) {
-            couponBeanList.add(new DisountCouponBean());
+            couponBeanList.add(new DiscountCouponBean());
         }
         DiscountCouponListItemAdapter itemAdapter = new DiscountCouponListItemAdapter(couponBeanList);
         recyclerView.setLayoutManager(new LinearLayoutManager(mContext));

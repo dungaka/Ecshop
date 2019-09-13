@@ -119,6 +119,9 @@
     <string name="confirm_order_delivery_address">收货地址：</string>
     <string name="confirm_order_no_delivery_address">暂无收货地址，请点击添加</string>
 
+    <string name="choose_discount_coupon_title">选择优惠券</string>
+    <string name="choose_discount_coupon_dont_use">不使用优惠券</string>
+
     <string name="message_title">消息</string>
     <string name="message_title_appeal">申诉</string>
 

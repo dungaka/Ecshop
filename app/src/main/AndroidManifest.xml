@@ -117,6 +117,12 @@
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
+        <!-- 选择优惠券-->
+        <activity
+            android:name=".order.ChooseDiscountCouponActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity android:name=".message.ui.activity.MessageActivity"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait"

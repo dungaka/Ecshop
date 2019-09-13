@@ -7,20 +7,20 @@ import android.widget.TextView;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.langt.zjgx.R;
-import com.langt.zjgx.home.model.DisountCouponBean;
+import com.langt.zjgx.home.model.DiscountCouponBean;
 
 import java.util.List;
 
 /**
  * 优惠券列表item
  */
-public class DiscountCouponListItemAdapter extends BaseQuickAdapter<DisountCouponBean, BaseViewHolder> {
-    public DiscountCouponListItemAdapter(@Nullable List<DisountCouponBean> data) {
+public class DiscountCouponListItemAdapter extends BaseQuickAdapter<DiscountCouponBean, BaseViewHolder> {
+    public DiscountCouponListItemAdapter(@Nullable List<DiscountCouponBean> data) {
         super(R.layout.item_discount_coupon, data);
     }
 
     @Override
-    protected void convert(@NonNull BaseViewHolder helper, DisountCouponBean item) {
+    protected void convert(@NonNull BaseViewHolder helper, DiscountCouponBean item) {
         helper.setText(R.id.tv_goods_price, "129.0");
         helper.setText(R.id.tv_use_condition, "满20.0可使用");
         helper.setText(R.id.tv_use_address, "全场可用");

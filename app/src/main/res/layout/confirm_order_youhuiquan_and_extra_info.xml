@@ -9,6 +9,7 @@
     android:paddingBottom="20dp">
 
     <RelativeLayout
+        android:id="@+id/rl_discount_coupon"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:gravity="center_vertical">

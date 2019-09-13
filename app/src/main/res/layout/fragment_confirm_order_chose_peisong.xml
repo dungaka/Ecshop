@@ -17,6 +17,7 @@
             android:layout_height="100dp"
             android:paddingLeft="@dimen/padding_confirm_order"
             android:paddingTop="10dp"
+            android:id="@+id/rl_address"
             android:paddingRight="@dimen/padding_confirm_order"
             android:paddingBottom="10dp">
 

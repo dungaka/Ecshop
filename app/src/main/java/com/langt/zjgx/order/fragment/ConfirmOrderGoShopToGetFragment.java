@@ -12,6 +12,7 @@ import com.langt.zjgx.base.BaseFragment;
 import com.langt.zjgx.base.BasePresenter;
 import com.langt.zjgx.goods.GoodsDetailActivity;
 import com.langt.zjgx.home.model.GoodsBean;
+import com.langt.zjgx.order.ChooseDiscountCouponActivity;
 import com.langt.zjgx.order.adapter.ConfirmOrderGoodsListAdapter;
 import com.langt.zjgx.widget.DividerDecoration;
 
@@ -19,6 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.OnClick;
 
 /**
  * 确认订单-到店自取页面
@@ -70,5 +72,14 @@ public class ConfirmOrderGoShopToGetFragment extends BaseFragment {
         super.initData();
         itemList.add(new GoodsBean(""));
         adapter.notifyDataSetChanged();
+    }
+
+    @OnClick({R.id.rl_discount_coupon})
+    public void onClick(View view){
+        switch (view.getId()) {
+            case R.id.rl_discount_coupon:
+                startActivity(new Intent(getActivity(), ChooseDiscountCouponActivity.class));
+                break;
+        }
     }
 }

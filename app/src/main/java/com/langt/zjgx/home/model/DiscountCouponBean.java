@@ -5,6 +5,6 @@ import java.io.Serializable;
 /**
  * 优惠券bean
  */
-public class DisountCouponBean implements Serializable {
+public class DiscountCouponBean implements Serializable {
 
 }
