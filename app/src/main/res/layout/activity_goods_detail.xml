@@ -39,7 +39,8 @@
     <android.support.v4.widget.NestedScrollView
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="0dp"
+        android:layout_weight="1">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -112,7 +113,7 @@
                 android:textSize="14sp"
                 tools:text="五号点西班牙冰块" />
 
-            <include layout="@layout/layout_goods_detail_tuanpin_from_start"/>
+            <include layout="@layout/layout_goods_detail_tuanpin_from_start" />
 
             <include layout="@layout/layout_divide_5_line" />
 
@@ -155,4 +156,6 @@
                 android:textSize="16sp" />
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
+
+    <include layout="@layout/layout_goods_detail_kaituan"/>
 </LinearLayout>

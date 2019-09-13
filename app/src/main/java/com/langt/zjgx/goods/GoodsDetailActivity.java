@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.support.v4.widget.NestedScrollView;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -15,12 +16,14 @@ import com.langt.zjgx.base.BaseActivity;
 import com.langt.zjgx.base.BasePresenter;
 import com.langt.zjgx.home.model.Banner;
 import com.langt.zjgx.home.model.GoodsBean;
+import com.langt.zjgx.order.ConfirmOrderActivity;
 import com.langt.zjgx.shop.ShopDetailActivity;
 import com.langt.zjgx.utils.LogUtils;
 import com.langt.zjgx.utils.StringUtils;
 import com.langt.zjgx.widget.SnapUpCountDownTimerView;
 import com.langt.zjgx.widget.banner.BannerAdapter;
 import com.langt.zjgx.widget.banner.BannerLayout;
+import com.langt.zjgx.widget.popup.GoodsDetailChooseToBuyPopupWindow;
 import com.langt.zjgx.widget.viewpagerrecyclerview.GoodsRecommendListView;
 
 import net.lucode.hackware.magicindicator.MagicIndicator;
@@ -132,7 +135,7 @@ public class GoodsDetailActivity extends BaseActivity
         initTuanPinView();
     }
 
-    private void initTuanPinView(){
+    private void initTuanPinView() {
         tv_tuanpin_limit_purchase_count.setText("10件");
         tv_tuanpin_finish_rate.setText("80%");
         tv_tuanpin_anim.setText("100件");
@@ -171,7 +174,9 @@ public class GoodsDetailActivity extends BaseActivity
     }
 
     @OnClick({R.id.iv_complain_goods, R.id.tv_collect,
-            R.id.tv_share, R.id.tv_show_more_comments, R.id.layout_shop})
+            R.id.tv_share, R.id.tv_show_more_comments, R.id.layout_shop,
+            R.id.tv_shop_service, R.id.tv_shop_info, R.id.ll_faqi_pintuan_buy_alone,
+            R.id.ll_faqi_pintuan_buy_i_kaituan})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.iv_complain_goods:
@@ -187,7 +192,35 @@ public class GoodsDetailActivity extends BaseActivity
             case R.id.layout_shop:
                 startActivity(new Intent(this, ShopDetailActivity.class));
                 break;
+            case R.id.tv_shop_service: // 客服
+
+                break;
+            case R.id.tv_shop_info: // 店铺信息
+                startActivity(new Intent(this, ShopDetailActivity.class));
+                break;
+            case R.id.ll_faqi_pintuan_buy_alone:  // 发起团品-单独购买
+                // 显示选择商品规格的弹窗
+                showChooseGoodsInfoPopup(findViewById(R.id.ll_faqi_pintuan_buy_alone));
+                break;
+            case R.id.ll_faqi_pintuan_buy_i_kaituan:  // 发起团品-我要开团
+                // 显示选择商品规格的弹窗
+                showChooseGoodsInfoPopup(findViewById(R.id.ll_faqi_pintuan_buy_i_kaituan));
+                break;
         }
+    }
+
+    /**
+     * 显示选择商品规格信息弹窗
+     */
+    private void showChooseGoodsInfoPopup(View view) {
+        GoodsDetailChooseToBuyPopupWindow popupWindow = new GoodsDetailChooseToBuyPopupWindow(this);
+        popupWindow.setOnConfirmClickListener(new GoodsDetailChooseToBuyPopupWindow.OnConfirmClickListener() {
+            @Override
+            public void onConfirmClick() {
+                startActivity(new Intent(GoodsDetailActivity.this, ConfirmOrderActivity.class));
+            }
+        });
+        popupWindow.showAtLocation(view, Gravity.BOTTOM, 0, 0);
     }
 
     @Override

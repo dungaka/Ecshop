@@ -49,6 +49,8 @@
     <string name="goods_my_shop_recommend">本店推荐</string>
     <string name="goods_nearly_recommend">附近热推</string>
     <string name="goods_details_no_recommend">暂无推荐商品</string>
+    <string name="goods_details_start_pintuan_bug_alone">单独购买</string>
+    <string name="goods_details_start_pintuan_i_start">我要开团</string>
 
     <string name="goods_tuanpin_purchase_limit">限购</string>
     <string name="goods_tuanpin_purchase_finish_rate">完成率</string>
@@ -70,6 +72,7 @@
     <string name="goods_list_xianshiqianggou_has_sale">已售：%1$s</string>
     <string name="goods_list_xianshiqianggou_distance_end">距离结束:</string>
 
+    <string name="shop_name">店铺</string>
     <string name="shop_introduction">店铺简介</string>
     <string name="shop_business_time">营业时间：%1$s</string>
     <string name="shop_phone">电话</string>
@@ -236,6 +239,7 @@
     <string name="action_share">分享</string>
     <string name="action_collect">收藏</string>
     <string name="action_confirm">确认</string>
+    <string name="action_ensure">确定</string>
     <string name="action_cancel">取消</string>
     <string name="action_edit">编辑</string>
     <string name="action_delete">删除</string>

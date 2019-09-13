@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="56dp"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/tv_shop_service"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1"
+        android:drawableTop="@drawable/ic_goods_service"
+        android:gravity="center"
+        android:text="@string/shop_service"
+        android:textColor="@color/global_text_color"
+        android:textSize="13dp" />
+
+    <TextView
+        android:id="@+id/tv_shop_info"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:drawableTop="@drawable/ic_shop"
+        android:gravity="center"
+        android:text="@string/shop_name"
+        android:textColor="@color/global_text_color"
+        android:textSize="13dp" />
+
+    <LinearLayout
+        android:id="@+id/ll_faqi_pintuan_buy_alone"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:background="#EA5C45"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_goods_name"
+            android:layout_marginTop="1dp"
+            android:layout_toRightOf="@id/iv_shop_image"
+            android:gravity="bottom|center_horizontal"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/GoodsPriceIdentifyTextStyle"
+                android:textColor="@color/white" />
+
+            <TextView
+                style="@style/GoodsPriceNumberTextStyle"
+                android:text="129.0"
+                android:textColor="@color/white" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/goods_details_start_pintuan_bug_alone"
+            android:textColor="@color/white"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:id="@+id/ll_faqi_pintuan_buy_i_kaituan"
+        android:layout_height="match_parent"
+        android:layout_weight="3"
+        android:background="#e22405"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_goods_name"
+            android:layout_marginTop="1dp"
+            android:layout_toRightOf="@id/iv_shop_image"
+            android:gravity="bottom|center_horizontal"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/GoodsPriceIdentifyTextStyle"
+                android:textColor="@color/white" />
+
+            <TextView
+                style="@style/GoodsPriceNumberTextStyle"
+                android:text="129.0"
+                android:textColor="@color/white" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/goods_details_start_pintuan_i_start"
+            android:textColor="@color/white"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+</LinearLayout>
