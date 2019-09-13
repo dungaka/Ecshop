@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingBottom="10dp"
+    android:paddingTop="10dp">
+
+    <org.raphets.roundimageview.RoundImageView
+        android:id="@+id/iv_goods_pic"
+        android:layout_width="85dp"
+        android:layout_height="85dp"
+        android:layout_marginRight="10dp"
+        android:src="@mipmap/qiaokeli"
+        app:corner_radius="6dp"
+        app:type="round" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_goods_name"
+            style="@style/GoodsNameStyle"
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:lines="1"
+            tools:text="03绿树果南非西柚新鲜红心葡萄柚孕妇水果应季蜜柚产地." />
+
+
+        <TextView
+            android:id="@+id/tv_goods_specification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:gravity="center_vertical"
+            android:textColor="@color/global_middle_text_color"
+            android:textSize="12sp"
+            tools:text="@string/confirm_order_specification" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/tv_goods_price"
+                style="@style/GoodsPriceNumberTextStyle"
+                android:layout_marginTop="3dp"
+                android:text="@string/goods_price"
+                android:gravity="center_vertical"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/tv_goods_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:gravity="center"
+                android:text="x1"
+                android:textColor="@color/global_text_color"
+                android:textSize="13sp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+
+</LinearLayout>

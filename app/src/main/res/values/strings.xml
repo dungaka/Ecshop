@@ -102,6 +102,23 @@
     <string name="manjian_search_input_hint">搜索您想要的宝贝</string>
     <string name="manjian_more">更多</string>
 
+    <string name="confirm_order_title">确认订单</string>
+    <string name="confirm_order_get_goods_by_self">到店自取</string>
+    <string name="confirm_order_get_goods_by_peisong">选择配送</string>
+    <string name="confirm_order_support_ziqu">支持自取</string>
+    <string name="confirm_order_specification">规格：%1$s</string>
+    <string name="confirm_order_no_youhuiquan">暂无可使用的优惠券</string>
+    <string name="confirm_order_the_reserved_phone">预留电话：</string>
+    <string name="confirm_order_the_reserved_phone_hint">必填，以便与您及时联系</string>
+    <string name="confirm_order_the_merchants_to_remind">商家提醒：</string>
+    <string name="confirm_order_the_merchants_to_remind_empty">暂无提醒！！！</string>
+    <string name="confirm_order_the_buyer_message">买家留言：</string>
+    <string name="confirm_order_the_buyer_message_can_empty">选填，填写自己的要求</string>
+    <string name="confirm_order_need_pay">需支付：</string>
+    <string name="confirm_order_sumit_order">提交订单</string>
+    <string name="confirm_order_delivery_address">收货地址：</string>
+    <string name="confirm_order_no_delivery_address">暂无收货地址，请点击添加</string>
+
     <string name="message_title">消息</string>
     <string name="message_title_appeal">申诉</string>
 

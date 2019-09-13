@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_marginBottom="30dp"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <include layout="@layout/layout_divide_5_line" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical"
+            android:padding="@dimen/common_padding_left"
+            android:paddingLeft="@dimen/padding_confirm_order"
+            android:paddingRight="@dimen/padding_confirm_order"
+            android:paddingBottom="30dp">
+
+            <TextView
+                android:id="@+id/tv_shop_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:drawableLeft="@drawable/ic_confirm_order_address"
+                android:drawablePadding="10dp"
+                android:text="@string/shop_base_info_shop_address"
+                android:textColor="@color/global_text_color"
+                android:textSize="14sp" />
+
+
+            <ImageView
+                android:id="@+id/iv_location"
+                android:layout_width="match_parent"
+                android:layout_height="150dp" />
+
+        </LinearLayout>
+
+        <include layout="@layout/layout_divide_5_line" />
+
+        <include layout="@layout/layout_confim_order_shop_and_goods_info" />
+
+        <include layout="@layout/layout_divide_5_line" />
+
+        <include layout="@layout/confirm_order_youhuiquan_and_extra_info"/>
+    </LinearLayout>
+</android.support.v4.widget.NestedScrollView>

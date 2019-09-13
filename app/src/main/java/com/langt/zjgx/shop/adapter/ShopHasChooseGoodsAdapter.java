@@ -30,7 +30,9 @@ public class ShopHasChooseGoodsAdapter extends BaseQuickAdapter<GoodsBean, BaseV
             public void onNumberChange(int number) {
                 if (number == 0) {
                     // 移除商品
-
+                    int position = helper.getPosition();
+                    mData.remove(position);
+                    notifyItemRemoved(position);
                 }
             }
         });

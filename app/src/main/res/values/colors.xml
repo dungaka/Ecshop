@@ -28,6 +28,7 @@
     <color name="color_f2">#F2F2F2</color>
     <color name="color_ff6600">#FF6600</color>
 
+    <color name="global_bg_color">#F0F0F0</color>
     <color name="global_text_color">#333333</color>
     <color name="global_middle_text_color">#666666</color>
     <color name="global_hint_text_color">#999999</color>

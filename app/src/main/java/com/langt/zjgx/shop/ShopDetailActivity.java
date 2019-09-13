@@ -17,6 +17,7 @@ import com.langt.zjgx.goods.GoodsDetailActivity;
 import com.langt.zjgx.home.DiscountCouponListActivity;
 import com.langt.zjgx.home.model.Banner;
 import com.langt.zjgx.home.model.GoodsBean;
+import com.langt.zjgx.order.ConfirmOrderActivity;
 import com.langt.zjgx.shop.adapter.ShopDetailGoodsListAdapter;
 import com.langt.zjgx.shop.popup.ShopHasChooseGoodsPopupWindow;
 import com.langt.zjgx.widget.banner.BannerAdapter;
@@ -197,7 +198,7 @@ public class ShopDetailActivity extends BaseActivity {
                 showHasChooseGoodsList(tv_bug_count);
                 break;
             case R.id.tv_confirm_bug: // 确认购买
-
+                startActivity(new Intent(this, ConfirmOrderActivity.class));
                 break;
         }
     }
