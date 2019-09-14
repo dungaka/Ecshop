@@ -17,6 +17,6 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         app:ci_drawable="@drawable/indicator_yellow_radius"
-        app:ci_drawable_unselected="@drawable/white_radius"/>
+        app:ci_drawable_unselected="@drawable/indicator_banner_un_selected"/>
 
 </merge>

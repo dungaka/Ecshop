@@ -35,7 +35,6 @@ public abstract class BaseObserver<T> extends DisposableObserver<T> {
     }
 
     public void onNext(T t) {
-        LogUtils.i("onNext: "+t);
         try {
             BaseBean baseModel = (BaseBean) t;
             if (baseModel.isSuccess()) {

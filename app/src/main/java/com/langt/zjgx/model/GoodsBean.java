@@ -23,18 +23,43 @@ public class GoodsBean {
      * zsGoodsSku : []
      */
 
-    private int agtstate;
+    private int agtstate;  // 非代销0 代销1
+    // 当agtstate字段为1即商品为代销商品时，判断代销商品活动状态，其余时候不体现该字段
+    // 0 普通代销零售商品  1 即将参加代销限时活动的商品  2 正在参与代销限时活动的商品
+    private String sellOffLimitFlag;
+    //sellOffLimitFlag字段为 1 即将参加代销限时活动的商品 时体现该信息，表示代销限时活动价格
+    private String goodsLimitPrice;
+    //限时开始时间
+    private long actStartTime;
+    // 限时结束时间
+    private long actEndTime;
+    //团购开始时间
+    private long goStartTime;
+    //团购结束时间
+    private long goEndTime;
     private String goodsCurPrice;
+    // 折扣/抢购价对应的原价/团购原价
+    private String goodsOrigPrice;
+    // //拼团价
+    private String goodsCostPrice;
+    // 几人团
+    private String tourDesc;
+    // 团购完成率
+    private String goRatio;
     private String goodsId;
     private String goodsImg;
     private String goodsName;
-    private int goodsSales;
+    private int goodsSales;  // 商品销量
     private String goodsUnit;
     private String shopDistance;
+    // 店铺总评分  flag=2-店铺星级时   返回
+    private float shopScore;
+    // 商品好评率  flag=3-商品好评率时
+    private String goodsScore;
     private String shopId;
     private String shopName;
     private int shopType;
-    private String skuId;
+    private String skuId;  // 商品规格id
     private List<GoodsSku> goodsSku;
     private List<?> imgList;
     private List<?> zsGoodsSku;
@@ -160,5 +185,101 @@ public class GoodsBean {
 
     public void setZsGoodsSku(List<?> zsGoodsSku) {
         this.zsGoodsSku = zsGoodsSku;
+    }
+
+    public String getSellOffLimitFlag() {
+        return sellOffLimitFlag;
+    }
+
+    public void setSellOffLimitFlag(String sellOffLimitFlag) {
+        this.sellOffLimitFlag = sellOffLimitFlag;
+    }
+
+    public String getGoodsLimitPrice() {
+        return goodsLimitPrice;
+    }
+
+    public void setGoodsLimitPrice(String goodsLimitPrice) {
+        this.goodsLimitPrice = goodsLimitPrice;
+    }
+
+    public long getActStartTime() {
+        return actStartTime;
+    }
+
+    public void setActStartTime(long actStartTime) {
+        this.actStartTime = actStartTime;
+    }
+
+    public long getActEndTime() {
+        return actEndTime;
+    }
+
+    public void setActEndTime(long actEndTime) {
+        this.actEndTime = actEndTime;
+    }
+
+    public long getGoStartTime() {
+        return goStartTime;
+    }
+
+    public void setGoStartTime(long goStartTime) {
+        this.goStartTime = goStartTime;
+    }
+
+    public long getGoEndTime() {
+        return goEndTime;
+    }
+
+    public void setGoEndTime(long goEndTime) {
+        this.goEndTime = goEndTime;
+    }
+
+    public String getGoodsOrigPrice() {
+        return goodsOrigPrice;
+    }
+
+    public void setGoodsOrigPrice(String goodsOrigPrice) {
+        this.goodsOrigPrice = goodsOrigPrice;
+    }
+
+    public String getGoodsCostPrice() {
+        return goodsCostPrice;
+    }
+
+    public void setGoodsCostPrice(String goodsCostPrice) {
+        this.goodsCostPrice = goodsCostPrice;
+    }
+
+    public String getTourDesc() {
+        return tourDesc;
+    }
+
+    public void setTourDesc(String tourDesc) {
+        this.tourDesc = tourDesc;
+    }
+
+    public String getGoRatio() {
+        return goRatio;
+    }
+
+    public void setGoRatio(String goRatio) {
+        this.goRatio = goRatio;
+    }
+
+    public float getShopScore() {
+        return shopScore;
+    }
+
+    public void setShopScore(float shopScore) {
+        this.shopScore = shopScore;
+    }
+
+    public String getGoodsScore() {
+        return goodsScore;
+    }
+
+    public void setGoodsScore(String goodsScore) {
+        this.goodsScore = goodsScore;
     }
 }

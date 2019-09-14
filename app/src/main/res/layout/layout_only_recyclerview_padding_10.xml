@@ -14,7 +14,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/global_bg_color"
-            android:overScrollMode="never" />
+            android:overScrollMode="never"
+            android:paddingLeft="@dimen/common_padding_left"
+            android:paddingRight="@dimen/common_padding_left"
+            android:paddingBottom="10dp" />
 
     </com.scwang.smartrefresh.layout.SmartRefreshLayout>
 </LinearLayout>

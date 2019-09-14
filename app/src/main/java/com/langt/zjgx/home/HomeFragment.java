@@ -19,6 +19,7 @@ import com.langt.zjgx.adapter.RecycleViewDivider;
 import com.langt.zjgx.adapter.ShopAdapter;
 import com.langt.zjgx.base.BaseFragment;
 import com.langt.zjgx.base.Constant;
+import com.langt.zjgx.home.fragment.HomeRecommendGoodsListFragment;
 import com.langt.zjgx.home.presenter.HomePresenter;
 import com.langt.zjgx.home.view.IHomeView;
 import com.langt.zjgx.message.ui.activity.MessageActivity;
@@ -27,14 +28,14 @@ import com.langt.zjgx.model.HomePageBean;
 import com.langt.zjgx.model.ShopBean;
 import com.langt.zjgx.search.SearchActivity;
 import com.langt.zjgx.shop.ShopDetailActivity;
-import com.langt.zjgx.ui.GoodsListFragment;
 import com.langt.zjgx.utils.ActivityUtils;
 import com.langt.zjgx.utils.GlideUtils;
 import com.langt.zjgx.utils.ListUtil;
-import com.langt.zjgx.utils.LogUtils;
 import com.langt.zjgx.widget.banner.BannerAdapter;
 import com.langt.zjgx.widget.banner.BannerLayout;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
+import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 
 import net.lucode.hackware.magicindicator.MagicIndicator;
 import net.lucode.hackware.magicindicator.ViewPagerHelper;
@@ -46,7 +47,8 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class HomeFragment extends BaseFragment<HomePresenter> implements IHomeView {
+public class HomeFragment extends BaseFragment<HomePresenter>
+        implements IHomeView, OnRefreshListener {
 
     @BindView(R.id.refreshLayout)
     SmartRefreshLayout refreshLayout;
@@ -96,11 +98,12 @@ public class HomeFragment extends BaseFragment<HomePresenter> implements IHomeVi
     @Override
     public void initView(View view) {
         initAppBarStatus();
+        refreshLayout.setEnableLoadMore(false);
+        refreshLayout.setOnRefreshListener(this);
         mBannerAdapter = new BannerAdapter<Banner>() {
             @Override
             protected void bind(BannerAdapter.ViewHolder holder, Banner data) {
                 String picUrl = data.getPicture();
-                LogUtils.i("轮播图图片地址：" + picUrl);
                 GlideUtils.loadImage(HomeFragment.this, picUrl, holder.ivBannerItem);
             }
         };
@@ -117,10 +120,10 @@ public class HomeFragment extends BaseFragment<HomePresenter> implements IHomeVi
         commonNavigator.setAdapter(myCommonNavigatorAdapter);
         commonNavigator.setAdjustMode(true);
         magicIndicator.setNavigator(commonNavigator);
-        mFragments.add(GoodsListFragment.newInstance(Constant.HomeGoodsListOrderType.type_order));
-        mFragments.add(GoodsListFragment.newInstance(Constant.HomeGoodsListOrderType.type_distance));
-        mFragments.add(GoodsListFragment.newInstance(Constant.HomeGoodsListOrderType.type_star_level));
-        mFragments.add(GoodsListFragment.newInstance(Constant.HomeGoodsListOrderType.type_favorable_rate));
+        mFragments.add(HomeRecommendGoodsListFragment.newInstance(Constant.HomeGoodsListOrderType.type_order));
+        mFragments.add(HomeRecommendGoodsListFragment.newInstance(Constant.HomeGoodsListOrderType.type_distance));
+        mFragments.add(HomeRecommendGoodsListFragment.newInstance(Constant.HomeGoodsListOrderType.type_star_level));
+        mFragments.add(HomeRecommendGoodsListFragment.newInstance(Constant.HomeGoodsListOrderType.type_favorable_rate));
         mVuPagerAdapter = new MainFragmentVuPagerAdapter(getFragmentManager(), mFragments);
         viewPager.setAdapter(mVuPagerAdapter);
         ViewPagerHelper.bind(magicIndicator, viewPager);
@@ -139,6 +142,11 @@ public class HomeFragment extends BaseFragment<HomePresenter> implements IHomeVi
                 startActivity(new Intent(getActivity(), ShopDetailActivity.class));
             }
         });
+    }
+
+    @Override
+    public void onRefresh(@NonNull RefreshLayout refreshLayout) {
+        presenter.getHomePageInfo();
     }
 
     /**

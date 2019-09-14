@@ -71,6 +71,8 @@
     <string name="goods_list_xianshiqianggou_ing">正在抢购</string>
     <string name="goods_list_xianshiqianggou_comming_soon">即将开始</string>
     <string name="goods_list_xianshiqianggou_has_sale">已售：%1$s</string>
+    <string name="goods_list_shop_distance">距离：%1$s</string>
+    <string name="goods_list_shop_favorable_rate">好评率：%1$s</string>
     <string name="goods_list_xianshiqianggou_distance_end">距离结束:</string>
 
     <string name="shop_name">店铺</string>

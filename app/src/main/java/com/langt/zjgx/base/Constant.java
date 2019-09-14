@@ -48,19 +48,19 @@ public class Constant {
         /**
          * 订单量
          */
-        String type_order = "type_order";
+        String type_order = "0";
         /**
          * 距离
          */
-        String type_distance = "type_distance";
+        String type_distance = "1";
         /**
          * 星级
          */
-        String type_star_level = "type_star_level";
+        String type_star_level = "2";
         /**
          * 好评率
          */
-        String type_favorable_rate = "type_favorable_rate";
+        String type_favorable_rate = "3";
         /**
          * 搜索结果
          */

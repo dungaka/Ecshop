@@ -3,6 +3,7 @@ package com.langt.zjgx.adapter;
 import android.graphics.Paint;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.AppCompatRatingBar;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -43,33 +44,35 @@ public class HomeRecommendGoodsAdapter extends BaseQuickAdapter<GoodsBean, BaseV
         // 原价
         TextView tv_goods_original_price = helper.getView(R.id.tv_goods_original_price);
         tv_goods_original_price.getPaint().setFlags(Paint.STRIKE_THRU_TEXT_FLAG);
-        tv_goods_original_price.setText(mContext.getString(R.string.goods_price, "19.00"));
+        if (!TextUtils.isEmpty(item.getGoodsOrigPrice())) {
+            tv_goods_original_price.setText(mContext.getString(R.string.goods_price, item.getGoodsOrigPrice()));
+        }
         // 距离
         TextView tv_distance = helper.getView(R.id.tv_distance);
-        tv_distance.setText("距离：2.0km");
         // 已售
         TextView tv_goods_sale_count = helper.getView(R.id.tv_goods_sale_count);
-        tv_goods_sale_count.setText("已售：23659");
         // 好评率
         TextView tv_favorable_rate = helper.getView(R.id.tv_favorable_rate);
-        tv_favorable_rate.setText("好评率：80%");
         // 评级
         LinearLayout ll_pingji = helper.getView(R.id.ll_pingji);
         AppCompatRatingBar ratingBar = helper.getView(R.id.ratingBar);
-        ratingBar.setRating(4);
 
         switch (type) {
             case Constant.HomeGoodsListOrderType.type_order:
                 tv_goods_sale_count.setVisibility(View.VISIBLE);
+                tv_goods_sale_count.setText(mContext.getString(R.string.goods_list_xianshiqianggou_has_sale, String.valueOf(item.getGoodsSales())));
                 break;
             case Constant.HomeGoodsListOrderType.type_distance:
                 tv_distance.setVisibility(View.VISIBLE);
+                tv_distance.setText(mContext.getString(R.string.goods_list_shop_distance, item.getShopDistance()));
                 break;
             case Constant.HomeGoodsListOrderType.type_star_level:
                 ll_pingji.setVisibility(View.VISIBLE);
+                ratingBar.setRating(item.getShopScore() * 5);
                 break;
             case Constant.HomeGoodsListOrderType.type_favorable_rate:
                 tv_favorable_rate.setVisibility(View.VISIBLE);
+                tv_favorable_rate.setText(mContext.getString(R.string.goods_list_shop_favorable_rate,item.getGoodsScore()));
                 break;
             case Constant.HomeGoodsListOrderType.type_search:
                 tv_price_right_distance.setVisibility(View.VISIBLE);

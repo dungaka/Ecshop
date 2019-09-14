@@ -10,6 +10,7 @@ import com.langt.zjgx.login.model.UserLoginBean;
 import com.langt.zjgx.mine.model.MyAddrListBean;
 import com.langt.zjgx.mine.model.MyCollectListBean;
 import com.langt.zjgx.model.HomePageBean;
+import com.langt.zjgx.model.HomeRecommendGoodsBean;
 import com.langt.zjgx.search.model.HotSearchListResultModel;
 import com.langt.zjgx.utils.CoreLib;
 import com.langt.zjgx.utils.GsonUtils;
@@ -161,9 +162,19 @@ public class HttpClient {
     }
 
     /**
+     * 2.3 首页推荐商品
+     */
+    public Observable<HomeRecommendGoodsBean> getHomeRecommendGoodsList(String flag, int nowPage) {
+        Map<String, Object> params = getCommonMap("getRecomGoodsList");
+        params.put("flag", flag);
+        params.put("lng", CoreLib.getLongitude());
+        params.put("lat", CoreLib.getLatitude());
+        params.put("nowPage", nowPage);
+        return getApi().getHomeRecommendGoodsList(toJson(params));
+    }
+
+    /**
      * 2.4 获取热门搜索列表
-     *
-     * @return
      */
     public Observable<HotSearchListResultModel> getHotSearchList() {
         Map<String, Object> params = getCommonMap("getRecomSkeyList");
@@ -194,9 +205,10 @@ public class HttpClient {
 
     /**
      * 获取通用map，包含用户id
+     *
      * @param cmdMethod 接口名称
      */
-    private static Map<String,Object> getCommonMap(String cmdMethod){
+    private static Map<String, Object> getCommonMap(String cmdMethod) {
         Map<String, Object> params = new HashMap<>();
         params.put("cmd", cmdMethod);
         params.put("userId", CoreLib.getUserId());
