@@ -3,6 +3,17 @@ package com.langt.zjgx.base;
 public class Constant {
     public static  final String  BASE_URL = "https://shop.zjguangxuan.com";
 
+    public interface SpConstant{
+        /**
+         * 搜索页面-搜索历史保存的关键字
+         */
+        String GOODS_SEARCH_KEY = "goodsSearchKey";
+        String KEY_USER_ID = "key_user_id";
+        String KEY_CITY_ID = "key_city_id";
+        String KEY_LONGITUDE = "key_longitude";
+        String KEY_LATITUDE = "key_latitude";
+    }
+
     /**
      * 首页-推荐商品类型常量
      */

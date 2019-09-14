@@ -1,12 +1,10 @@
 package com.langt.zjgx;
 
 import android.app.Application;
-import android.text.TextUtils;
 import android.util.Log;
 
 import com.langt.zjgx.utils.LogUtils;
-import com.langt.zjgx.utils.carsh.IHandlerException;
-import com.langt.zjgx.utils.carsh.OnExceptionCallBack;
+import com.langt.zjgx.utils.Utils;
 import com.langt.zjgx.utils.carsh.SecyrityCrash;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.footer.ClassicsFooter;
@@ -15,7 +13,6 @@ import com.tencent.imsdk.TIMMessage;
 import com.tencent.imsdk.session.SessionWrapper;
 import com.tencent.qcloud.tim.uikit.TUIKit;
 import com.tencent.qcloud.tim.uikit.base.IMEventListener;
-
 
 import java.util.List;
 
@@ -41,6 +38,7 @@ public class EcShopApplication extends Application {
         initLocation();
         initTIM();
         initBugly();
+        Utils.init(this);
     }
 
 

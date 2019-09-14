@@ -1,19 +1,21 @@
 package com.langt.zjgx.base;
 
+import android.text.TextUtils;
+
 /**
  * Created by Hao on 2019/5/15.
  * Describe
  */
 public class BaseBean {
 
-    private int result;
+    private String result;
     private String resultNote;
 
-    public int getResult() {
+    public String getResult() {
         return result;
     }
 
-    public void setResult(int result) {
+    public void setResult(String  result) {
         this.result = result;
     }
 
@@ -26,7 +28,7 @@ public class BaseBean {
     }
 
     public boolean isSuccess() {
-        return 0 == result;
+        return TextUtils.equals("0",result);
     }
 
     @Override

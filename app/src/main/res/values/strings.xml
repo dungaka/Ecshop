@@ -24,6 +24,7 @@
     <string name="category_title">分&#160;&#160;类</string>
 
     <string name="search_hint">请输入要搜索的商品</string>
+    <string name="home_search_hint">关键词搜索</string>
     <string name="search_order_is_hot">热销</string>
     <string name="search_order_price">价格</string>
 

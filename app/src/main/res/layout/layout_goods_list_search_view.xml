@@ -10,6 +10,7 @@
         android:layout_marginLeft="@dimen/common_padding_left"
         android:layout_marginRight="@dimen/common_padding_left"
         android:drawableRight="@drawable/ic_search_gray"
+        android:imeOptions="actionSearch"
         android:drawablePadding="10dp"
         android:hint="@string/manjian_search_input_hint"
         android:paddingLeft="20dp"

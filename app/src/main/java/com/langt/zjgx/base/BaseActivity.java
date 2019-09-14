@@ -3,13 +3,17 @@ package com.langt.zjgx.base;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.IBinder;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.langt.zjgx.R;
-import com.langt.zjgx.utils.ScreenUtils;
+import com.langt.zjgx.utils.LogUtils;
 import com.langt.zjgx.widget.LoadingDialog;
 
 import butterknife.ButterKnife;
@@ -32,6 +36,7 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
     public abstract void initView();
 
     public void onErrorCode(BaseBean baseModel) {
+        LogUtils.i("请求失败："+baseModel);
     }
 
     protected void onCreate(Bundle bundle) {
@@ -96,5 +101,44 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
         intent.putExtras(bundle);
         startActivity(intent);
     }
+
+    /**
+     * 隐藏软键盘
+     */
+    public void hideSoftKeyboard() {
+        try {
+            View view = getCurrentFocus();
+            if (view != null) {
+                IBinder binder = view.getWindowToken();
+                InputMethodManager manager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                manager.hideSoftInputFromWindow(binder, InputMethodManager.HIDE_NOT_ALWAYS);
+            }
+        } catch (Exception e) {
+            Log.w(BaseActivity.class.getSimpleName(), "hideSoftKeyboard: ", e);
+        }
+    }
+
+    /**
+     * 显示软键盘
+     *
+     * @param editText
+     */
+    public void showSoftKeyboard(EditText editText) {
+        try {
+            if (editText != null) {
+                editText.requestFocus();
+                InputMethodManager manager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                manager.showSoftInput(editText, 0);
+            }
+        } catch (Exception e) {
+            Log.w(BaseActivity.class.getSimpleName(), "showSoftKeyboard: ", e);
+        }
+    }
+    @Override
+    protected void onPause() {
+        super.onPause();
+        hideSoftKeyboard();
+    }
+
 
 }

@@ -6,12 +6,16 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/size_45"
         android:background="@color/colortheme"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
         android:paddingLeft="15dp"
-        android:paddingRight="15dp">
+        android:paddingTop="7dp"
+        android:paddingRight="15dp"
+        android:paddingBottom="7dp">
 
         <LinearLayout
             android:id="@+id/ll_location"
@@ -36,28 +40,21 @@
                 android:textSize="14sp" />
         </LinearLayout>
 
+        <include
+            android:id="@+id/layout_search"
+            layout="@layout/layout_home_search"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
         <ImageView
             android:id="@+id/iv_message"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
             android:layout_marginLeft="8dp"
             android:src="@mipmap/ic_message" />
 
-
-        <com.langt.zjgx.widget.SimpleSearchView
-            android:id="@+id/search_view"
-            android:layout_width="240dp"
-            android:layout_height="30dp"
-            android:layout_centerInParent="true"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            android:layout_toLeftOf="@id/iv_message"
-            android:layout_toRightOf="@id/ll_location"
-            android:gravity="center" />
-
-    </RelativeLayout>
+    </LinearLayout>
 
 
     <com.scwang.smartrefresh.layout.SmartRefreshLayout
@@ -123,9 +120,9 @@
                             android:layout_height="match_parent"
                             android:background="@color/color_f6"
                             android:overScrollMode="never"
-                            android:scrollbars="none"
                             android:paddingLeft="15dp"
                             android:paddingRight="15dp"
+                            android:scrollbars="none"
                             android:visibility="visible"
                             tools:listitem="@layout/item_goodshop" />
 

@@ -1,6 +1,8 @@
 package com.langt.zjgx.ui;
 
+import android.os.Bundle;
 import android.support.annotation.IdRes;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -10,15 +12,16 @@ import com.chaychan.library.BottomBarLayout;
 import com.langt.zjgx.R;
 import com.langt.zjgx.base.BaseActivity;
 import com.langt.zjgx.base.BasePresenter;
-import com.langt.zjgx.category.CategoryFragment;
 import com.langt.zjgx.cart.CartFragment;
+import com.langt.zjgx.category.CategoryFragment;
 import com.langt.zjgx.home.HomeFragment;
 import com.langt.zjgx.mine.MineFragment;
 import com.langt.zjgx.nearby.NearbyFragment;
 
 import butterknife.BindView;
 
-public class EcShopMainActivity extends BaseActivity  {
+public class EcShopMainActivity extends BaseActivity {
+    private static final String KEY_CURRENT_TAB_POSITION = "key_current_tab_position";
 
     @BindView(R.id.bbl)
     BottomBarLayout bottomBarLayout;
@@ -33,6 +36,7 @@ public class EcShopMainActivity extends BaseActivity  {
 
     // 当前正在显示的Fragment
     private Fragment mCurrentFragment;
+    private int mCurrentPosition;
 
     @Override
     protected BasePresenter createPresenter() {
@@ -60,6 +64,7 @@ public class EcShopMainActivity extends BaseActivity  {
     }
 
     public void onTabSelected(@IdRes int tabId) {
+        this.mCurrentPosition = tabId;
         switch (tabId) {
             case 0:
                 if (mHomeFragment == null) mHomeFragment = HomeFragment.newInstance();
@@ -87,7 +92,8 @@ public class EcShopMainActivity extends BaseActivity  {
         }
     }
 
-    @Override public void onBackPressed() {
+    @Override
+    public void onBackPressed() {
         if (mCurrentFragment != mHomeFragment) {
             // 如果不是在HomeFragment, 则按返回键回到HomeFragment
             bottomBarLayout.setCurrentItem(0);
@@ -137,4 +143,16 @@ public class EcShopMainActivity extends BaseActivity  {
         mMineFragment = (MineFragment) manager.findFragmentByTag(MineFragment.class.getName());
     }
 
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt(KEY_CURRENT_TAB_POSITION, mCurrentPosition);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        mCurrentPosition = savedInstanceState.getInt(KEY_CURRENT_TAB_POSITION, 0);
+        onTabSelected(mCurrentPosition);
+    }
 }

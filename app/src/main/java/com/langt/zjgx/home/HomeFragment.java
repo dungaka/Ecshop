@@ -24,8 +24,10 @@ import com.langt.zjgx.base.Constant;
 import com.langt.zjgx.home.model.Banner;
 import com.langt.zjgx.home.model.GoodsBean;
 import com.langt.zjgx.message.ui.activity.MessageActivity;
+import com.langt.zjgx.search.SearchActivity;
 import com.langt.zjgx.shop.ShopDetailActivity;
 import com.langt.zjgx.ui.GoodsListFragment;
+import com.langt.zjgx.utils.ActivityUtils;
 import com.langt.zjgx.widget.banner.BannerAdapter;
 import com.langt.zjgx.widget.banner.BannerLayout;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
@@ -163,9 +165,12 @@ public class HomeFragment extends BaseFragment {
 
     @OnClick({R.id.ll_promote_one, R.id.ll_promote_two, R.id.ll_promote_three,
             R.id.ll_promote_four, R.id.ll_promote_five, R.id.iv_message,
-            R.id.iv_event_image, R.id.tv_recommend_shop_more})
+            R.id.iv_event_image, R.id.tv_recommend_shop_more, R.id.layout_search})
     public void onClick(View view) {
         switch (view.getId()) {
+            case R.id.layout_search:
+                ActivityUtils.startActivity(SearchActivity.class);
+                break;
             case R.id.iv_message:
                 startActivity(new Intent(getActivity(), MessageActivity.class));
                 break;

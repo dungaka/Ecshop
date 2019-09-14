@@ -4,9 +4,12 @@ import android.text.TextUtils;
 import android.util.Log;
 
 import com.langt.zjgx.base.BaseBean;
+import com.langt.zjgx.goods.bean.MyGoodsListBean;
 import com.langt.zjgx.login.model.UserLoginBean;
 import com.langt.zjgx.mine.model.MyAddrListBean;
 import com.langt.zjgx.mine.model.MyCollectListBean;
+import com.langt.zjgx.search.model.HotSearchListResultModel;
+import com.langt.zjgx.utils.CoreLib;
 import com.langt.zjgx.utils.GsonUtils;
 
 import java.util.HashMap;
@@ -127,6 +130,55 @@ public class HttpClient {
         params.put("fdTitle", fdTitle);
         params.put("fdContent", fdContent);
         return getApi().feedBack(toJson(params));
+    }
+
+    /**
+     * 2.0 获取热门搜索列表
+     *
+     * @return
+     */
+    public Observable<HotSearchListResultModel> getLocationCity(String province, String city) {
+        Map<String, Object> params = new HashMap<>();
+        params.put("cmd", "getRecomSkeyList");
+        params.put("province", province);
+        params.put("city", city);
+        return getApi().getHotSearchList(toJson(params));
+    }
+
+    /**
+     * 2.4 获取热门搜索列表
+     *
+     * @return
+     */
+    public Observable<HotSearchListResultModel> getHotSearchList() {
+        Map<String, Object> params = new HashMap<>();
+        params.put("cmd", "getRecomSkeyList");
+        params.put("userId", CoreLib.getUserId());
+        return getApi().getHotSearchList(toJson(params));
+    }
+
+    /**
+     * 2.5 获取商品列表
+     * {
+     * cmd:"searchGoodsList"
+     * userId:"5"   //用户id
+     * cityId:""       //城市id
+     * lng:""          //地理经度
+     * lat:""          //地理纬度
+     * searchKey:""    //搜索关键字
+     * nowPage:””
+     * }
+     */
+    public Observable<MyGoodsListBean> searchGoodsList(String key, int nowPage) {
+        Map<String, Object> params = new HashMap<>();
+        params.put("cmd", "searchGoodsList");
+        params.put("cityId", CoreLib.getCityId());
+        params.put("lng", CoreLib.getLongitude());
+        params.put("lat", CoreLib.getLatitude());
+        params.put("key", key);
+        params.put("nowPage", String.valueOf(nowPage));
+        params.put("userId", CoreLib.getUserId());
+        return getApi().searchGoodsList(toJson(params));
     }
 
     private static ApiServer getApi() {

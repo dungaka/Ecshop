@@ -7,7 +7,6 @@ import java.util.concurrent.TimeUnit;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -47,7 +46,7 @@ public class ApiRetrofit {
                     .retryOnConnectionFailure(true)//重连
 //                    .addInterceptor(new HttpLoggingInterceptor())
 //                    .addNetworkInterceptor(interceptor)//添加header
-                    .addNetworkInterceptor(new HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BASIC));//网络请求日志
+                    .addNetworkInterceptor(new HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY));//网络请求日志
         }
         return mOkHttpClient.build();
     }

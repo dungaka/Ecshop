@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/white"
+    tools:context=".search.SearchActivity"
+    android:orientation="vertical">
+
+    <com.langt.zjgx.widget.CommonTitle
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:showBack="true"
+        app:titleCenter="@string/action_search" />
+
+    <include
+        layout="@layout/layout_goods_list_search_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start|center_vertical"
+        android:layout_margin="12dp"
+        android:text="热搜推荐"
+        android:textColor="@color/global_text_color"
+        android:textSize="15sp" />
+
+    <com.langt.zjgx.widget.flowlayout.TagFlowLayout
+        android:id="@+id/tag_flow_hot_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        app:max_select="1" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start|center_vertical"
+            android:text="历史搜索"
+            android:textColor="@color/global_text_color"
+            android:textSize="15sp" />
+
+
+        <TextView
+            android:id="@+id/tv_clear_all_history"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|center_vertical"
+            android:padding="4dp"
+            android:text="全部删除"
+            android:textColor="@color/global_middle_text_color"
+            android:textSize="12sp" />
+
+    </FrameLayout>
+
+    <com.langt.zjgx.widget.flowlayout.TagFlowLayout
+        android:id="@+id/tag_flow_search_history"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        app:max_select="1" />
+</LinearLayout>

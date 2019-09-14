@@ -93,6 +93,9 @@
     <style name="SearchViewStyle">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
+        <item name="android:lines">1</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:singleLine">true</item>
         <item name="android:paddingLeft">@dimen/common_padding_left</item>
         <item name="android:paddingRight">@dimen/common_padding_left</item>
         <item name="android:paddingTop">10dp</item>
@@ -137,5 +140,11 @@
     <style name="AnimBottom" parent="@android:style/Animation">
         <item name="android:windowEnterAnimation">@anim/in_from_bottom</item>
         <item name="android:windowExitAnimation">@anim/out_to_bottom</item>
+    </style>
+
+    <style name="Dialog" parent="android:style/Theme.Holo.DialogWhenLarge">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
     </style>
 </resources>
