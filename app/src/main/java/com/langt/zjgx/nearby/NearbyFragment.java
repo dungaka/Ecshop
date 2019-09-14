@@ -11,7 +11,7 @@ import com.langt.zjgx.R;
 import com.langt.zjgx.adapter.MainFragmentVuPagerAdapter;
 import com.langt.zjgx.base.BaseFragment;
 import com.langt.zjgx.base.BasePresenter;
-import com.langt.zjgx.home.model.GoodsBean;
+import com.langt.zjgx.base.Constant;
 import com.langt.zjgx.ui.GoodsListFragment;
 import com.langt.zjgx.utils.DisplayUtil;
 
@@ -22,7 +22,6 @@ import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.CommonNav
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.IPagerIndicator;
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.IPagerTitleView;
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.indicators.LinePagerIndicator;
-import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.ColorTransitionPagerTitleView;
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.SimplePagerTitleView;
 
 import java.util.ArrayList;
@@ -70,10 +69,10 @@ public class NearbyFragment extends BaseFragment {
         commonNavigator.setAdjustMode(true);
         magicIndicator.setNavigator(commonNavigator);
         mFragments.clear();
-        mFragments.add(GoodsListFragment.newInstance("order"));
-        mFragments.add(GoodsListFragment.newInstance("distance"));
-        mFragments.add(GoodsListFragment.newInstance("star"));
-        mFragments.add(GoodsListFragment.newInstance("rank"));
+        mFragments.add(GoodsListFragment.newInstance(Constant.HomeGoodsListOrderType.type_order));
+        mFragments.add(GoodsListFragment.newInstance(Constant.HomeGoodsListOrderType.type_distance));
+        mFragments.add(GoodsListFragment.newInstance(Constant.HomeGoodsListOrderType.type_star_level));
+        mFragments.add(GoodsListFragment.newInstance(Constant.HomeGoodsListOrderType.type_favorable_rate));
         MainFragmentVuPagerAdapter mVuPagerAdapter = new MainFragmentVuPagerAdapter(getChildFragmentManager(), mFragments);
         viewPager.setAdapter(mVuPagerAdapter);
         ViewPagerHelper.bind(magicIndicator, viewPager);

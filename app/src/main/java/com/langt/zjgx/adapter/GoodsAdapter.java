@@ -35,7 +35,7 @@ public class GoodsAdapter extends BaseQuickAdapter<GoodsBean, BaseViewHolder> {
     protected void convert(@NonNull BaseViewHolder helper, GoodsBean item) {
         helper.setText(R.id.tv_distance,item.getDistance());
         helper.setText(R.id.tv_goods_name,item.getGoodsInfo());
-        helper.setText(R.id.tv_price,item.getGoodsPrice());
+        helper.setText(R.id.tv_goods_price,item.getGoodsPrice());
 
         helper.getView(R.id.rootView).setOnClickListener(new View.OnClickListener() {
             @Override

@@ -1,13 +1,18 @@
 package com.langt.zjgx.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.view.View;
 
+import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.langt.zjgx.R;
-import com.langt.zjgx.adapter.GoodsAdapter;
+import com.langt.zjgx.adapter.HomeRecommendGoodsAdapter;
 import com.langt.zjgx.base.BaseFragment;
 import com.langt.zjgx.base.BasePresenter;
+import com.langt.zjgx.base.Constant;
+import com.langt.zjgx.goods.GoodsDetailActivity;
 import com.langt.zjgx.home.model.GoodsBean;
 
 import java.util.ArrayList;
@@ -23,7 +28,8 @@ public class GoodsListFragment extends BaseFragment {
     RecyclerView recyclerView;
     private String type;
 
-    protected List<GoodsBean> list = new ArrayList<>();
+    protected List<GoodsBean> list;
+    private HomeRecommendGoodsAdapter adapter;
 
     @Override
     protected BasePresenter createPresenter() {
@@ -39,43 +45,48 @@ public class GoodsListFragment extends BaseFragment {
     public static GoodsListFragment newInstance(String type) {
 
         Bundle args = new Bundle();
-        args.putString(TYPE,type);
+        args.putString(TYPE, type);
         GoodsListFragment fragment = new GoodsListFragment();
         fragment.setArguments(args);
         return fragment;
     }
 
     @Override
+    public void initView(View view) {
+        super.initView(view);
+        if (getArguments() != null) {
+            type = getArguments().getString(TYPE, "order");
+        }
+        recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
+        list = new ArrayList<>();
+        adapter = new HomeRecommendGoodsAdapter(list, type);
+        recyclerView.setAdapter(adapter);
+        adapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                startActivity(new Intent(getActivity(), GoodsDetailActivity.class));
+            }
+        });
+    }
+
+    @Override
     public void initData() {
         super.initData();
-        type = getArguments().getString(TYPE,"");
-        createGoods();
-
-
+        for (int i = 0; i < 5; i++) {
+            list.add(new GoodsBean(""));
+        }
         resetView();
-//        HomeAdapter adapter = new HomeAdapter(R.layout.item_goodshop,list);
-//        recyclerView.setAdapter(adapter);
     }
 
     private void resetView() {
-        switch (type){
-            case "order":
-            case "distance":
-            case "star":
-            case "rank":
-                recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
-                GoodsAdapter adapter = new GoodsAdapter(R.layout.item_goods_grid,list);
-                adapter.setEnableLoadMore(true);
-                recyclerView.setAdapter(adapter);
+        switch (type) {
+            case Constant.HomeGoodsListOrderType.type_order:
+            case Constant.HomeGoodsListOrderType.type_distance:
+            case Constant.HomeGoodsListOrderType.type_star_level:
+            case Constant.HomeGoodsListOrderType.type_favorable_rate:
+            default:
+                adapter.notifyDataSetChanged();
                 break;
         }
     }
-
-    private void createGoods(){
-        for (int i = 0; i < 9 ; i++) {
-            GoodsBean bean = new GoodsBean(type+"露露欢乐超市","意大利进口乐福乸","129","162","1.29km");
-            list.add(bean);
-        }
-    }
-
 }

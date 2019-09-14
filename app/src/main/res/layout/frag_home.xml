@@ -42,6 +42,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
+            android:layout_marginLeft="8dp"
             android:src="@mipmap/ic_message" />
 
 
@@ -101,18 +102,19 @@
                                 android:layout_height="wrap_content"
                                 android:layout_centerInParent="true"
                                 android:text="—— 推荐好店 ——"
-                                android:textColor="@color/black"
+                                android:textColor="@color/global_text_color"
                                 android:textSize="18sp" />
 
                             <TextView
+                                android:id="@+id/tv_recommend_shop_more"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentRight="true"
                                 android:layout_centerVertical="true"
                                 android:layout_marginRight="10dp"
                                 android:text="更多 >"
-                                android:textColor="@color/black"
-                                android:textSize="14sp" />
+                                android:textColor="@color/global_text_color"
+                                android:textSize="12sp" />
                         </RelativeLayout>
 
                         <android.support.v7.widget.RecyclerView
@@ -121,6 +123,7 @@
                             android:layout_height="match_parent"
                             android:background="@color/color_f6"
                             android:overScrollMode="never"
+                            android:scrollbars="none"
                             android:paddingLeft="15dp"
                             android:paddingRight="15dp"
                             android:visibility="visible"

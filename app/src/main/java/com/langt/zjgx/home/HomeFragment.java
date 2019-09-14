@@ -20,6 +20,7 @@ import com.langt.zjgx.adapter.RecycleViewDivider;
 import com.langt.zjgx.adapter.ShopAdapter;
 import com.langt.zjgx.base.BaseFragment;
 import com.langt.zjgx.base.BasePresenter;
+import com.langt.zjgx.base.Constant;
 import com.langt.zjgx.home.model.Banner;
 import com.langt.zjgx.home.model.GoodsBean;
 import com.langt.zjgx.message.ui.activity.MessageActivity;
@@ -112,10 +113,10 @@ public class HomeFragment extends BaseFragment {
         commonNavigator.setAdapter(myCommonNavigatorAdapter);
         commonNavigator.setAdjustMode(true);
         magicIndicator.setNavigator(commonNavigator);
-        mFragments.add(GoodsListFragment.newInstance("order"));
-        mFragments.add(GoodsListFragment.newInstance("distance"));
-        mFragments.add(GoodsListFragment.newInstance("star"));
-        mFragments.add(GoodsListFragment.newInstance("rank"));
+        mFragments.add(GoodsListFragment.newInstance(Constant.HomeGoodsListOrderType.type_order));
+        mFragments.add(GoodsListFragment.newInstance(Constant.HomeGoodsListOrderType.type_distance));
+        mFragments.add(GoodsListFragment.newInstance(Constant.HomeGoodsListOrderType.type_star_level));
+        mFragments.add(GoodsListFragment.newInstance(Constant.HomeGoodsListOrderType.type_favorable_rate));
         mVuPagerAdapter = new MainFragmentVuPagerAdapter(getFragmentManager(), mFragments);
         viewPager.setAdapter(mVuPagerAdapter);
         ViewPagerHelper.bind(magicIndicator, viewPager);
@@ -161,11 +162,18 @@ public class HomeFragment extends BaseFragment {
     }
 
     @OnClick({R.id.ll_promote_one, R.id.ll_promote_two, R.id.ll_promote_three,
-            R.id.ll_promote_four, R.id.ll_promote_five, R.id.iv_message})
+            R.id.ll_promote_four, R.id.ll_promote_five, R.id.iv_message,
+            R.id.iv_event_image, R.id.tv_recommend_shop_more})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.iv_message:
                 startActivity(new Intent(getActivity(), MessageActivity.class));
+                break;
+            case R.id.iv_event_image:  // 中间的活动
+
+                break;
+            case R.id.tv_recommend_shop_more: // 推荐好店-更多
+
                 break;
             case R.id.ll_promote_one: // 多人拼
                 startActivity(new Intent(getActivity(), GroupPurchaseActivity.class));
@@ -186,7 +194,7 @@ public class HomeFragment extends BaseFragment {
     }
 
     private void createGoods() {
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < 3; i++) {
             GoodsBean bean = new GoodsBean("露露欢乐超市", "意大利进口乐福乸", "129", "162", "1.29km");
             list.add(bean);
         }
