@@ -22,5 +22,9 @@ public class CoreLib {
         return "34.72468";
     }
 
+    public static void setCityId(String cityId) {
+        SPStaticUtils.put(Constant.SpConstant.KEY_CITY_ID, cityId);
+    }
+
 
 }

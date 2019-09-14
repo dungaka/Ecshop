@@ -200,7 +200,7 @@ public class HomeFragment extends BaseFragment {
 
     private void createGoods() {
         for (int i = 0; i < 3; i++) {
-            GoodsBean bean = new GoodsBean("露露欢乐超市", "意大利进口乐福乸", "129", "162", "1.29km");
+            GoodsBean bean = new GoodsBean("");
             list.add(bean);
         }
     }

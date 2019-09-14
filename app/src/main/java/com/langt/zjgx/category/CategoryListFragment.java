@@ -3,7 +3,6 @@ package com.langt.zjgx.category;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
 
 import com.langt.zjgx.R;
 import com.langt.zjgx.adapter.GoodsAdapter;
@@ -64,7 +63,7 @@ public class CategoryListFragment extends BaseFragment {
 
     private void createGoods(String type){
         for (int i = 0; i < 9 ; i++) {
-            GoodsBean bean = new GoodsBean(type+"露露欢乐超市","意大利进口乐福乸","129","162","1.29km");
+            GoodsBean bean = new GoodsBean("");
             list.add(bean);
         }
     }

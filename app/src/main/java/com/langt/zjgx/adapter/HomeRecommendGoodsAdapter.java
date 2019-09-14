@@ -13,6 +13,7 @@ import com.chad.library.adapter.base.BaseViewHolder;
 import com.langt.zjgx.R;
 import com.langt.zjgx.base.Constant;
 import com.langt.zjgx.home.model.GoodsBean;
+import com.langt.zjgx.utils.GlideUtils;
 
 import org.raphets.roundimageview.RoundImageView;
 
@@ -32,11 +33,10 @@ public class HomeRecommendGoodsAdapter extends BaseQuickAdapter<GoodsBean, BaseV
     @Override
     protected void convert(@NonNull BaseViewHolder helper, GoodsBean item) {
         RoundImageView iv_goods_pic = helper.getView(R.id.iv_goods_pic);
-        helper.setText(R.id.tv_goods_name, "意大利进口乐芙娜手指饼干休闲零食");  // 商品名称
         // 抢购，拼团的标识图片
         ImageView tv_goods_event_flag = helper.getView(R.id.tv_goods_event_flag);
-        helper.setText(R.id.tv_goods_price, "129.0");  // 价格
-        helper.setText(R.id.tv_goods_unit, mContext.getString(R.string.goods_goods_unit, "件"));  // 单位
+        // 搜索结果 商品价格 右边的距离
+        TextView tv_price_right_distance = helper.getView(R.id.tv_price_right_distance);
         // 单买价
         TextView tv_single_buy_price = helper.getView(R.id.tv_single_buy_price);
         tv_single_buy_price.setText("单买价：￥19.00");
@@ -71,6 +71,17 @@ public class HomeRecommendGoodsAdapter extends BaseQuickAdapter<GoodsBean, BaseV
             case Constant.HomeGoodsListOrderType.type_favorable_rate:
                 tv_favorable_rate.setVisibility(View.VISIBLE);
                 break;
+            case Constant.HomeGoodsListOrderType.type_search:
+                tv_price_right_distance.setVisibility(View.VISIBLE);
+                break;
         }
+
+        GlideUtils.loadImage(mContext, item.getGoodsImg(), iv_goods_pic);
+        helper.setText(R.id.tv_goods_name, item.getGoodsName());  // 商品名称
+        helper.setText(R.id.tv_goods_price, item.getGoodsCurPrice());  // 价格
+        helper.setText(R.id.tv_goods_unit, mContext.getString(R.string.goods_goods_unit, item.getGoodsUnit()));  // 单位
+        tv_price_right_distance.setText(item.getShopDistance());  // 距离
+
+
     }
 }

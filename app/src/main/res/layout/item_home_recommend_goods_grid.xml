@@ -65,9 +65,21 @@
                 android:id="@+id/tv_goods_unit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="/件"
+                tools:text="/件"
                 android:textColor="@color/global_hint_text_color"
                 android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tv_price_right_distance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:layout_marginTop="5dp"
+                android:visibility="gone"
+                android:lines="1"
+                android:textColor="@color/global_hint_text_color"
+                android:textSize="12sp"
+                tools:text="2.0km" />
 
         </LinearLayout>
 

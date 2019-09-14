@@ -1,5 +1,6 @@
 package com.langt.zjgx.search;
 
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.text.TextUtils;
@@ -11,6 +12,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.langt.zjgx.R;
 import com.langt.zjgx.adapter.HomeRecommendGoodsAdapter;
 import com.langt.zjgx.base.BaseActivity;
+import com.langt.zjgx.base.Constant;
 import com.langt.zjgx.goods.GoodsDetailActivity;
 import com.langt.zjgx.home.model.GoodsBean;
 import com.langt.zjgx.search.presenter.SearchResultListPresenter;
@@ -18,6 +20,9 @@ import com.langt.zjgx.search.view.ISearchRersultListView;
 import com.langt.zjgx.utils.ActivityUtils;
 import com.langt.zjgx.utils.ToastUtils;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
+import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
+import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +33,8 @@ import butterknife.BindView;
  * 搜索结果展示页面
  */
 public class GoodsSearchResultListActivity extends BaseActivity<SearchResultListPresenter>
-        implements ISearchRersultListView, BaseQuickAdapter.OnItemClickListener {
+        implements ISearchRersultListView, BaseQuickAdapter.OnItemClickListener,
+        OnRefreshListener, OnLoadMoreListener {
     public static final String KEY_FROM_CONTENT = "key_from_content";
 
     @BindView(R.id.et_searchView)
@@ -62,7 +68,7 @@ public class GoodsSearchResultListActivity extends BaseActivity<SearchResultList
         }
 
         list = new ArrayList<>();
-        adapter = new HomeRecommendGoodsAdapter(list, "");
+        adapter = new HomeRecommendGoodsAdapter(list, Constant.HomeGoodsListOrderType.type_search);
         recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2,
                 StaggeredGridLayoutManager.VERTICAL));
         recyclerView.setAdapter(adapter);
@@ -74,24 +80,42 @@ public class GoodsSearchResultListActivity extends BaseActivity<SearchResultList
                 if (TextUtils.isEmpty(mSearchKey)) {
                     ToastUtils.showShort("搜索内容不能为空");
                 } else {
+                    nowPage = 1;
                     searchGoodsListWithKey();
                 }
+                hideSoftKeyboard();
                 return true;
             }
             return false;
         });
+
+        refreshLayout.setOnLoadMoreListener(this);
+        refreshLayout.setOnRefreshListener(this);
 
     }
 
     @Override
     public void initData() {
         super.initData();
+        showLoading();
         searchGoodsListWithKey();
     }
 
     @Override
     public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
         ActivityUtils.startActivity(GoodsDetailActivity.class);
+    }
+
+    @Override
+    public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
+        nowPage++;
+        searchGoodsListWithKey();
+    }
+
+    @Override
+    public void onRefresh(@NonNull RefreshLayout refreshLayout) {
+        nowPage = 1;
+        searchGoodsListWithKey();
     }
 
     private void searchGoodsListWithKey() {
@@ -103,7 +127,11 @@ public class GoodsSearchResultListActivity extends BaseActivity<SearchResultList
 
     @Override
     public void onGetGoodsList(List<GoodsBean> goodsBeanList) {
-        list.clear();
+        if (nowPage == 1) {
+            list.clear();
+        }
+        refreshLayout.finishLoadMore();
+        refreshLayout.finishRefresh();
         if (goodsBeanList != null && goodsBeanList.size() > 0) {
             list.addAll(goodsBeanList);
         }

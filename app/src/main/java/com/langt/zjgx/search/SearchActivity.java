@@ -71,6 +71,7 @@ public class SearchActivity extends BaseActivity<SearchPresenter> implements ISe
                     saveSearchKey(mSearchKey);
                     toSearchResult(mSearchKey);
                 }
+                hideSoftKeyboard();
                 return true;
             }
             return false;
@@ -82,6 +83,8 @@ public class SearchActivity extends BaseActivity<SearchPresenter> implements ISe
         tagHotSearchAdapter = new MySearchHotKeyAdapter(this,tagFlowHotSearch,mHotSearchList);
         tagFlowHotSearch.setAdapter(tagHotSearchAdapter);
         tagFlowHotSearch.setOnTagClickListener((view, position, parent) -> {
+            mSearchKey = mHotSearchList.get(position);
+            saveSearchKey(mSearchKey);
             toSearchResult(mHotSearchList.get(position));
             return false;
         });
@@ -90,6 +93,8 @@ public class SearchActivity extends BaseActivity<SearchPresenter> implements ISe
         tagHistoryAdapter = new MySearchHotKeyAdapter(this,tagFlowHistory,historyList);
         tagFlowHistory.setAdapter(tagHistoryAdapter);
         tagFlowHistory.setOnTagClickListener((view, position, parent) -> {
+            mSearchKey = mHotSearchList.get(position);
+            saveSearchKey(mSearchKey);
             toSearchResult(historyList.get(position));
             return false;
         });

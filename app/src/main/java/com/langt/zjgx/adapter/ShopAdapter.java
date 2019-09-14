@@ -4,7 +4,6 @@ import android.support.annotation.NonNull;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
-import com.langt.zjgx.R;
 import com.langt.zjgx.home.model.GoodsBean;
 
 import java.util.List;
@@ -24,10 +23,5 @@ public class ShopAdapter extends BaseQuickAdapter<GoodsBean, BaseViewHolder> {
 
     @Override
     protected void convert(@NonNull BaseViewHolder helper, GoodsBean item) {
-        helper.setText(R.id.tv_shop_name,item.getShopName());
-        helper.setText(R.id.tv_distance,item.getDistance());
-        helper.setText(R.id.tv_goods_info,item.getGoodsInfo());
-        helper.setText(R.id.tv_goods_price,item.getGoodsPrice());
-        helper.setText(R.id.tv_sell_num,item.getSellNum());
     }
 }

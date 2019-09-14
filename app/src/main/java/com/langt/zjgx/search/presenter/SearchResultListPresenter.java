@@ -22,11 +22,12 @@ public class SearchResultListPresenter extends BasePresenter<ISearchRersultListV
         addDisposable(apiClient.searchGoodsList(key, nowPage), new BaseObserver<MyGoodsListBean>(baseView) {
             @Override
             public void onError(String str) {
-
+                baseView.hideLoading();
             }
 
             @Override
             public void onSuccess(MyGoodsListBean bean) {
+                baseView.hideLoading();
                 baseView.onGetGoodsList(bean.getGoodsList());
             }
         });

@@ -1,7 +1,6 @@
 package com.langt.zjgx.cart;
 
 import android.os.Bundle;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -74,7 +73,7 @@ public class CartFragment extends BaseFragment {
 
     private void createGoods(String type){
         for (int i = 0; i < 4 ; i++) {
-            GoodsBean bean = new GoodsBean(type+"露露欢乐超市","意大利进口乐福乸","129","162","1.29km");
+            GoodsBean bean = new GoodsBean("");
             list.add(bean);
         }
     }

@@ -12,7 +12,8 @@
     <ProgressBar
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:indeterminateDrawable="@drawable/loading_dialog_progressbar" />
+        android:indeterminate="true"
+        android:indeterminateTint="@color/global_red_color"/>
 
     <TextView
         android:id="@+id/id_tv_loading_dialog_text"

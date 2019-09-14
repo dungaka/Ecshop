@@ -34,5 +34,9 @@ public class Constant {
          * 好评率
          */
         String type_favorable_rate = "type_favorable_rate";
+        /**
+         * 搜索结果
+         */
+        String type_search = "type_search";
     }
 }

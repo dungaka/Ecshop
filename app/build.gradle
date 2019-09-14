@@ -76,7 +76,7 @@ dependencies {
     implementation 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:+'
     // 云通信
     implementation project(':tuikit')
-
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
 
 
 }

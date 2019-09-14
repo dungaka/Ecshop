@@ -37,6 +37,7 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
 
     public void onErrorCode(BaseBean baseModel) {
         LogUtils.i("请求失败："+baseModel);
+        hideLoading();
     }
 
     protected void onCreate(Bundle bundle) {

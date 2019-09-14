@@ -2,6 +2,7 @@ package com.langt.zjgx.server;
 
 import com.langt.zjgx.base.BaseBean;
 import com.langt.zjgx.goods.bean.MyGoodsListBean;
+import com.langt.zjgx.location.bean.CityIdBean;
 import com.langt.zjgx.login.model.UserLoginBean;
 import com.langt.zjgx.mine.model.MyAddrListBean;
 import com.langt.zjgx.mine.model.MyCollectListBean;
@@ -198,6 +199,8 @@ public interface ApiServer {
 
     @POST("service")
     Observable<HotSearchListResultModel> getHotSearchList(@Query("json") String json);
+    @POST("service")
+    Observable<CityIdBean> getLocationCityId(@Query("json") String json);
 
 
 }

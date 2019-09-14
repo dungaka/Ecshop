@@ -10,6 +10,7 @@ import java.util.List;
  */
 public class MyGoodsListBean extends BaseBean {
     private List<GoodsBean> goodsList;
+    private int totalPage;
 
     public List<GoodsBean> getGoodsList() {
         return goodsList;
@@ -19,10 +20,19 @@ public class MyGoodsListBean extends BaseBean {
         this.goodsList = goodsList;
     }
 
+    public int getTotalPage() {
+        return totalPage;
+    }
+
+    public void setTotalPage(int totalPage) {
+        this.totalPage = totalPage;
+    }
+
     @Override
     public String toString() {
-        return "GoodsListBean{" +
+        return "MyGoodsListBean{" +
                 "goodsList=" + goodsList +
+                ", totalPage=" + totalPage +
                 '}';
     }
 }

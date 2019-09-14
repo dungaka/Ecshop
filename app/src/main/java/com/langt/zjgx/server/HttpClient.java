@@ -5,6 +5,7 @@ import android.util.Log;
 
 import com.langt.zjgx.base.BaseBean;
 import com.langt.zjgx.goods.bean.MyGoodsListBean;
+import com.langt.zjgx.location.bean.CityIdBean;
 import com.langt.zjgx.login.model.UserLoginBean;
 import com.langt.zjgx.mine.model.MyAddrListBean;
 import com.langt.zjgx.mine.model.MyCollectListBean;
@@ -137,12 +138,12 @@ public class HttpClient {
      *
      * @return
      */
-    public Observable<HotSearchListResultModel> getLocationCity(String province, String city) {
+    public Observable<CityIdBean> getLocationCity(String province, String city) {
         Map<String, Object> params = new HashMap<>();
         params.put("cmd", "getRecomSkeyList");
         params.put("province", province);
         params.put("city", city);
-        return getApi().getHotSearchList(toJson(params));
+        return getApi().getLocationCityId(toJson(params));
     }
 
     /**
