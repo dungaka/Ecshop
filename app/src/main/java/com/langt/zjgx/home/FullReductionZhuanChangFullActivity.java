@@ -12,7 +12,7 @@ import com.langt.zjgx.base.BaseActivity;
 import com.langt.zjgx.base.BasePresenter;
 import com.langt.zjgx.goods.GoodsDetailActivity;
 import com.langt.zjgx.home.adapter.FullReductionListItemAdapter;
-import com.langt.zjgx.home.model.GoodsBean;
+import com.langt.zjgx.model.GoodsBean;
 
 import org.raphets.roundimageview.RoundImageView;
 

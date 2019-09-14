@@ -9,7 +9,7 @@ import com.langt.zjgx.R;
 import com.langt.zjgx.adapter.OrderListAdapter;
 import com.langt.zjgx.base.BaseFragment;
 import com.langt.zjgx.base.BasePresenter;
-import com.langt.zjgx.home.model.GoodsBean;
+import com.langt.zjgx.model.GoodsBean;
 import com.langt.zjgx.mine.model.OrderListBean;
 
 import java.util.ArrayList;

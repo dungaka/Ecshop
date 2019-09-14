@@ -1,4 +1,4 @@
-package com.langt.zjgx.home.model;
+package com.langt.zjgx.model;
 
 import com.google.gson.annotations.SerializedName;
 

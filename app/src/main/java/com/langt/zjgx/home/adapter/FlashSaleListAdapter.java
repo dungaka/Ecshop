@@ -7,7 +7,7 @@ import android.widget.TextView;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.langt.zjgx.R;
-import com.langt.zjgx.home.model.GoodsBean;
+import com.langt.zjgx.model.GoodsBean;
 import com.langt.zjgx.widget.SnapUpCountDownTimerView;
 
 import org.raphets.roundimageview.RoundImageView;

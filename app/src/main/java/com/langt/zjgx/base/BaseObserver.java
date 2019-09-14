@@ -1,6 +1,7 @@
 package com.langt.zjgx.base;
 
 import com.google.gson.JsonParseException;
+import com.langt.zjgx.utils.LogUtils;
 
 import org.json.JSONException;
 
@@ -34,6 +35,7 @@ public abstract class BaseObserver<T> extends DisposableObserver<T> {
     }
 
     public void onNext(T t) {
+        LogUtils.i("onNext: "+t);
         try {
             BaseBean baseModel = (BaseBean) t;
             if (baseModel.isSuccess()) {
@@ -48,6 +50,8 @@ public abstract class BaseObserver<T> extends DisposableObserver<T> {
     }
 
     public void onError(Throwable th) {
+        th.printStackTrace();
+        LogUtils.i("onError: "+th);
         if (th instanceof HttpException) {
             onException(BAD_NETWORK);
             return;

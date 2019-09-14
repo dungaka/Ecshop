@@ -1,7 +1,7 @@
 package com.langt.zjgx.goods.bean;
 
 import com.langt.zjgx.base.BaseBean;
-import com.langt.zjgx.home.model.GoodsBean;
+import com.langt.zjgx.model.GoodsBean;
 
 import java.util.List;
 

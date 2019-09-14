@@ -28,6 +28,8 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 
+import com.langt.zjgx.R;
+
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
@@ -278,13 +280,13 @@ public class StateView extends View {
         a.recycle();
 
         if (mEmptyResource == 0) {
-            mEmptyResource = R.layout.base_empty;
+            mEmptyResource = R.layout.layout_base_empty;
         }
         if (mRetryResource == 0) {
-            mRetryResource = R.layout.base_retry;
+            mRetryResource = R.layout.layout_base_retry;
         }
         if (mLoadingResource == 0) {
-            mLoadingResource = R.layout.base_loading;
+            mLoadingResource = R.layout.layout_base_loading;
         }
 
         if (attrs == null) {

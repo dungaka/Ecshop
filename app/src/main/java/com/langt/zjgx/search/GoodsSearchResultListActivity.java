@@ -14,7 +14,7 @@ import com.langt.zjgx.adapter.HomeRecommendGoodsAdapter;
 import com.langt.zjgx.base.BaseActivity;
 import com.langt.zjgx.base.Constant;
 import com.langt.zjgx.goods.GoodsDetailActivity;
-import com.langt.zjgx.home.model.GoodsBean;
+import com.langt.zjgx.model.GoodsBean;
 import com.langt.zjgx.search.presenter.SearchResultListPresenter;
 import com.langt.zjgx.search.view.ISearchRersultListView;
 import com.langt.zjgx.utils.ActivityUtils;

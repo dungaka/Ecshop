@@ -9,6 +9,7 @@ import com.langt.zjgx.location.bean.CityIdBean;
 import com.langt.zjgx.login.model.UserLoginBean;
 import com.langt.zjgx.mine.model.MyAddrListBean;
 import com.langt.zjgx.mine.model.MyCollectListBean;
+import com.langt.zjgx.model.HomePageBean;
 import com.langt.zjgx.search.model.HotSearchListResultModel;
 import com.langt.zjgx.utils.CoreLib;
 import com.langt.zjgx.utils.GsonUtils;
@@ -147,14 +148,25 @@ public class HttpClient {
     }
 
     /**
+     * 2.2 获取热门搜索列表
+     *
+     * @return
+     */
+    public Observable<HomePageBean> getHomePageInfo() {
+        Map<String, Object> params = getCommonMap("getMainInfo");
+        params.put("cityId", CoreLib.getCityId());
+        params.put("lng", CoreLib.getLongitude());
+        params.put("lat", CoreLib.getLatitude());
+        return getApi().getHomePageInfo(toJson(params));
+    }
+
+    /**
      * 2.4 获取热门搜索列表
      *
      * @return
      */
     public Observable<HotSearchListResultModel> getHotSearchList() {
-        Map<String, Object> params = new HashMap<>();
-        params.put("cmd", "getRecomSkeyList");
-        params.put("userId", CoreLib.getUserId());
+        Map<String, Object> params = getCommonMap("getRecomSkeyList");
         return getApi().getHotSearchList(toJson(params));
     }
 
@@ -171,15 +183,24 @@ public class HttpClient {
      * }
      */
     public Observable<MyGoodsListBean> searchGoodsList(String key, int nowPage) {
-        Map<String, Object> params = new HashMap<>();
-        params.put("cmd", "searchGoodsList");
+        Map<String, Object> params = getCommonMap("searchGoodsList");
         params.put("cityId", CoreLib.getCityId());
         params.put("lng", CoreLib.getLongitude());
         params.put("lat", CoreLib.getLatitude());
         params.put("key", key);
         params.put("nowPage", String.valueOf(nowPage));
-        params.put("userId", CoreLib.getUserId());
         return getApi().searchGoodsList(toJson(params));
+    }
+
+    /**
+     * 获取通用map，包含用户id
+     * @param cmdMethod 接口名称
+     */
+    private static Map<String,Object> getCommonMap(String cmdMethod){
+        Map<String, Object> params = new HashMap<>();
+        params.put("cmd", cmdMethod);
+        params.put("userId", CoreLib.getUserId());
+        return params;
     }
 
     private static ApiServer getApi() {

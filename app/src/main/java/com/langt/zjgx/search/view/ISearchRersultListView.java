@@ -1,7 +1,7 @@
 package com.langt.zjgx.search.view;
 
 import com.langt.zjgx.base.BaseView;
-import com.langt.zjgx.home.model.GoodsBean;
+import com.langt.zjgx.model.GoodsBean;
 
 import java.util.List;
 

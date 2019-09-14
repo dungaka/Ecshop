@@ -13,7 +13,7 @@ import com.langt.zjgx.base.BaseFragment;
 import com.langt.zjgx.base.BasePresenter;
 import com.langt.zjgx.base.Constant;
 import com.langt.zjgx.goods.GoodsDetailActivity;
-import com.langt.zjgx.home.model.GoodsBean;
+import com.langt.zjgx.model.GoodsBean;
 
 import java.util.ArrayList;
 import java.util.List;

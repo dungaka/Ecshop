@@ -6,6 +6,7 @@ import com.langt.zjgx.location.bean.CityIdBean;
 import com.langt.zjgx.login.model.UserLoginBean;
 import com.langt.zjgx.mine.model.MyAddrListBean;
 import com.langt.zjgx.mine.model.MyCollectListBean;
+import com.langt.zjgx.model.HomePageBean;
 import com.langt.zjgx.search.model.HotSearchListResultModel;
 
 import io.reactivex.Observable;
@@ -198,7 +199,11 @@ public interface ApiServer {
     Observable<MyCollectListBean> getMyCollectList(@Query("json") String json);
 
     @POST("service")
+    Observable<HomePageBean> getHomePageInfo(@Query("json") String json);
+
+    @POST("service")
     Observable<HotSearchListResultModel> getHotSearchList(@Query("json") String json);
+
     @POST("service")
     Observable<CityIdBean> getLocationCityId(@Query("json") String json);
 

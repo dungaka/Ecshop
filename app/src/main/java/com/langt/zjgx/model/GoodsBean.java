@@ -1,4 +1,4 @@
-package com.langt.zjgx.home.model;
+package com.langt.zjgx.model;
 
 import java.util.List;
 

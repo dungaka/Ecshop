@@ -8,7 +8,7 @@ import com.langt.zjgx.R;
 import com.langt.zjgx.base.BaseActivity;
 import com.langt.zjgx.base.BasePresenter;
 import com.langt.zjgx.home.adapter.DiscountCouponListItemAdapter;
-import com.langt.zjgx.home.model.DiscountCouponBean;
+import com.langt.zjgx.model.DiscountCouponBean;
 
 import java.util.ArrayList;
 import java.util.List;

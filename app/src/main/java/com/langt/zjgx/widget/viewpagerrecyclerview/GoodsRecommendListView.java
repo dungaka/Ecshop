@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import com.langt.zjgx.R;
 import com.langt.zjgx.goods.adapter.GoodsDetailRecommendListViewPager;
-import com.langt.zjgx.home.model.GoodsBean;
+import com.langt.zjgx.model.GoodsBean;
 
 import java.util.List;
 

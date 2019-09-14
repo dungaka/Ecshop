@@ -2,11 +2,13 @@ package com.langt.zjgx.base;
 
 import android.text.TextUtils;
 
+import java.io.Serializable;
+
 /**
  * Created by Hao on 2019/5/15.
  * Describe
  */
-public class BaseBean {
+public class BaseBean implements Serializable {
 
     private String result;
     private String resultNote;

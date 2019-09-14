@@ -13,7 +13,7 @@ import android.view.WindowManager;
 import android.widget.PopupWindow;
 
 import com.langt.zjgx.R;
-import com.langt.zjgx.home.model.GoodsBean;
+import com.langt.zjgx.model.GoodsBean;
 import com.langt.zjgx.shop.adapter.ShopHasChooseGoodsAdapter;
 import com.langt.zjgx.widget.DividerDecoration;
 

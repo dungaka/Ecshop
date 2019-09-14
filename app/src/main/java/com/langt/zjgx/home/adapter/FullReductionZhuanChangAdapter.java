@@ -13,8 +13,8 @@ import com.chad.library.adapter.base.BaseViewHolder;
 import com.langt.zjgx.R;
 import com.langt.zjgx.goods.GoodsDetailActivity;
 import com.langt.zjgx.home.FullReductionZhuanChangFullActivity;
-import com.langt.zjgx.home.model.GoodsBean;
-import com.langt.zjgx.home.model.ShopBean;
+import com.langt.zjgx.model.GoodsBean;
+import com.langt.zjgx.model.ShopBean;
 
 import org.raphets.roundimageview.RoundImageView;
 

@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.langt.zjgx.utils.LogUtils;
 import com.langt.zjgx.widget.LoadingDialog;
 
 import butterknife.ButterKnife;
@@ -35,6 +36,8 @@ public abstract class BaseFragment<P extends BasePresenter> extends Fragment imp
     }
 
     public void onErrorCode(BaseBean baseModel) {
+        LogUtils.i("请求失败："+baseModel);
+        hideLoading();
     }
 
     @Nullable

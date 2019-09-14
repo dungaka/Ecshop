@@ -8,7 +8,7 @@ import com.langt.zjgx.R;
 import com.langt.zjgx.base.BaseActivity;
 import com.langt.zjgx.base.BasePresenter;
 import com.langt.zjgx.home.adapter.FullReductionZhuanChangAdapter;
-import com.langt.zjgx.home.model.ShopBean;
+import com.langt.zjgx.model.ShopBean;
 import com.langt.zjgx.utils.ScreenUtils;
 
 import java.util.ArrayList;

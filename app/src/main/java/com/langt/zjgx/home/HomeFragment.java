@@ -11,7 +11,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
-import com.bumptech.glide.Glide;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.langt.zjgx.R;
 import com.langt.zjgx.adapter.MainFragmentVuPagerAdapter;
@@ -19,15 +18,20 @@ import com.langt.zjgx.adapter.MyCommonNavigatorAdapter;
 import com.langt.zjgx.adapter.RecycleViewDivider;
 import com.langt.zjgx.adapter.ShopAdapter;
 import com.langt.zjgx.base.BaseFragment;
-import com.langt.zjgx.base.BasePresenter;
 import com.langt.zjgx.base.Constant;
-import com.langt.zjgx.home.model.Banner;
-import com.langt.zjgx.home.model.GoodsBean;
+import com.langt.zjgx.home.presenter.HomePresenter;
+import com.langt.zjgx.home.view.IHomeView;
 import com.langt.zjgx.message.ui.activity.MessageActivity;
+import com.langt.zjgx.model.Banner;
+import com.langt.zjgx.model.HomePageBean;
+import com.langt.zjgx.model.ShopBean;
 import com.langt.zjgx.search.SearchActivity;
 import com.langt.zjgx.shop.ShopDetailActivity;
 import com.langt.zjgx.ui.GoodsListFragment;
 import com.langt.zjgx.utils.ActivityUtils;
+import com.langt.zjgx.utils.GlideUtils;
+import com.langt.zjgx.utils.ListUtil;
+import com.langt.zjgx.utils.LogUtils;
 import com.langt.zjgx.widget.banner.BannerAdapter;
 import com.langt.zjgx.widget.banner.BannerLayout;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
@@ -42,7 +46,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class HomeFragment extends BaseFragment {
+public class HomeFragment extends BaseFragment<HomePresenter> implements IHomeView {
 
     @BindView(R.id.refreshLayout)
     SmartRefreshLayout refreshLayout;
@@ -59,16 +63,20 @@ public class HomeFragment extends BaseFragment {
     MagicIndicator magicIndicator;
     @BindView(R.id.view_pager)
     ViewPager viewPager;
+
+    private ArrayList<Banner> bannerList;
     private BannerAdapter<Banner> mBannerAdapter;
 
-    protected List<GoodsBean> list = new ArrayList<>();
+    protected List<ShopBean> shopList = new ArrayList<>();
     private List<Fragment> mFragments = new ArrayList<>();
     private MainFragmentVuPagerAdapter mVuPagerAdapter;
     private String[] mTabs = {"下单量", "距离", "店铺星级", "好评率"};
 
+    private ShopAdapter adapter;
+
     @Override
-    protected BasePresenter createPresenter() {
-        return null;
+    protected HomePresenter createPresenter() {
+        return new HomePresenter(this);
     }
 
     @Override
@@ -91,20 +99,14 @@ public class HomeFragment extends BaseFragment {
         mBannerAdapter = new BannerAdapter<Banner>() {
             @Override
             protected void bind(BannerAdapter.ViewHolder holder, Banner data) {
-//                GlideUtils.loadBanner(data.getPicture(), holder.ivBannerItem);
-                Glide.with(HomeFragment.this)
-                        .load("https://img.zcool.cn/community/01acaf5722af116ac7253812b32635.jpg@1280w_1l_2o_100sh.jpg")
-                        .into(holder.ivBannerItem);
+                String picUrl = data.getPicture();
+                LogUtils.i("轮播图图片地址：" + picUrl);
+                GlideUtils.loadImage(HomeFragment.this, picUrl, holder.ivBannerItem);
             }
         };
         bannerLayout.setBannerAdapter(mBannerAdapter);
-
         // 图片地址测试
-        ArrayList<Banner> bannerList = new ArrayList<>();
-        bannerList.add(new Banner());
-        bannerList.add(new Banner());
-        bannerList.add(new Banner());
-        bannerList.add(new Banner());
+        bannerList = new ArrayList<>();
         mBannerAdapter.reset(bannerList);
 
         rcyShop.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -128,6 +130,15 @@ public class HomeFragment extends BaseFragment {
                 viewPager.setCurrentItem(position, false);
             }
         });
+
+        adapter = new ShopAdapter(shopList);
+        rcyShop.setAdapter(adapter);
+        adapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                startActivity(new Intent(getActivity(), ShopDetailActivity.class));
+            }
+        });
     }
 
     /**
@@ -149,18 +160,25 @@ public class HomeFragment extends BaseFragment {
     @Override
     public void initData() {
         super.initData();
-        createGoods();
+        presenter.getHomePageInfo();
+    }
 
-        ShopAdapter adapter = new ShopAdapter(R.layout.item_goodshop, list);
-        rcyShop.setAdapter(adapter);
-
-        adapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-                startActivity(new Intent(getActivity(), ShopDetailActivity.class));
+    @Override
+    public void onGetHomePageInfo(HomePageBean homePageBean) {
+        if (homePageBean != null) {
+            List<Banner> adList = homePageBean.getAdList();
+            if (!ListUtil.isEmpty(adList)) {
+                bannerList.clear();
+                bannerList.addAll(adList);
+                mBannerAdapter.reset(bannerList);
             }
-        });
-
+            List<ShopBean> shopBeanList = homePageBean.getShopList();
+            if (shopBeanList != null && shopBeanList.size() > 0) {
+                shopList.clear();
+                shopList.addAll(shopBeanList);
+                adapter.notifyDataSetChanged();
+            }
+        }
     }
 
     @OnClick({R.id.ll_promote_one, R.id.ll_promote_two, R.id.ll_promote_three,
@@ -195,13 +213,6 @@ public class HomeFragment extends BaseFragment {
             case R.id.ll_promote_five: // 优惠券
                 startActivity(new Intent(getActivity(), DiscountCouponListActivity.class));
                 break;
-        }
-    }
-
-    private void createGoods() {
-        for (int i = 0; i < 3; i++) {
-            GoodsBean bean = new GoodsBean("");
-            list.add(bean);
         }
     }
 }
