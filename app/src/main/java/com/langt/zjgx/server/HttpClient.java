@@ -11,6 +11,7 @@ import com.langt.zjgx.mine.model.MyAddrListBean;
 import com.langt.zjgx.mine.model.MyCollectListBean;
 import com.langt.zjgx.model.HomePageBean;
 import com.langt.zjgx.model.HomeRecommendGoodsBean;
+import com.langt.zjgx.model.ShopListResultBean;
 import com.langt.zjgx.search.model.HotSearchListResultModel;
 import com.langt.zjgx.utils.CoreLib;
 import com.langt.zjgx.utils.GsonUtils;
@@ -199,8 +200,27 @@ public class HttpClient {
         params.put("lng", CoreLib.getLongitude());
         params.put("lat", CoreLib.getLatitude());
         params.put("key", key);
-        params.put("nowPage", String.valueOf(nowPage));
+        params.put("nowPage", nowPage);
         return getApi().searchGoodsList(toJson(params));
+    }
+
+    /**
+     * 2.17 附近好店 更多 店铺列表搜索
+     {
+     shopTypeId:""      //店铺分类id        传空默认全部
+     searchKey:""    //搜索关键字
+     nowPage:"1"     //页数
+     }
+     */
+    public Observable<ShopListResultBean> searchNearShopList(String key, int nowPage) {
+        Map<String, Object> params = getCommonMap("getNearShopList");
+        params.put("cityId", CoreLib.getCityId());
+        params.put("lng", CoreLib.getLongitude());
+        params.put("lat", CoreLib.getLatitude());
+        params.put("shopTypeId", "");
+        params.put("searchKey", key);
+        params.put("nowPage", nowPage);
+        return getApi().searchNearShopList(toJson(params));
     }
 
     /**

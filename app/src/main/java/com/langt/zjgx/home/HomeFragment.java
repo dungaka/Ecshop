@@ -204,7 +204,7 @@ public class HomeFragment extends BaseFragment<HomePresenter>
 
                 break;
             case R.id.tv_recommend_shop_more: // 推荐好店-更多
-
+                ActivityUtils.startActivity(RecommendShopListActivity.class);
                 break;
             case R.id.ll_promote_one: // 多人拼
                 startActivity(new Intent(getActivity(), GroupPurchaseActivity.class));

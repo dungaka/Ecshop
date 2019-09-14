@@ -100,7 +100,8 @@
                                 android:layout_centerInParent="true"
                                 android:text="—— 推荐好店 ——"
                                 android:textColor="@color/global_text_color"
-                                android:textSize="18sp" />
+                                android:textSize="18sp"
+                                android:textStyle="bold" />
 
                             <TextView
                                 android:id="@+id/tv_recommend_shop_more"
@@ -109,6 +110,7 @@
                                 android:layout_alignParentRight="true"
                                 android:layout_centerVertical="true"
                                 android:layout_marginRight="10dp"
+                                android:padding="10dp"
                                 android:text="更多 >"
                                 android:textColor="@color/global_text_color"
                                 android:textSize="12sp" />
@@ -138,7 +140,8 @@
                                 android:layout_centerInParent="true"
                                 android:text="—— 推荐商品 ——"
                                 android:textColor="@color/global_text_color"
-                                android:textSize="18sp" />
+                                android:textSize="18sp"
+                                android:textStyle="bold" />
 
                         </RelativeLayout>
                     </LinearLayout>

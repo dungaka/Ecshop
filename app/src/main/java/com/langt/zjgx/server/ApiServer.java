@@ -8,6 +8,7 @@ import com.langt.zjgx.mine.model.MyAddrListBean;
 import com.langt.zjgx.mine.model.MyCollectListBean;
 import com.langt.zjgx.model.HomePageBean;
 import com.langt.zjgx.model.HomeRecommendGoodsBean;
+import com.langt.zjgx.model.ShopListResultBean;
 import com.langt.zjgx.search.model.HotSearchListResultModel;
 
 import io.reactivex.Observable;
@@ -64,7 +65,7 @@ public interface ApiServer {
     Observable<UserLoginBean> getRecomGoodsList(@Query("json") String json);
 
     /*
-     * 搜索商品
+     * 2.5 获取商品列表
      * */
     @POST("service")
     Observable<MyGoodsListBean> searchGoodsList(@Query("json") String json);
@@ -199,17 +200,36 @@ public interface ApiServer {
     @POST("ZJservice")
     Observable<MyCollectListBean> getMyCollectList(@Query("json") String json);
 
+    /**
+     * 2.0 获取热门搜索列表
+     */
+    @POST("service")
+    Observable<CityIdBean> getLocationCityId(@Query("json") String json);
+
+    /**
+     * 2.2 获取热门搜索列表
+     */
     @POST("service")
     Observable<HomePageBean> getHomePageInfo(@Query("json") String json);
 
+    /**
+     * 2.3 首页推荐商品
+     */
     @POST("service")
     Observable<HomeRecommendGoodsBean> getHomeRecommendGoodsList(@Query("json") String json);
 
+    /**
+     * 2.4 获取热门搜索列表
+     */
     @POST("service")
     Observable<HotSearchListResultModel> getHotSearchList(@Query("json") String json);
 
+
+    /**
+     * 2.17 附近好店 更多 店铺列表搜索
+     */
     @POST("service")
-    Observable<CityIdBean> getLocationCityId(@Query("json") String json);
+    Observable<ShopListResultBean> searchNearShopList(@Query("json") String json);
 
 
 }
