@@ -8,6 +8,7 @@ import com.langt.zjgx.location.bean.CityIdBean;
 import com.langt.zjgx.login.model.UserLoginBean;
 import com.langt.zjgx.message.bean.AppealDetailBean;
 import com.langt.zjgx.message.bean.AppealListBean;
+import com.langt.zjgx.message.bean.SystemMessageListBean;
 import com.langt.zjgx.mine.model.MyAddrListBean;
 import com.langt.zjgx.mine.model.MyCollectListBean;
 import com.langt.zjgx.model.CityListBean;
@@ -79,39 +80,6 @@ public class HttpClient {
     }
 
     /**
-     * 6.8 我的收藏列表
-     *
-     * @param type    类型    0-零售商品收藏 1-店铺收藏 2-批发商品收藏 3-厂家收藏
-     * @param nowPage 页码
-     */
-    public Observable<MyCollectListBean> getMyCollectList(int type, int nowPage) {
-        Map<String, Object> params = getCommonMap("getMyCollectList");
-        params.put("type", type);
-        params.put("nowPage", nowPage);
-        return getApi().getMyCollectList(toJson(params));
-    }
-
-    /**
-     * 6.11 我的地址管理
-     */
-    public Observable<MyAddrListBean> getMyAddrList(int nowPage) {
-        Map<String, Object> params = getCommonMap("getMyAddrList");
-        params.put("nowPage", nowPage);
-        return getApi().getMyAddrList(toJson(params));
-    }
-
-
-    /**
-     * 6.12 设置默认地址
-     */
-    public Observable<BaseBean> setDefaultAddr(String addrId) {
-        Map<String, Object> params = getCommonMap("setDefaultAddr");
-        params.put("addrId", addrId);
-        return getApi().setDefaultAddr(toJson(params));
-    }
-
-
-    /**
      * 2.0 获取热门搜索列表
      */
     public Observable<CityIdBean> getLocationCity(String province, String city) {
@@ -175,6 +143,15 @@ public class HttpClient {
     }
 
     /**
+     * 2.6 通知列表
+     */
+    public Observable<SystemMessageListBean> getSystemMsgList(int nowPage) {
+        Map<String, Object> params = getCommonMap("getSystemMsgList");
+        params.put("nowPage", nowPage);
+        return getApi().getSystemMsgList(toJson(params));
+    }
+
+    /**
      * 2.10 申诉列表
      *
      * @param state   0-待处理 1-已处理
@@ -190,7 +167,7 @@ public class HttpClient {
     /**
      * 2.11 申诉详情
      *
-     * @param appealId   申诉id
+     * @param appealId 申诉id
      */
     public Observable<AppealDetailBean> getAppealMsgDetail(String appealId) {
         Map<String, Object> params = getCommonMap("getAppealMsgDetail");
@@ -225,6 +202,38 @@ public class HttpClient {
         params.put("searchKey", key);
         params.put("nowPage", nowPage);
         return getApi().searchNearShopList(toJson(params));
+    }
+
+    /**
+     * 6.8 我的收藏列表
+     *
+     * @param type    类型    0-零售商品收藏 1-店铺收藏 2-批发商品收藏 3-厂家收藏
+     * @param nowPage 页码
+     */
+    public Observable<MyCollectListBean> getMyCollectList(int type, int nowPage) {
+        Map<String, Object> params = getCommonMap("getMyCollectList");
+        params.put("type", type);
+        params.put("nowPage", nowPage);
+        return getApi().getMyCollectList(toJson(params));
+    }
+
+    /**
+     * 6.11 我的地址管理
+     */
+    public Observable<MyAddrListBean> getMyAddrList(int nowPage) {
+        Map<String, Object> params = getCommonMap("getMyAddrList");
+        params.put("nowPage", nowPage);
+        return getApi().getMyAddrList(toJson(params));
+    }
+
+
+    /**
+     * 6.12 设置默认地址
+     */
+    public Observable<BaseBean> setDefaultAddr(String addrId) {
+        Map<String, Object> params = getCommonMap("setDefaultAddr");
+        params.put("addrId", addrId);
+        return getApi().setDefaultAddr(toJson(params));
     }
 
     /**

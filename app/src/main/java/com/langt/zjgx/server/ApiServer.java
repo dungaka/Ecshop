@@ -6,6 +6,7 @@ import com.langt.zjgx.location.bean.CityIdBean;
 import com.langt.zjgx.login.model.UserLoginBean;
 import com.langt.zjgx.message.bean.AppealDetailBean;
 import com.langt.zjgx.message.bean.AppealListBean;
+import com.langt.zjgx.message.bean.SystemMessageListBean;
 import com.langt.zjgx.mine.model.MyAddrListBean;
 import com.langt.zjgx.mine.model.MyCollectListBean;
 import com.langt.zjgx.model.CityListBean;
@@ -97,7 +98,7 @@ public interface ApiServer {
      * 2.6通知列表
      */
     @POST("service")
-    Observable<BaseBean> getSystemMsgList(@Query("json") String json);
+    Observable<SystemMessageListBean> getSystemMsgList(@Query("json") String json);
 
     /**
      * 2.10 申诉列表

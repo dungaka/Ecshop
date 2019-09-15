@@ -10,8 +10,9 @@
     <com.langt.zjgx.widget.CommonTitle
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:titleCenter="通知"/>
-    <include
-        layout="@layout/include_recyclerview"/>
+        app:showBack="true"
+        app:titleCenter="通知" />
+
+    <include layout="@layout/layout_only_recyclerview" />
 
 </LinearLayout>

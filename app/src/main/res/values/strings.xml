@@ -67,18 +67,6 @@
     <string name="goods_appeal_picture">图&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;片:</string>
     <string name="goods_appeal_commit">提交申诉</string>
 
-    <string name="appeal_detail">申诉详情</string>
-    <string name="appeal_state_un_deal">未处理</string>
-    <string name="appeal_state_dealed">已处理</string>
-    <string name="appeal_detail_info">详细内容:</string>
-
-    <string name="feed_back_title">意见反馈</string>
-    <string name="feed_back_theme">反馈主题</string>
-    <string name="feed_back_theme_tip">请输入您要反馈的主题，例如：账号问题</string>
-    <string name="feed_back_content">反馈内容</string>
-    <string name="feed_back_content_tip">请输入具体内容</string>
-    <string name="feed_back_submit">提交反馈</string>
-
     <string name="goods_list_xianshiqianggou_title">限时抢购</string>
     <string name="goods_list_xianshiqianggou_ing">正在抢购</string>
     <string name="goods_list_xianshiqianggou_comming_soon">即将开始</string>
@@ -145,6 +133,18 @@
 
     <string name="message_title">消息</string>
     <string name="message_title_appeal">申诉</string>
+
+    <string name="appeal_detail">申诉详情</string>
+    <string name="appeal_state_un_deal">未处理</string>
+    <string name="appeal_state_dealed">已处理</string>
+    <string name="appeal_detail_info">详细内容:</string>
+
+    <string name="feed_back_title">意见反馈</string>
+    <string name="feed_back_theme">反馈主题</string>
+    <string name="feed_back_theme_tip">请输入您要反馈的主题，例如：账号问题</string>
+    <string name="feed_back_content">反馈内容</string>
+    <string name="feed_back_content_tip">请输入具体内容</string>
+    <string name="feed_back_submit">提交反馈</string>
 
     <string name="cart_title">购物车</string>
     <string name="cart_action_sign_in">去登陆</string>
