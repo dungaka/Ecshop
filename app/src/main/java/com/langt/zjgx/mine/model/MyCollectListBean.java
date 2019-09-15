@@ -1,6 +1,8 @@
 package com.langt.zjgx.mine.model;
 
 import com.langt.zjgx.base.BaseBean;
+import com.langt.zjgx.model.GoodsBean;
+import com.langt.zjgx.model.ShopBean;
 
 import java.util.List;
 
@@ -36,8 +38,8 @@ public class MyCollectListBean extends BaseBean {
      */
 
     private int totalPage;
-    private List<GoodsListBean> goodsList;
-    private List<ShopListBean> shopList;
+    private List<GoodsBean> goodsList;
+    private List<ShopBean> shopList;
 
     public int getTotalPage() {
         return totalPage;
@@ -47,150 +49,19 @@ public class MyCollectListBean extends BaseBean {
         this.totalPage = totalPage;
     }
 
-    public List<GoodsListBean> getGoodsList() {
+    public List<GoodsBean> getGoodsList() {
         return goodsList;
     }
 
-    public void setGoodsList(List<GoodsListBean> goodsList) {
+    public void setGoodsList(List<GoodsBean> goodsList) {
         this.goodsList = goodsList;
     }
 
-    public List<ShopListBean> getShopList() {
+    public List<ShopBean> getShopList() {
         return shopList;
     }
 
-    public void setShopList(List<ShopListBean> shopList) {
+    public void setShopList(List<ShopBean> shopList) {
         this.shopList = shopList;
-    }
-
-    public static class GoodsListBean {
-        /**
-         * goodsId :
-         * goodsImg : http://fdfaf
-         * goodsName : 苹果
-         * skuId :
-         * goodsCurPrice :
-         * goodsOrigPrice :
-         * goodsOrigPrice :
-         */
-
-        private String goodsId;
-        private String goodsImg;
-        private String goodsName;
-        private String skuId;
-        private String goodsCurPrice;
-        private String goodsOrigPrice;
-        private int goodsType;
-
-        public String getGoodsId() {
-            return goodsId;
-        }
-
-        public int getGoodsType() {
-            return goodsType;
-        }
-
-        public void setGoodsType(int goodsType) {
-            this.goodsType = goodsType;
-        }
-
-        public void setGoodsId(String goodsId) {
-            this.goodsId = goodsId;
-        }
-
-        public String getGoodsImg() {
-            return goodsImg;
-        }
-
-        public void setGoodsImg(String goodsImg) {
-            this.goodsImg = goodsImg;
-        }
-
-        public String getGoodsName() {
-            return goodsName;
-        }
-
-        public void setGoodsName(String goodsName) {
-            this.goodsName = goodsName;
-        }
-
-        public String getSkuId() {
-            return skuId;
-        }
-
-        public void setSkuId(String skuId) {
-            this.skuId = skuId;
-        }
-
-        public String getGoodsCurPrice() {
-            return goodsCurPrice;
-        }
-
-        public void setGoodsCurPrice(String goodsCurPrice) {
-            this.goodsCurPrice = goodsCurPrice;
-        }
-
-        public String getGoodsOrigPrice() {
-            return goodsOrigPrice;
-        }
-
-        public void setGoodsOrigPrice(String goodsOrigPrice) {
-            this.goodsOrigPrice = goodsOrigPrice;
-        }
-    }
-
-    public static class ShopListBean {
-        /**
-         * shopId :
-         * shopLogo : http://fdfaf
-         * shopName : 丹尼斯
-         * shopDesc :
-         */
-
-        private String shopId;
-        private String shopLogo;
-        private String shopName;
-        private String shopDesc;
-        private String shopAddr;
-
-        public String getShopAddr() {
-            return shopAddr;
-        }
-
-        public void setShopAddr(String shopAddr) {
-            this.shopAddr = shopAddr;
-        }
-
-        public String getShopId() {
-            return shopId;
-        }
-
-        public void setShopId(String shopId) {
-            this.shopId = shopId;
-        }
-
-        public String getShopLogo() {
-            return shopLogo;
-        }
-
-        public void setShopLogo(String shopLogo) {
-            this.shopLogo = shopLogo;
-        }
-
-        public String getShopName() {
-            return shopName;
-        }
-
-        public void setShopName(String shopName) {
-            this.shopName = shopName;
-        }
-
-        public String getShopDesc() {
-            return shopDesc;
-        }
-
-        public void setShopDesc(String shopDesc) {
-            this.shopDesc = shopDesc;
-        }
     }
 }

@@ -1,6 +1,5 @@
 package com.langt.zjgx.home.fragment;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -25,7 +24,7 @@ import java.util.List;
 import butterknife.BindView;
 
 public class HomeRecommendGoodsListFragment extends BaseFragment<HomeRecommendGoodsListPresenter>
-        implements IHomeRecommendGoodsView , OnLoadMoreListener {
+        implements IHomeRecommendGoodsView, OnLoadMoreListener {
 
     public static final String TYPE = "TYPE";
 
@@ -76,7 +75,8 @@ public class HomeRecommendGoodsListFragment extends BaseFragment<HomeRecommendGo
         adapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-                startActivity(new Intent(getActivity(), GoodsDetailActivity.class));
+                GoodsBean goodsBean = list.get(position);
+                GoodsDetailActivity.startActivity(getActivity(), goodsBean.getShopId(), goodsBean.getGoodsId());
             }
         });
     }

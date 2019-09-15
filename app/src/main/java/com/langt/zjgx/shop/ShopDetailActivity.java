@@ -12,7 +12,6 @@ import com.bumptech.glide.Glide;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.langt.zjgx.R;
 import com.langt.zjgx.base.BaseActivity;
-import com.langt.zjgx.base.BasePresenter;
 import com.langt.zjgx.goods.GoodsDetailActivity;
 import com.langt.zjgx.home.DiscountCouponListActivity;
 import com.langt.zjgx.model.Banner;
@@ -20,6 +19,8 @@ import com.langt.zjgx.model.GoodsBean;
 import com.langt.zjgx.order.ConfirmOrderActivity;
 import com.langt.zjgx.shop.adapter.ShopDetailGoodsListAdapter;
 import com.langt.zjgx.shop.popup.ShopHasChooseGoodsPopupWindow;
+import com.langt.zjgx.shop.presenter.ShopDetailPresenter;
+import com.langt.zjgx.shop.view.IShopDetailView;
 import com.langt.zjgx.widget.banner.BannerAdapter;
 import com.langt.zjgx.widget.banner.BannerLayout;
 import com.langt.zjgx.widget.popup.GoodsChooseToBuyPopupWindow;
@@ -37,7 +38,7 @@ import q.rorbin.verticaltablayout.widget.TabView;
 /**
  * 店铺详情
  */
-public class ShopDetailActivity extends BaseActivity {
+public class ShopDetailActivity extends BaseActivity<ShopDetailPresenter> implements IShopDetailView {
     @BindView(R.id.tv_title_center)
     TextView tv_title_center;
     @BindView(R.id.layout_banner)
@@ -64,8 +65,8 @@ public class ShopDetailActivity extends BaseActivity {
     private String[] tabs = {"休闲零食", "蔬果生鲜", "百  货", "母婴精品", "童装鞋帽", "居家百货"};
 
     @Override
-    protected BasePresenter createPresenter() {
-        return null;
+    protected ShopDetailPresenter createPresenter() {
+        return new ShopDetailPresenter(this);
     }
 
     @Override
@@ -211,6 +212,6 @@ public class ShopDetailActivity extends BaseActivity {
         v.getLocationOnScreen(location);
         ShopHasChooseGoodsPopupWindow popupWindow = new ShopHasChooseGoodsPopupWindow(ShopDetailActivity.this);
         popupWindow.getContentView().measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
-        popupWindow.showAtLocation(v, Gravity.NO_GRAVITY, 0,location[1] - popupWindow.getContentView().getMeasuredHeight());
+        popupWindow.showAtLocation(v, Gravity.NO_GRAVITY, 0, location[1] - popupWindow.getContentView().getMeasuredHeight());
     }
 }

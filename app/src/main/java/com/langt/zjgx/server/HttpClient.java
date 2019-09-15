@@ -13,6 +13,7 @@ import com.langt.zjgx.message.bean.UnReadMessageCountBean;
 import com.langt.zjgx.mine.model.MyAddrListBean;
 import com.langt.zjgx.mine.model.MyCollectListBean;
 import com.langt.zjgx.model.CityListBean;
+import com.langt.zjgx.model.GoodsBean;
 import com.langt.zjgx.model.HomePageBean;
 import com.langt.zjgx.model.HomeRecommendGoodsBean;
 import com.langt.zjgx.model.ShopListResultBean;
@@ -234,6 +235,21 @@ public class HttpClient {
         params.put("searchKey", key);
         params.put("nowPage", nowPage);
         return getApi().searchNearShopList(toJson(params));
+    }
+
+    /**
+     * 3.8 ---商品详情---
+     *
+     * @param shopId  店铺id
+     * @param goodsId 商品id
+     * @param flag    0-普通购物 1-团购 2-批发专场
+     */
+    public Observable<GoodsBean> getGoodsDetailInfo(String shopId, String goodsId, String flag) {
+        Map<String, Object> params = getCommonMap("getGoodsDetail");
+        params.put("shopId", shopId);
+        params.put("goodsId", goodsId);
+        params.put("flag", flag);
+        return getApi().getGoodsDetailInfo(toJson(params));
     }
 
     /**

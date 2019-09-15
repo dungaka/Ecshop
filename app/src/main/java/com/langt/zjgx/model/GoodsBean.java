@@ -1,8 +1,10 @@
 package com.langt.zjgx.model;
 
+import com.langt.zjgx.base.BaseBean;
+
 import java.util.List;
 
-public class GoodsBean {
+public class GoodsBean extends BaseBean {
 
 
     /**
@@ -46,6 +48,7 @@ public class GoodsBean {
     private String tourDesc;
     // 团购完成率
     private String goRatio;
+
     private String goodsId;
     private String goodsImg;
     private String goodsName;
@@ -282,4 +285,5 @@ public class GoodsBean {
     public void setGoodsScore(String goodsScore) {
         this.goodsScore = goodsScore;
     }
+
 }

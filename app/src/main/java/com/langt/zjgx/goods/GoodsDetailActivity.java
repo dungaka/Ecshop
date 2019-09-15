@@ -1,9 +1,11 @@
 package com.langt.zjgx.goods;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.support.v4.widget.NestedScrollView;
+import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.ScrollView;
@@ -13,11 +15,14 @@ import com.bumptech.glide.Glide;
 import com.langt.zjgx.R;
 import com.langt.zjgx.adapter.MyCommonNavigatorAdapter;
 import com.langt.zjgx.base.BaseActivity;
-import com.langt.zjgx.base.BasePresenter;
+import com.langt.zjgx.base.Constant;
+import com.langt.zjgx.goods.presenter.GoodsDetailPresenter;
+import com.langt.zjgx.goods.view.IGoodsDetailView;
 import com.langt.zjgx.model.Banner;
 import com.langt.zjgx.model.GoodsBean;
 import com.langt.zjgx.order.ConfirmOrderActivity;
 import com.langt.zjgx.shop.ShopDetailActivity;
+import com.langt.zjgx.utils.ActivityUtils;
 import com.langt.zjgx.utils.LogUtils;
 import com.langt.zjgx.utils.StringUtils;
 import com.langt.zjgx.widget.SnapUpCountDownTimerView;
@@ -38,8 +43,18 @@ import butterknife.OnClick;
 /**
  * 商品详情页面
  */
-public class GoodsDetailActivity extends BaseActivity
-        implements MyCommonNavigatorAdapter.OnTabItemClickListener, NestedScrollView.OnScrollChangeListener {
+public class GoodsDetailActivity extends BaseActivity<GoodsDetailPresenter>
+        implements MyCommonNavigatorAdapter.OnTabItemClickListener, NestedScrollView.OnScrollChangeListener,
+        IGoodsDetailView {
+    private static final String KEY_GOODS_ID = "key_goods_id";
+    private static final String KEY_SHOP_ID = "key_shop_id";
+
+    public static void startActivity(Context context, String shopId, String goodsId) {
+        Intent intent = new Intent(context, GoodsDetailActivity.class);
+        intent.putExtra(KEY_SHOP_ID, shopId);
+        intent.putExtra(KEY_GOODS_ID, goodsId);
+        ActivityUtils.startActivity(intent, context);
+    }
 
     @BindView(R.id.scrollView)
     NestedScrollView scrollView;
@@ -78,9 +93,11 @@ public class GoodsDetailActivity extends BaseActivity
 
     private BannerAdapter<Banner> mBannerAdapter;
 
+    private String goodsId, shopId;
+
     @Override
-    protected BasePresenter createPresenter() {
-        return null;
+    protected GoodsDetailPresenter createPresenter() {
+        return new GoodsDetailPresenter(this);
     }
 
     @Override
@@ -144,7 +161,18 @@ public class GoodsDetailActivity extends BaseActivity
 
     @Override
     public void initData() {
-
+        super.initData();
+        Intent fromIntent = getIntent();
+        if (fromIntent != null) {
+            goodsId = getIntent().getStringExtra(KEY_GOODS_ID);
+            shopId = getIntent().getStringExtra(KEY_SHOP_ID);
+        }
+        if (TextUtils.isEmpty(goodsId) || TextUtils.isEmpty(shopId)) {
+            showError("参数错误");
+            finish();
+        }
+        presenter.test();
+        presenter.getGoodsDetailInfo(shopId, goodsId, String.valueOf(Constant.ShopRecommendGoodsType.type_0));
     }
 
     @Override

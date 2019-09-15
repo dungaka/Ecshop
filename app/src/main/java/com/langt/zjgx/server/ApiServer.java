@@ -11,6 +11,7 @@ import com.langt.zjgx.message.bean.UnReadMessageCountBean;
 import com.langt.zjgx.mine.model.MyAddrListBean;
 import com.langt.zjgx.mine.model.MyCollectListBean;
 import com.langt.zjgx.model.CityListBean;
+import com.langt.zjgx.model.GoodsBean;
 import com.langt.zjgx.model.HomePageBean;
 import com.langt.zjgx.model.HomeRecommendGoodsBean;
 import com.langt.zjgx.model.ShopListResultBean;
@@ -177,7 +178,7 @@ public interface ApiServer {
      * 3.8 商品详情
      */
     @POST("service")
-    Observable<UserLoginBean> getGoodsDetail(@Query("json") String json);
+    Observable<GoodsBean> getGoodsDetailInfo(@Query("json") String json);
 
     /*
      * 申诉类型
@@ -214,7 +215,6 @@ public interface ApiServer {
      */
     @POST("service")
     Observable<UserLoginBean> getFavoGoodsList(@Query("json") String json);
-
 
     /**
      * 6.8 我的收藏列表
