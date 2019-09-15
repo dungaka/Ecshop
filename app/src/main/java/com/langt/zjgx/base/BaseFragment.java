@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.annotation.UiThread;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -24,6 +25,15 @@ public abstract class BaseFragment<P extends BasePresenter> extends Fragment imp
     protected P presenter;
     public Toast toast;
     protected Unbinder unbinder;
+
+    /**
+     * 该页面是否已准备完毕，onCreTeView方法已调用完毕
+     */
+    private boolean isPrepared;
+    /**
+     * 该Fragment是否已执行过懒加载
+     */
+    private boolean isLazyLoaded;
 
     protected abstract P createPresenter();
 
@@ -46,9 +56,17 @@ public abstract class BaseFragment<P extends BasePresenter> extends Fragment imp
         unbinder = ButterKnife.bind(this, layoutInflate);
         this.context = getContext();
         this.presenter = createPresenter();
+        isPrepared = true;
         initView(layoutInflate);
+        lazyLoad();
         initData();
         return layoutInflate;
+    }
+
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        lazyLoad();
     }
 
     public void onDestroyView() {
@@ -67,6 +85,16 @@ public abstract class BaseFragment<P extends BasePresenter> extends Fragment imp
         this.toast.setText(str);
         this.toast.show();
     }
+
+    private void lazyLoad(){
+        if (getUserVisibleHint() && isPrepared && !isLazyLoaded) {
+            onLazyLoad();
+            isLazyLoaded = true;
+        }
+    }
+
+    @UiThread
+    protected void onLazyLoad(){}
 
 
     public void buildProgressDialog(String str) {

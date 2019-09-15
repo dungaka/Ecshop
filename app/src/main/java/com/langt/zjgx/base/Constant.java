@@ -30,6 +30,24 @@ public class Constant {
         int type_5 = 5;  // 5发起拼团商品
     }
 
+    /**
+     * 消息部分常量
+     */
+    public interface MessageConstant{
+        /**
+         * 申诉列表-待处理
+         */
+        String appeal_type_un_deal = "0";
+        /**
+         * 申诉列表-已处理
+         */
+        String appeal_type_dealed = "1";
+    }
+
+
+    /**
+     * 緩存的sp
+     */
     public interface SpConstant {
         /**
          * 搜索页面-搜索历史保存的关键字

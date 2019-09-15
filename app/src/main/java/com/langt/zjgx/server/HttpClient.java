@@ -6,6 +6,7 @@ import com.langt.zjgx.base.BaseBean;
 import com.langt.zjgx.goods.bean.MyGoodsListBean;
 import com.langt.zjgx.location.bean.CityIdBean;
 import com.langt.zjgx.login.model.UserLoginBean;
+import com.langt.zjgx.message.bean.AppealListBean;
 import com.langt.zjgx.mine.model.MyAddrListBean;
 import com.langt.zjgx.mine.model.MyCollectListBean;
 import com.langt.zjgx.model.CityListBean;
@@ -170,6 +171,19 @@ public class HttpClient {
         params.put("searchKey", searchKey);
         params.put("nowPage", nowPage);
         return getApi().searchGoodsList(toJson(params));
+    }
+
+    /**
+     * 2.12 意见反馈
+     *
+     * @param state   0-待处理 1-已处理
+     * @param nowPage 当前页面
+     */
+    public Observable<AppealListBean> getAppealMsgList(String state, int nowPage) {
+        Map<String, Object> params = getCommonMap("getAppealMsgList");
+        params.put("state", state);
+        params.put("nowPage", nowPage);
+        return getApi().getAppealMsgList(toJson(params));
     }
 
     /**
