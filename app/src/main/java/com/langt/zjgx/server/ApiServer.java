@@ -4,6 +4,7 @@ import com.langt.zjgx.base.BaseBean;
 import com.langt.zjgx.goods.bean.MyGoodsListBean;
 import com.langt.zjgx.location.bean.CityIdBean;
 import com.langt.zjgx.login.model.UserLoginBean;
+import com.langt.zjgx.message.bean.AppealDetailBean;
 import com.langt.zjgx.message.bean.AppealListBean;
 import com.langt.zjgx.mine.model.MyAddrListBean;
 import com.langt.zjgx.mine.model.MyCollectListBean;
@@ -108,7 +109,7 @@ public interface ApiServer {
      * 2.11 申诉详情
      */
     @POST("service")
-    Observable<UserLoginBean> getAppealMsgDetail(@Query("json") String json);
+    Observable<AppealDetailBean> getAppealMsgDetail(@Query("json") String json);
 
     /**
      * 2.12 意见反馈

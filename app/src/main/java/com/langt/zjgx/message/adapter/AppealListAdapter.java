@@ -14,14 +14,9 @@ import java.util.List;
  * 申诉类型adapter
  */
 public class AppealListAdapter extends BaseQuickAdapter<AppealBean, BaseViewHolder> {
-    /**
-     * 申诉类型，0-待处理 1-已处理
-     */
-    private String appealType;
 
-    public AppealListAdapter(String appealType, @Nullable List<AppealBean> data) {
+    public AppealListAdapter(@Nullable List<AppealBean> data) {
         super(R.layout.item_appeal_list, data);
-        this.appealType = appealType;
     }
 
     @Override

@@ -1,5 +1,6 @@
 package com.langt.zjgx.message.ui.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
@@ -13,7 +14,9 @@ import com.langt.zjgx.base.Constant;
 import com.langt.zjgx.message.adapter.AppealListAdapter;
 import com.langt.zjgx.message.bean.AppealBean;
 import com.langt.zjgx.message.presenter.AppealListPresenter;
+import com.langt.zjgx.message.ui.activity.AppealMsgDetailActivity;
 import com.langt.zjgx.message.view.IAppealListView;
+import com.langt.zjgx.utils.ActivityUtils;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener;
@@ -72,7 +75,7 @@ public class AppealListFragment extends BaseFragment<AppealListPresenter>
         }
 
         list = new ArrayList<>();
-        adapter = new AppealListAdapter(type, list);
+        adapter = new AppealListAdapter(list);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(adapter);
         adapter.setOnItemClickListener(this);
@@ -92,6 +95,8 @@ public class AppealListFragment extends BaseFragment<AppealListPresenter>
     @Override
     public void onGetAppealList(List<AppealBean> appealBeanList) {
         hideLoading();
+        refreshLayout.finishRefresh();
+        refreshLayout.finishLoadMore();
         if (appealBeanList != null && appealBeanList.size() > 0) {
             if (nowPage == 1) {
                 list.clear();
@@ -115,6 +120,8 @@ public class AppealListFragment extends BaseFragment<AppealListPresenter>
 
     @Override
     public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-
+        Intent intent = new Intent(getActivity(), AppealMsgDetailActivity.class);
+        intent.putExtra(AppealMsgDetailActivity.KEY_APPEAL_BEAN, list.get(position));
+        ActivityUtils.startActivity(intent, getActivity());
     }
 }

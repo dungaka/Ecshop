@@ -167,6 +167,12 @@
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
+        <!-- 消息-申訴详情頁面-->
+        <activity
+            android:name=".message.ui.activity.AppealMsgDetailActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
             android:name=".message.ui.activity.FeedbackActivity"
             android:configChanges="orientation|keyboardHidden"

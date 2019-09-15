@@ -69,7 +69,7 @@
             android:lines="1"
             android:text="@string/action_detail"
             android:textColor="@color/global_middle_text_color"
-            android:textSize="15sp" />
+            android:textSize="12sp" />
     </RelativeLayout>
 
 </LinearLayout>
