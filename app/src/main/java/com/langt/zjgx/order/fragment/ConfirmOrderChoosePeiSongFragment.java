@@ -13,7 +13,7 @@ import com.langt.zjgx.base.BaseFragment;
 import com.langt.zjgx.base.BasePresenter;
 import com.langt.zjgx.goods.GoodsDetailActivity;
 import com.langt.zjgx.model.GoodsBean;
-import com.langt.zjgx.mine.AddressManagerActivity;
+import com.langt.zjgx.mine.activity.AddressManagerActivity;
 import com.langt.zjgx.order.ChooseDiscountCouponActivity;
 import com.langt.zjgx.order.adapter.ConfirmOrderGoodsListAdapter;
 import com.langt.zjgx.widget.DividerDecoration;

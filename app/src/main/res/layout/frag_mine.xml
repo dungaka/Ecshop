@@ -43,7 +43,7 @@ android:layout_width="match_parent"
             android:layout_toRightOf="@id/iv_avatar"
             android:text="邻家小猫"
             android:textColor="@color/white"
-            android:textSize="14sp" />
+            android:textSize="13sp" />
 
 
         <ImageView
@@ -68,12 +68,13 @@ android:layout_width="match_parent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignTop="@id/id_yhq"
-            android:layout_alignBottom="@id/id_yhq"
             android:layout_marginLeft="6dp"
+            android:paddingBottom="5dp"
             android:layout_toRightOf="@id/id_yhq"
             android:text="优惠券"
-            android:textColor="@color/white"
-            android:textSize="13sp" />
+            android:textColor="#ffae00"
+            android:layout_marginBottom="5dp"
+            android:textSize="12sp" />
 
 
         <TextView
@@ -90,13 +91,17 @@ android:layout_width="match_parent"
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:layout_marginTop="18dp">
 
         <TextView
             android:id="@+id/text_order_mine"
             style="@style/HorizontalItemTextView"
             android:layout_alignParentLeft="true"
             android:gravity="center_vertical"
+            android:textSize="14sp"
+            android:textColor="@color/global_text_color"
             android:text="@string/mine_order" />
 
         <TextView
@@ -104,6 +109,8 @@ android:layout_width="match_parent"
             style="@style/HorizontalItemTextView"
             android:layout_alignParentRight="true"
             android:drawableRight="@drawable/ic_chevron_right"
+            android:textSize="14sp"
+            android:textColor="@color/global_text_color"
             android:text="@string/mine_order_all" />
     </RelativeLayout>
 
@@ -131,7 +138,7 @@ android:layout_width="match_parent"
                 android:gravity="center"
                 android:padding="@dimen/spacing_tiny"
                 android:text="@string/mine_order_wait_pay"
-                android:textColor="@color/black"
+                android:textColor="@color/global_text_color"
                 android:textSize="@dimen/font_normal" />
         </FrameLayout>
 
@@ -152,7 +159,7 @@ android:layout_width="match_parent"
                 android:gravity="center"
                 android:padding="@dimen/spacing_tiny"
                 android:text="@string/mine_order_pin"
-                android:textColor="@color/black"
+                android:textColor="@color/global_text_color"
                 android:textSize="@dimen/font_normal" />
         </FrameLayout>
 
@@ -173,7 +180,7 @@ android:layout_width="match_parent"
                 android:gravity="center"
                 android:padding="@dimen/spacing_tiny"
                 android:text="@string/mine_order_shipped"
-                android:textColor="@color/black"
+                android:textColor="@color/global_text_color"
                 android:textSize="@dimen/font_normal" />
         </FrameLayout>
 
@@ -194,7 +201,7 @@ android:layout_width="match_parent"
                 android:gravity="center"
                 android:padding="@dimen/spacing_tiny"
                 android:text="@string/mine_order_comment"
-                android:textColor="@color/black"
+                android:textColor="@color/global_text_color"
                 android:textSize="@dimen/font_normal" />
         </FrameLayout>
 
@@ -215,7 +222,7 @@ android:layout_width="match_parent"
                 android:gravity="center"
                 android:padding="@dimen/spacing_tiny"
                 android:text="@string/mine_order_backmoney"
-                android:textColor="@color/black"
+                android:textColor="@color/global_text_color"
                 android:textSize="@dimen/font_normal" />
         </FrameLayout>
 
@@ -226,7 +233,7 @@ android:layout_width="match_parent"
         android:id="@+id/fl_collect"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/spacing_normal"
+        android:layout_marginTop="@dimen/spacing_small"
         android:background="@drawable/horizontal_bar_bg">
 
         <TextView
@@ -241,7 +248,6 @@ android:layout_width="match_parent"
         android:id="@+id/fl_footprint"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/spacing_normal"
         android:background="@drawable/horizontal_bar_bg">
 
         <TextView
@@ -256,7 +262,6 @@ android:layout_width="match_parent"
         android:id="@+id/fl_address"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/spacing_tiny"
         android:background="@drawable/horizontal_bar_bg">
 
         <TextView
@@ -271,7 +276,6 @@ android:layout_width="match_parent"
         android:id="@+id/fl_apply"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/spacing_tiny"
         android:background="@drawable/horizontal_bar_bg">
 
         <TextView
@@ -286,7 +290,6 @@ android:layout_width="match_parent"
         android:id="@+id/fl_custom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/spacing_tiny"
         android:background="@drawable/horizontal_bar_bg">
 
         <TextView
@@ -300,7 +303,6 @@ android:layout_width="match_parent"
         android:id="@+id/fl_share"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/spacing_tiny"
         android:background="@drawable/horizontal_bar_bg">
 
         <TextView

@@ -5,7 +5,8 @@ import android.text.TextUtils;
 import android.util.Log;
 
 import com.langt.zjgx.base.Constant;
-import com.langt.zjgx.login.LoginActivity;
+import com.langt.zjgx.base.GlobalFun;
+import com.langt.zjgx.login.ui.LoginActivity;
 import com.langt.zjgx.utils.ActivityUtils;
 import com.langt.zjgx.utils.CoreLib;
 import com.langt.zjgx.utils.LogUtils;
@@ -47,6 +48,7 @@ public class EcShopApplication extends Application {
         initTIM();
         initBugly();
         Utils.init(this);
+        GlobalFun.initialize(this);
         initAop();
     }
 

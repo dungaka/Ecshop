@@ -1,4 +1,4 @@
-package com.langt.zjgx.mine;
+package com.langt.zjgx.mine.activity;
 
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;

@@ -15,7 +15,7 @@ import com.langt.zjgx.base.BasePresenter;
 import com.langt.zjgx.cart.CartFragment;
 import com.langt.zjgx.category.CategoryFragment;
 import com.langt.zjgx.home.HomeFragment;
-import com.langt.zjgx.mine.MineFragment;
+import com.langt.zjgx.mine.fragment.MineFragment;
 import com.langt.zjgx.nearby.NearbyFragment;
 
 import butterknife.BindView;

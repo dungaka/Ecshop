@@ -36,6 +36,13 @@ public class BasePresenter<V extends BaseView> {
         this.compositeDisposable.add((Disposable) observable.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeWith(baseObserver));
     }
 
+    public void addDisposable(Disposable disposable) {
+        if (this.compositeDisposable == null) {
+            this.compositeDisposable = new CompositeDisposable();
+        }
+        compositeDisposable.add(disposable);
+    }
+
     public void removeDisposable() {
         if (this.compositeDisposable != null) {
             this.compositeDisposable.dispose();

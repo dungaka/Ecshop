@@ -1,4 +1,4 @@
-package com.langt.zjgx.mine;
+package com.langt.zjgx.mine.activity;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;

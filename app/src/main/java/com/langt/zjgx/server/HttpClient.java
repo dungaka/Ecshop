@@ -1,10 +1,12 @@
 package com.langt.zjgx.server;
 
+import android.text.TextUtils;
 import android.util.Log;
 
 import com.langt.zjgx.base.BaseBean;
 import com.langt.zjgx.goods.bean.MyGoodsListBean;
 import com.langt.zjgx.location.bean.CityIdBean;
+import com.langt.zjgx.login.model.MineInfoBean;
 import com.langt.zjgx.login.model.UserLoginBean;
 import com.langt.zjgx.message.bean.AppealDetailBean;
 import com.langt.zjgx.message.bean.AppealListBean;
@@ -12,6 +14,7 @@ import com.langt.zjgx.message.bean.SystemMessageListBean;
 import com.langt.zjgx.message.bean.UnReadMessageCountBean;
 import com.langt.zjgx.mine.model.MyAddrListBean;
 import com.langt.zjgx.mine.model.MyCollectListBean;
+import com.langt.zjgx.mine.model.VersionBean;
 import com.langt.zjgx.model.CityListBean;
 import com.langt.zjgx.model.GoodsBean;
 import com.langt.zjgx.model.HomePageBean;
@@ -21,10 +24,14 @@ import com.langt.zjgx.search.model.HotSearchListResultModel;
 import com.langt.zjgx.utils.CoreLib;
 import com.langt.zjgx.utils.GsonUtils;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
 import io.reactivex.Observable;
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 
 public class HttpClient {
 
@@ -68,6 +75,79 @@ public class HttpClient {
         params.put("password", password);
         params.put("smsCode", smsCode);
         return getApi().forgetPassword(toJson(params));
+    }
+
+
+    public Observable<BaseBean> loginout(String userId) {
+        Map<String, Object> params = new HashMap<>();
+        params.put("cmd", "logout");
+        params.put("userId", userId);
+        return getApi().loginout(toJson(params));
+    }
+
+    public Observable<VersionBean> getVersion(String userId) {
+        Map<String, Object> params = new HashMap<>();
+        params.put("cmd", "getVersion");
+        return getApi().getVersion(toJson(params));
+    }
+
+    public Observable<BaseBean> modifyPassword(String userId,String curPassword,String nwPassword) {
+        Map<String, Object> params = new HashMap<>();
+        params.put("cmd", "modifyPassword");
+        params.put("userId", userId);
+        params.put("curPassword", curPassword);
+        params.put("nwPassword", nwPassword);
+        return getApi().modifyPassword(toJson(params));
+    }
+    public Observable<BaseBean> modifyUserInfo(String userId, File userIconFile, String nickName, String sex, String userBirthday) {
+        Map<String, Object> params = new HashMap<>();
+        params.put("cmd", "modifyUserInfo");
+        params.put("userId", userId);
+        params.put("nickName", nickName);
+        params.put("sex", sex);
+        params.put("userBirthday", userBirthday);
+        RequestBody body = RequestBody.create(MediaType.parse("image/png"), userIconFile);
+        MultipartBody.Part part = MultipartBody.Part.createFormData("userIconFile",
+                userIconFile.getName(), body);
+        return getApi().modifyUserInfo(toJson(params),part);
+    }
+
+    public Observable<MineInfoBean> getMineInfo(String userId) {
+        Map<String, Object> params = new HashMap<>();
+        params.put("cmd", "getMineInfo");
+        params.put("userId", userId);
+        return getApi().getMineInfo(toJson(params));
+    }
+
+
+    /**
+     * 设置默认地址
+     *
+     * @param userId
+     * @param addrId
+     * @return
+     */
+    public Observable<BaseBean> setDefaultAddr(String userId, String addrId) {
+        Map<String, Object> params = new HashMap<>();
+        params.put("cmd", "setDefaultAddr");
+        params.put("userId", userId);
+        params.put("addrId", addrId);
+        return getApi().setDefaultAddr(toJson(params));
+    }
+
+    /**
+     * 我的地址管理
+     *
+     * @param userId
+     * @param nowPage
+     * @return
+     */
+    public Observable<MyAddrListBean> getMyAddrList(String userId, int nowPage) {
+        Map<String, Object> params = new HashMap<>();
+        params.put("cmd", "getMyAddrList");
+        params.put("userId", userId);
+        params.put("nowPage", nowPage);
+        return getApi().getMyAddrList(toJson(params));
     }
 
     /**
@@ -258,9 +338,10 @@ public class HttpClient {
      * @param type    类型    0-零售商品收藏 1-店铺收藏 2-批发商品收藏 3-厂家收藏
      * @param nowPage 页码
      */
-    public Observable<MyCollectListBean> getMyCollectList(int type, int nowPage) {
+    public Observable<MyCollectListBean> getMyCollectList(String userId,int type, int nowPage) {
         Map<String, Object> params = getCommonMap("getMyCollectList");
         params.put("type", type);
+        params.put("userId", userId);
         params.put("nowPage", nowPage);
         return getApi().getMyCollectList(toJson(params));
     }

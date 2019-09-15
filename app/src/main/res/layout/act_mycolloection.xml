@@ -9,6 +9,7 @@
     <com.langt.zjgx.widget.CommonTitle
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:showBack="true"
         app:titleCenter="我的收藏"/>
 
     <net.lucode.hackware.magicindicator.MagicIndicator

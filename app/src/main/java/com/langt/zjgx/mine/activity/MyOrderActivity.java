@@ -1,4 +1,4 @@
-package com.langt.zjgx.mine;
+package com.langt.zjgx.mine.activity;
 
 import android.content.Context;
 import android.support.v4.app.Fragment;
@@ -10,7 +10,7 @@ import com.langt.zjgx.R;
 import com.langt.zjgx.adapter.MainFragmentVuPagerAdapter;
 import com.langt.zjgx.base.BaseActivity;
 import com.langt.zjgx.base.BasePresenter;
-import com.langt.zjgx.ui.GoodsListFragment;
+import com.langt.zjgx.mine.fragment.OrderListFragment;
 import com.langt.zjgx.utils.DisplayUtil;
 
 import net.lucode.hackware.magicindicator.MagicIndicator;
@@ -60,11 +60,11 @@ public class MyOrderActivity extends BaseActivity {
         magicIndicator.setNavigator(commonNavigator);
         mFragments.clear();
         mFragments.add(OrderListFragment.newInstance("all"));
-        mFragments.add(OrderListFragment.newInstance("distance"));
-        mFragments.add(OrderListFragment.newInstance("star"));
-        mFragments.add(OrderListFragment.newInstance("rank"));
-        mFragments.add(OrderListFragment.newInstance("rank"));
-        mFragments.add(OrderListFragment.newInstance("rank"));
+        mFragments.add(OrderListFragment.newInstance("dfk"));
+        mFragments.add(OrderListFragment.newInstance("ptz"));
+        mFragments.add(OrderListFragment.newInstance("dsh"));
+        mFragments.add(OrderListFragment.newInstance("dpj"));
+        mFragments.add(OrderListFragment.newInstance("tksh"));
         MainFragmentVuPagerAdapter mVuPagerAdapter = new MainFragmentVuPagerAdapter(getSupportFragmentManager(), mFragments);
         viewPager.setAdapter(mVuPagerAdapter);
         ViewPagerHelper.bind(magicIndicator, viewPager);

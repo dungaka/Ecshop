@@ -3,6 +3,7 @@ package com.langt.zjgx.server;
 import com.langt.zjgx.base.BaseBean;
 import com.langt.zjgx.goods.bean.MyGoodsListBean;
 import com.langt.zjgx.location.bean.CityIdBean;
+import com.langt.zjgx.login.model.MineInfoBean;
 import com.langt.zjgx.login.model.UserLoginBean;
 import com.langt.zjgx.message.bean.AppealDetailBean;
 import com.langt.zjgx.message.bean.AppealListBean;
@@ -10,6 +11,7 @@ import com.langt.zjgx.message.bean.SystemMessageListBean;
 import com.langt.zjgx.message.bean.UnReadMessageCountBean;
 import com.langt.zjgx.mine.model.MyAddrListBean;
 import com.langt.zjgx.mine.model.MyCollectListBean;
+import com.langt.zjgx.mine.model.VersionBean;
 import com.langt.zjgx.model.CityListBean;
 import com.langt.zjgx.model.GoodsBean;
 import com.langt.zjgx.model.HomePageBean;
@@ -18,7 +20,10 @@ import com.langt.zjgx.model.ShopListResultBean;
 import com.langt.zjgx.search.model.HotSearchListResultModel;
 
 import io.reactivex.Observable;
+import okhttp3.MultipartBody;
+import retrofit2.http.Multipart;
 import retrofit2.http.POST;
+import retrofit2.http.Part;
 import retrofit2.http.Query;
 
 public interface ApiServer {
@@ -53,6 +58,31 @@ public interface ApiServer {
      */
     @POST("service")
     Observable<BaseBean> forgetPassword(@Query("json") String json);
+    /*
+     * 获取最新版本
+     * */
+    @POST("service")
+    Observable<VersionBean> getVersion(@Query("json") String json);
+
+    /*
+     * 修改密码
+     * */
+    @POST("service")
+    Observable<BaseBean> modifyPassword(@Query("json") String json);
+
+    /*
+     * 获取用户信息
+     * */
+    @POST("service")
+    Observable<MineInfoBean> getMineInfo(@Query("json") String json);
+
+    /*
+     * 修改用户信息
+     * */
+    @Multipart
+    @POST("ZJservice")
+    Observable<BaseBean> modifyUserInfo(@Query("json") String json,
+                                        @Part MultipartBody.Part iconFile);
 
     /**
      * 1.4 第三方登录
@@ -79,10 +109,15 @@ public interface ApiServer {
     Observable<HomePageBean> getHomePageInfo(@Query("json") String json);
 
     /**
-     * 2.3 推荐商品
+     * 2.3 首页推荐商品
      */
     @POST("service")
     Observable<HomeRecommendGoodsBean> getHomeRecommendGoodsList(@Query("json") String json);
+    /*
+     * 退出登录
+     * */
+    @POST("service")
+    Observable<BaseBean> loginout(@Query("json") String json);
 
     /**
      * 2.4 搜索商品-推荐搜索词
@@ -233,6 +268,11 @@ public interface ApiServer {
      */
     @POST("ZJservice")
     Observable<BaseBean> setDefaultAddr(@Query("json") String json);
+
+    @POST("ZJservice")
+    Observable<BaseBean> getMyBrowInfoList(@Query("json") String json);
+
+
 
 
 }

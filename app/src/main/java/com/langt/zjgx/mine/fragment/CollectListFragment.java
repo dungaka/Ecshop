@@ -14,13 +14,14 @@ import com.langt.zjgx.adapter.RecycleViewDivider;
 import com.langt.zjgx.base.BaseFragment;
 import com.langt.zjgx.base.BasePresenter;
 import com.langt.zjgx.mine.model.CollectGoodsBean;
+import com.langt.zjgx.mine.presenter.CollectListPresenter;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 
-public class CollectListFragment extends BaseFragment {
+public class CollectListFragment extends BaseFragment<CollectListPresenter> {
     @BindView(R.id.include_recyclerview)
     RecyclerView recyclerView;
 
@@ -30,8 +31,8 @@ public class CollectListFragment extends BaseFragment {
     CollectShopAdapter shopAdapter;
     List<CollectGoodsBean> list;
     @Override
-    protected BasePresenter createPresenter() {
-        return null;
+    protected CollectListPresenter createPresenter() {
+        return new CollectListPresenter(this);
     }
 
     @Override
@@ -54,7 +55,8 @@ public class CollectListFragment extends BaseFragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.addItemDecoration(new RecycleViewDivider(getActivity(),LinearLayoutManager.VERTICAL));
         Bundle bundle = getArguments();
-        createData();
+//        createData();
+        presenter.getMyCollectList(0,1);
         if (bundle!=null){
             String type = bundle.getString("type","0");
             if(!TextUtils.isEmpty(type)&&type.equals("0")){//

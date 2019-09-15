@@ -278,6 +278,7 @@
     <string name="login_hint_phone">请输入您的手机号</string>
     <string name="login_verify_phone">请输入正确的手机号</string>
     <string name="login_hint_pwd">请输入登录密码</string>
+    <string name="forgetpwd_hint_pwd">6~16位字符</string>
     <string name="login_hint_pwd_confirm">请确认登录密码</string>
     <string name="login_sms">发送验证码</string>
     <string name="login_sms_receive">验证码已发送</string>
@@ -287,4 +288,5 @@
     <string name="register_pwd_not_null">密码不能为空</string>
     <string name="register_pwd_equals">两次输入的密码不一致</string>
     <string name="register_success">注册成功</string>
+    <string name="modify_success">修改成功</string>
 </resources>

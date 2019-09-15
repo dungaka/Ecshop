@@ -43,12 +43,14 @@
 
     <style name="HorizontalItemTextView">
         <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">@dimen/size_54</item>
+        <item name="android:layout_height">@dimen/size_45</item>
         <item name="android:background">?android:attr/selectableItemBackground</item>
         <item name="android:drawablePadding">@dimen/spacing_small</item>
         <item name="android:gravity">center_vertical</item>
         <item name="android:padding">@dimen/spacing_small</item>
         <item name="android:textAppearance">@style/ContentText.Large</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/global_text_color</item>
         <!--<item name="android:clickable">true</item>-->
     </style>
 
@@ -57,7 +59,7 @@
         <item name="windowActionBar">false</item>
         <item name="android:windowFullscreen">true</item>
         <item name="android:windowContentOverlay">@null</item>
-        <!--<item name="android:background">@mipmap/splash</item>-->
+        <item name="android:background">@mipmap/img_splash</item>
     </style>
 
     <style name="CustomDialog" parent="@android:style/Theme.Dialog">

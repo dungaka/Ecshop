@@ -131,7 +131,7 @@ public class SnapUpCountDownTimerView extends LinearLayout {
 
         @Override
         public void onTick(long millisUntilFinished) {
-            Log.i("MainActivity", millisUntilFinished + "");
+//            Log.i("MainActivity", millisUntilFinished + "");
             String time = getStandardTime(millisUntilFinished / 1000);
             if (TextUtils.isEmpty(time)) {
                 return;

@@ -66,6 +66,7 @@ dependencies {
     api rootProject.ext.dependencies.roundimageview
     api rootProject.ext.dependencies.aop_arms
     implementation 'com.squareup.retrofit2:adapter-rxjava2:2.5.0'
+    implementation 'com.github.LuckSiege.PictureSelector:picture_library:v2.2.3'
     implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0'
     implementation 'me.relex:circleindicator:1.2.2@aar'
     implementation 'com.github.hackware1993:MagicIndicator:1.5.0'

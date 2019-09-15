@@ -51,7 +51,7 @@ public class MyAddrListBean extends BaseBean implements Serializable {
         this.addrList = addrList;
     }
 
-    public static class AddrListBean implements Serializable {
+    public static class  AddrListBean implements Serializable {
         /**
          * addrId :
          * addrName :

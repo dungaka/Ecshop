@@ -1,4 +1,4 @@
-package com.langt.zjgx.login;
+package com.langt.zjgx.login.presenter;
 
 import android.content.Context;
 
@@ -6,7 +6,10 @@ import com.langt.zjgx.R;
 import com.langt.zjgx.base.BaseBean;
 import com.langt.zjgx.base.BaseObserver;
 import com.langt.zjgx.base.BasePresenter;
+import com.langt.zjgx.base.BaseView;
 import com.langt.zjgx.base.SimpleBaseView;
+
+import java.util.Map;
 
 import io.reactivex.Observable;
 
@@ -17,8 +20,8 @@ public class RegisterPresenter extends BasePresenter<SimpleBaseView> {
         this.context = context;
     }
 
-    public void sendSmsCode(String phone){
-        Observable<BaseBean> observable = apiClient.sendSmsCode(phone, "0");
+    public void sendSmsCode(String phone,String type){
+        Observable<BaseBean> observable = apiClient.sendSmsCode(phone, type);
         addDisposable(observable, new BaseObserver<BaseBean>(baseView) {
             @Override
             public void onError(String str) {
@@ -46,9 +49,29 @@ public class RegisterPresenter extends BasePresenter<SimpleBaseView> {
             public void onSuccess(BaseBean bean) {
                 if (bean.isSuccess()){
                     baseView.showError(context.getResources().getString(R.string.register_success));
-                    baseView.onSuccess();
+                    baseView.onSuccess(bean);
                 }
             }
         });
     }
+
+    public void forgetpwd(String phone ,String pwd,String code){
+        Observable<BaseBean> observable = apiClient.forgetPassword(phone, pwd, code);
+        addDisposable(observable, new BaseObserver<BaseBean>(baseView) {
+            @Override
+            public void onError(String str) {
+                baseView.showError(str);
+            }
+
+            @Override
+            public void onSuccess(BaseBean bean) {
+                if (bean.isSuccess()){
+                    baseView.showError(context.getResources().getString(R.string.modify_success));
+                    baseView.onSuccess(bean);
+                }
+            }
+        });
+
+    }
+
 }

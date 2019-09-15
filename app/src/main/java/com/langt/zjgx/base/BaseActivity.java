@@ -39,7 +39,8 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
     public abstract void initView();
 
     public void onErrorCode(BaseBean baseModel) {
-        LogUtils.i("请求失败：" + baseModel);
+        LogUtils.i("请求失败："+baseModel);
+        showError(baseModel.getResultNote());
         hideLoading();
     }
 
@@ -94,7 +95,7 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
     }
 
     public void showtoast(String str) {
-        Toast.makeText(getApplicationContext(), str, Toast.LENGTH_SHORT).show();
+         Toast.makeText(getApplicationContext(), str, Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -111,13 +112,13 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
         showtoast(str);
     }
 
-    protected void readyGo(Class clz) {
-        Intent intent = new Intent(this, clz);
+    protected void readyGo(Class clz){
+        Intent intent = new Intent(this,clz);
         startActivity(intent);
     }
 
-    protected void readyGoWithBundle(Bundle bundle, Class clz) {
-        Intent intent = new Intent(this, clz);
+    protected void readyGoWithBundle(Bundle bundle,Class clz){
+        Intent intent = new Intent(this,clz);
         intent.putExtras(bundle);
         startActivity(intent);
     }
@@ -154,7 +155,6 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
             Log.w(BaseActivity.class.getSimpleName(), "showSoftKeyboard: ", e);
         }
     }
-
     @Override
     protected void onPause() {
         super.onPause();

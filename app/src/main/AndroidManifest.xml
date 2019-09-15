@@ -8,13 +8,14 @@
     <application
         android:name=".EcShopApplication"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/logo"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <!-- 启动页-->
-        <activity android:name=".login.SplashActivity">
+        <activity android:name=".login.ui.SplashActivity"
+            android:theme="@style/Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.VIEW" />
@@ -80,30 +81,30 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
-            android:name=".mine.MyOrderActivity"
+            android:name=".mine.activity.MyOrderActivity"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
-            android:name=".mine.AddressManagerActivity"
+            android:name=".mine.activity.AddressManagerActivity"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
-            android:name=".mine.MyCollectionActivity"
+            android:name=".mine.activity.MyCollectionActivity"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
-            android:name=".mine.MyFootprintActivity"
+            android:name=".mine.activity.MyFootprintActivity"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
-            android:name=".mine.ShareActivity"
+            android:name=".mine.activity.ShareActivity"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden|adjustResize" />
+            android:windowSoftInputMode="stateHidden|adjustResize"/>
         <!-- 多人团页面-->
         <activity
             android:name=".home.GroupPurchaseActivity"
@@ -178,6 +179,8 @@
             android:name=".message.ui.activity.AppealMsgDetailActivity"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize"/>
+        <activity android:name=".mine.activity.NewAddrActivity"
             android:windowSoftInputMode="stateHidden|adjustResize" />
         <!--   意见反馈-->
         <activity
@@ -192,13 +195,13 @@
             android:windowSoftInputMode="stateHidden|adjustResize" />
         <!--登录页面-->
         <activity
-            android:name=".login.LoginActivity"
+            android:name=".login.ui.LoginActivity"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden|adjustResize" />
+            android:windowSoftInputMode="stateHidden" />
 
         <activity
-            android:name=".login.RegisterActivity"
+            android:name=".login.ui.RegisterActivity"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
@@ -211,7 +214,11 @@
             android:name=".pay.PaySuccessActivity"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden|adjustResize" />
+            android:windowSoftInputMode="stateHidden|adjustResize"/>
+        <activity android:name=".login.ui.ForgetPasswordActivity" />
+        <activity android:name=".mine.activity.SettingActivity" />
+        <activity android:name=".mine.activity.ModifyPasswordActivity" />
+        <activity android:name=".mine.activity.ModifyAvatarActivity" />
 
     </application>
 

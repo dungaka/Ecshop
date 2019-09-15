@@ -2,6 +2,7 @@ package com.langt.zjgx.base;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.annotation.UiThread;
@@ -123,6 +124,12 @@ public abstract class BaseFragment<P extends BasePresenter> extends Fragment imp
     public void cancelProgressDialog() {
         Log.d("Loading", "取消加载框");
         LoadingDialog.cancelDialogForLoading();
+    }
+
+
+    public void readyGo(Class clz){
+        Intent intent = new Intent(getActivity(),clz);
+        getActivity().startActivity(intent);
     }
 
     public void showFileDialog() {

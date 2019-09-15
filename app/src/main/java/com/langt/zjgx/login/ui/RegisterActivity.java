@@ -1,4 +1,4 @@
-package com.langt.zjgx.login;
+package com.langt.zjgx.login.ui;
 
 import android.text.TextUtils;
 import android.view.View;
@@ -6,8 +6,9 @@ import android.widget.EditText;
 
 import com.langt.zjgx.R;
 import com.langt.zjgx.base.BaseActivity;
-import com.langt.zjgx.base.BasePresenter;
+import com.langt.zjgx.base.BaseBean;
 import com.langt.zjgx.base.SimpleBaseView;
+import com.langt.zjgx.login.presenter.RegisterPresenter;
 import com.langt.zjgx.utils.RegularUtils;
 
 import butterknife.BindView;
@@ -46,7 +47,7 @@ public class RegisterActivity extends BaseActivity<RegisterPresenter> implements
             case R.id.tv_sendcode:
                 String phone = etPhone.getText().toString().trim();
                 if(RegularUtils.isMobileSimple(phone)) {
-                    presenter.sendSmsCode(phone);
+                    presenter.sendSmsCode(phone,"0");
                 }else{
                     showError(getString(R.string.login_verify_phone));
                 }
@@ -56,7 +57,7 @@ public class RegisterActivity extends BaseActivity<RegisterPresenter> implements
                 String pwd = etPwd.getText().toString().trim();
                 String pwd2 = etPwdSure.getText().toString().trim();
                 String code = etCode.getText().toString().trim();
-                if(RegularUtils.isMobileSimple(moblie)){
+                if(!RegularUtils.isMobileSimple(moblie)){
                     showError(getString(R.string.login_verify_phone));
                 }else if(TextUtils.isEmpty(pwd)||TextUtils.isEmpty(pwd2)){
                     showError(getString(R.string.register_pwd_not_null));
@@ -74,12 +75,12 @@ public class RegisterActivity extends BaseActivity<RegisterPresenter> implements
     }
 
     @Override
-    public void onSuccess() {
-        finish();
+    public void onSuccess(BaseBean bean) {
+            finish();
     }
 
     @Override
-    public void onFail() {
+    public void onFail(String str) {
 
     }
 }
