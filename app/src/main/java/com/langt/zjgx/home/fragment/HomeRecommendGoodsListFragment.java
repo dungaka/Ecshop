@@ -76,7 +76,7 @@ public class HomeRecommendGoodsListFragment extends BaseFragment<HomeRecommendGo
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
                 GoodsBean goodsBean = list.get(position);
-                GoodsDetailActivity.startActivity(getActivity(), goodsBean.getShopId(), goodsBean.getGoodsId());
+                GoodsDetailActivity.startActivity(getActivity(), goodsBean.getShopId(), goodsBean.getGoodsId(), goodsBean.getShopType());
             }
         });
     }

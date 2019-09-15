@@ -1,6 +1,5 @@
 package com.langt.zjgx.server;
 
-import android.text.TextUtils;
 import android.util.Log;
 
 import com.langt.zjgx.base.BaseBean;
@@ -318,7 +317,7 @@ public class HttpClient {
     }
 
     /**
-     * 3.8 ---商品详情---
+     * 3.8 商品详情
      *
      * @param shopId  店铺id
      * @param goodsId 商品id
@@ -329,6 +328,143 @@ public class HttpClient {
         params.put("shopId", shopId);
         params.put("goodsId", goodsId);
         params.put("flag", flag);
+        return getApi().getGoodsDetailInfo(toJson(params));
+    }
+
+    /**
+     * 3.13 普通购物商品详情
+     *
+     * @param goodsId 商品id
+     * @param lat     店铺纬度
+     * @param lng     店铺经度
+     */
+    public Observable<GoodsBean> getCsGoodsDetail(String goodsId, String lat, String lng) {
+        Map<String, Object> params = getCommonMap("getCsGoodsDetail");
+        params.put("goodsId", goodsId);
+        params.put("lat", lat);
+        params.put("lng", lng);
+        return getApi().getGoodsDetailInfo(toJson(params));
+    }
+
+    /**
+     * 3.14 零售团购/批发团购商品详情
+     *
+     * @param goodsId 商品id
+     */
+    public Observable<GoodsBean> getGoGoodsDetail(String goodsId) {
+        Map<String, Object> params = getCommonMap("getGoGoodsDetail");
+        params.put("goodsId", goodsId);
+        return getApi().getGoodsDetailInfo(toJson(params));
+    }
+
+    /**
+     * 3.15 传统批发商品详情
+     *
+     * @param goodsId 商品id
+     */
+    public Observable<GoodsBean> getWsGoodsDetailInfo(String goodsId) {
+        Map<String, Object> params = getCommonMap("getWsGoodsDetail");
+        params.put("goodsId", goodsId);
+        return getApi().getGoodsDetailInfo(toJson(params));
+    }
+
+    /**
+     * 3.17 货到付款商品详情
+     *
+     * @param goodsId 商品id
+     */
+    public Observable<GoodsBean> getPayOnDeliveryGoodsDetailInfo(String goodsId) {
+        Map<String, Object> params = getCommonMap("getCodGoodsDetail");
+        params.put("goodsId", goodsId);
+        return getApi().getGoodsDetailInfo(toJson(params));
+    }
+
+    /**
+     * 3.18 代销专享商品详情
+     *
+     * @param goodsId 商品id
+     */
+    public Observable<GoodsBean> getAgtSaleGoodsDetail(String goodsId) {
+        Map<String, Object> params = getCommonMap("getAgtSaleGoodsDetail");
+        params.put("goodsId", goodsId);
+        return getApi().getGoodsDetailInfo(toJson(params));
+    }
+
+    /**
+     * 3.19 零售满减/批发满减专区商品详情
+     *
+     * @param goodsId 商品id
+     */
+    public Observable<GoodsBean> getFullSubGoodsDetail(String goodsId) {
+        Map<String, Object> params = getCommonMap("getFullSubGoodsDetail");
+        params.put("goodsId", goodsId);
+        return getApi().getGoodsDetailInfo(toJson(params));
+    }
+
+    /**
+     * 3.20 批发满送商品详情
+     *
+     * @param goodsId 商品id
+     */
+    public Observable<GoodsBean> getFullGiveGoodsDetail(String goodsId) {
+        Map<String, Object> params = getCommonMap("getFullGiveGoodsDetail");
+        params.put("goodsId", goodsId);
+        return getApi().getGoodsDetailInfo(toJson(params));
+    }
+
+    /**
+     * 3.21 零售限时/批发限时商品详情
+     *
+     * @param goodsId 商品id
+     */
+    public Observable<GoodsBean> getDisctGoodsDetail(String goodsId) {
+        Map<String, Object> params = getCommonMap("getDisctGoodsDetail");
+        params.put("goodsId", goodsId);
+        return getApi().getGoodsDetailInfo(toJson(params));
+    }
+
+    /**
+     * 3.22 限人团拼商品详情
+     *
+     * @param goodsId 商品id
+     * @param lat     店铺纬度
+     * @param lng     店铺经度
+     */
+    public Observable<GoodsBean> getDisctGoodsDetail(String goodsId, String lat, String lng) {
+        Map<String, Object> params = getCommonMap("getTourGoodsDetail");
+        params.put("goodsId", goodsId);
+        params.put("lat", lat);
+        params.put("lng", lng);
+        return getApi().getGoodsDetailInfo(toJson(params));
+    }
+
+    /**
+     * 3.25 新人专享商品详情
+     *
+     * @param goodsId 商品id
+     * @param lat     店铺纬度
+     * @param lng     店铺经度
+     */
+    public Observable<GoodsBean> getNewPmentDetail(String goodsId, String lat, String lng) {
+        Map<String, Object> params = getCommonMap("getNewPmentDetail");
+        params.put("goodsId", goodsId);
+        params.put("lat", lat);
+        params.put("lng", lng);
+        return getApi().getGoodsDetailInfo(toJson(params));
+    }
+
+    /**
+     * 3.26 代销专享商品详情
+     *
+     * @param goodsId 商品id
+     * @param lat     店铺纬度
+     * @param lng     店铺经度
+     */
+    public Observable<GoodsBean> getDirectDealDetail(String goodsId, String lat, String lng) {
+        Map<String, Object> params = getCommonMap("getDirectDealDetail");
+        params.put("goodsId", goodsId);
+        params.put("lat", lat);
+        params.put("lng", lng);
         return getApi().getGoodsDetailInfo(toJson(params));
     }
 

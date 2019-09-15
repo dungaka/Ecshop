@@ -46,13 +46,15 @@ import butterknife.OnClick;
 public class GoodsDetailActivity extends BaseActivity<GoodsDetailPresenter>
         implements MyCommonNavigatorAdapter.OnTabItemClickListener, NestedScrollView.OnScrollChangeListener,
         IGoodsDetailView {
-    private static final String KEY_GOODS_ID = "key_goods_id";
     private static final String KEY_SHOP_ID = "key_shop_id";
+    private static final String KEY_GOODS_ID = "key_goods_id";
+    private static final String KEY_GOODS_TYPE = "key_goods_type";
 
-    public static void startActivity(Context context, String shopId, String goodsId) {
+    public static void startActivity(Context context, String shopId, String goodsId, int goodsType) {
         Intent intent = new Intent(context, GoodsDetailActivity.class);
         intent.putExtra(KEY_SHOP_ID, shopId);
         intent.putExtra(KEY_GOODS_ID, goodsId);
+        intent.putExtra(KEY_GOODS_TYPE, goodsType);
         ActivityUtils.startActivity(intent, context);
     }
 
@@ -93,6 +95,10 @@ public class GoodsDetailActivity extends BaseActivity<GoodsDetailPresenter>
 
     private BannerAdapter<Banner> mBannerAdapter;
 
+    /**
+     * 商品类型
+     */
+    private int goodsType;
     private String goodsId, shopId;
 
     @Override
@@ -166,13 +172,14 @@ public class GoodsDetailActivity extends BaseActivity<GoodsDetailPresenter>
         if (fromIntent != null) {
             goodsId = getIntent().getStringExtra(KEY_GOODS_ID);
             shopId = getIntent().getStringExtra(KEY_SHOP_ID);
+            goodsType = getIntent().getIntExtra(KEY_GOODS_TYPE, Constant.ShopRecommendGoodsType.type_0);
         }
         if (TextUtils.isEmpty(goodsId) || TextUtils.isEmpty(shopId)) {
             showError("参数错误");
             finish();
         }
-        presenter.test();
-        presenter.getGoodsDetailInfo(shopId, goodsId, String.valueOf(Constant.ShopRecommendGoodsType.type_0));
+        LogUtils.i("店铺id: " + shopId + " 商品id: " + goodsId + " 商品类型： " + goodsType);
+        presenter.getGoodsDetailInfo(shopId, goodsId, goodsType);
     }
 
     @Override

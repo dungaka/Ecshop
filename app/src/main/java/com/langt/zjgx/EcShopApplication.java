@@ -29,7 +29,6 @@ public class EcShopApplication extends Application {
     private static final int TIM_APP_ID = 0;
     private static EcShopApplication context;
 
-
     static {
         //设置全局的Header和Footer构建器
         SmartRefreshLayout.setDefaultRefreshHeaderCreator((context, layout) ->

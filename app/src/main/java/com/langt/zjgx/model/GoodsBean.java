@@ -52,6 +52,8 @@ public class GoodsBean extends BaseBean {
     private String goodsId;
     private String goodsImg;
     private String goodsName;
+    // 商品类型（0:普通零售; 1:零售团购; 2:零售满减商品; 3:零售限时抢购; 4:发起拼团; 5:代销零售）
+    private String goodsType;
     private int goodsSales;  // 商品销量
     private String goodsUnit;
     private String shopDistance;
@@ -61,6 +63,7 @@ public class GoodsBean extends BaseBean {
     private String goodsScore;
     private String shopId;
     private String shopName;
+    // //店铺推荐商品属性 （0普通零售、1零售团购、2零售满减商品、3零售限时抢购、4厂家直销、5发起拼团商品）
     private int shopType;
     private String skuId;  // 商品规格id
     private List<GoodsSku> goodsSku;
@@ -92,6 +95,14 @@ public class GoodsBean extends BaseBean {
 
     public void setGoodsId(String goodsId) {
         this.goodsId = goodsId;
+    }
+
+    public String getGoodsType() {
+        return goodsType;
+    }
+
+    public void setGoodsType(String goodsType) {
+        this.goodsType = goodsType;
     }
 
     public String getGoodsImg() {

@@ -9,7 +9,6 @@ import android.widget.PopupWindow;
 
 import com.langt.zjgx.R;
 import com.langt.zjgx.base.BaseActivity;
-import com.langt.zjgx.base.Constant;
 import com.langt.zjgx.message.presenter.MessageActivityPresenter;
 import com.langt.zjgx.message.view.IMessageActivityView;
 import com.tencent.imsdk.TIMConversationType;
@@ -30,7 +29,6 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
-import cn.com.superLei.aoparms.annotation.Intercept;
 
 public class MessageActivity extends BaseActivity<MessageActivityPresenter> implements IMessageActivityView {
 
@@ -133,18 +131,17 @@ public class MessageActivity extends BaseActivity<MessageActivityPresenter> impl
         presenter.getMessageUnReadCount();
     }
 
-    @Intercept(value = Constant.InterceptKey.LOGIN_INTERCEPT)
     @OnClick({R.id.tv_notice, R.id.tv_representations, R.id.tv_feedback})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.tv_notice:
-                startActivity(new Intent(this,NoticeActivity.class));
+                startActivity(new Intent(this, NoticeActivity.class));
                 break;
             case R.id.tv_representations:
                 startActivity(new Intent(this, AppealMsgListActivity.class));
                 break;
             case R.id.tv_feedback:
-                startActivity(new Intent(this,FeedbackActivity.class));
+                startActivity(new Intent(this, FeedbackActivity.class));
                 break;
         }
     }

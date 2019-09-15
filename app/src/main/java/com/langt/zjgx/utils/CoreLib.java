@@ -1,10 +1,11 @@
 package com.langt.zjgx.utils;
 
 import com.langt.zjgx.base.Constant;
+import com.langt.zjgx.comm.Constants;
 
 public class CoreLib {
     public static String getUserId() {
-        return SPStaticUtils.getString(Constant.SpConstant.KEY_USER_ID);
+        return SPStaticUtils.getString(Constants.USER_ID);
     }
 
     public static String getCityId() {
