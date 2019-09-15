@@ -101,6 +101,11 @@ public class NoticeActivity extends BaseActivity<NoticePresenter>
         }
     }
 
+    @Override
+    public void onDelNoticeResult() {
+
+    }
+
     private void getNoticeList() {
         presenter.getNoticeMessageList(nowPage);
     }

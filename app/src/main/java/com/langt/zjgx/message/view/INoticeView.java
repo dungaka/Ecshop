@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface INoticeView extends BaseView {
     void onGetNoticeList(List<SystemMessageBean> messageBeanList);
+    void onDelNoticeResult();
 }

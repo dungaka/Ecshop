@@ -9,6 +9,7 @@ import com.langt.zjgx.login.model.UserLoginBean;
 import com.langt.zjgx.message.bean.AppealDetailBean;
 import com.langt.zjgx.message.bean.AppealListBean;
 import com.langt.zjgx.message.bean.SystemMessageListBean;
+import com.langt.zjgx.message.bean.UnReadMessageCountBean;
 import com.langt.zjgx.mine.model.MyAddrListBean;
 import com.langt.zjgx.mine.model.MyCollectListBean;
 import com.langt.zjgx.model.CityListBean;
@@ -153,11 +154,32 @@ public class HttpClient {
 
     /**
      * 2.7 删除通知
+     *
      * @param messageIds 通知id，删除多条，逗号分隔，例如1,2,3
      */
     public Observable<BaseBean> delSystemMsgList(String messageIds) {
         Map<String, Object> params = getCommonMap("deleteSystemMsg");
         params.put("messageIds", messageIds);
+        return getApi().method(toJson(params));
+    }
+
+    /**
+     * 2.8 通知消息提醒状态
+     */
+    public Observable<UnReadMessageCountBean> getMessageUnReadCount() {
+        Map<String, Object> params = getCommonMap("getMsgState");
+        return getApi().getMessageUnReadCount(toJson(params));
+    }
+
+    /**
+     * 2.9 点击未读消息-状态修改
+     *
+     * @param messageId 消息ID（仅处理未读消息）
+     */
+    public Observable<BaseBean> setMessageRead(String messageId) {
+        Map<String, Object> params = getCommonMap("upMsgState");
+        params.put("messageId", messageId);
+        params.put("state", "1");
         return getApi().method(toJson(params));
     }
 

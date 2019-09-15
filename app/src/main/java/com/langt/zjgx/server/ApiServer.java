@@ -7,6 +7,7 @@ import com.langt.zjgx.login.model.UserLoginBean;
 import com.langt.zjgx.message.bean.AppealDetailBean;
 import com.langt.zjgx.message.bean.AppealListBean;
 import com.langt.zjgx.message.bean.SystemMessageListBean;
+import com.langt.zjgx.message.bean.UnReadMessageCountBean;
 import com.langt.zjgx.mine.model.MyAddrListBean;
 import com.langt.zjgx.mine.model.MyCollectListBean;
 import com.langt.zjgx.model.CityListBean;
@@ -93,6 +94,12 @@ public interface ApiServer {
      */
     @POST("service")
     Observable<MyGoodsListBean> searchGoodsList(@Query("json") String json);
+
+    /**
+     * 2.8 通知消息提醒状态
+     */
+    @POST("service")
+    Observable<UnReadMessageCountBean> getMessageUnReadCount(@Query("json") String json);
 
     /**
      * 2.6通知列表

@@ -9,7 +9,8 @@ import android.widget.PopupWindow;
 
 import com.langt.zjgx.R;
 import com.langt.zjgx.base.BaseActivity;
-import com.langt.zjgx.base.BasePresenter;
+import com.langt.zjgx.message.presenter.MessageActivityPresenter;
+import com.langt.zjgx.message.view.IMessageActivityView;
 import com.tencent.imsdk.TIMConversationType;
 import com.tencent.qcloud.tim.uikit.base.IUIKitCallBack;
 import com.tencent.qcloud.tim.uikit.component.action.PopActionClickListener;
@@ -29,7 +30,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class MessageActivity extends BaseActivity {
+public class MessageActivity extends BaseActivity<MessageActivityPresenter> implements IMessageActivityView {
 
 
     @BindView(R.id.conversation_layout)
@@ -42,8 +43,8 @@ public class MessageActivity extends BaseActivity {
     private List<PopMenuAction> mConversationPopActions = new ArrayList<>();
 
     @Override
-    protected BasePresenter createPresenter() {
-        return null;
+    protected MessageActivityPresenter createPresenter() {
+        return new MessageActivityPresenter(this);
     }
 
     @Override
@@ -124,6 +125,12 @@ public class MessageActivity extends BaseActivity {
         mConversationPopActions.addAll(conversationPopActions);
     }
 
+    @Override
+    public void initData() {
+        super.initData();
+        presenter.getMessageUnReadCount();
+    }
+
     @OnClick({R.id.tv_notice, R.id.tv_representations, R.id.tv_feedback})
     public void onViewClicked(View view) {
         switch (view.getId()) {
@@ -175,5 +182,8 @@ public class MessageActivity extends BaseActivity {
         mConversationPopWindow = PopWindowUtil.popupWindow(itemPop, conversationLayout, (int) locationX, (int) locationY);
     }
 
+    @Override
+    public void onGetSystemMessageCount(String count) {
 
+    }
 }
