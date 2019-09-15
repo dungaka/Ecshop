@@ -1,6 +1,5 @@
 package com.langt.zjgx.server;
 
-import android.text.TextUtils;
 import android.util.Log;
 
 import com.langt.zjgx.base.BaseBean;
@@ -9,6 +8,7 @@ import com.langt.zjgx.location.bean.CityIdBean;
 import com.langt.zjgx.login.model.UserLoginBean;
 import com.langt.zjgx.mine.model.MyAddrListBean;
 import com.langt.zjgx.mine.model.MyCollectListBean;
+import com.langt.zjgx.model.CityListBean;
 import com.langt.zjgx.model.HomePageBean;
 import com.langt.zjgx.model.HomeRecommendGoodsBean;
 import com.langt.zjgx.model.ShopListResultBean;
@@ -23,136 +23,112 @@ import io.reactivex.Observable;
 
 public class HttpClient {
 
-
-    public Observable<BaseBean> sendSmsCode(String userId, String userPhone, String type) {
-        Map<String, Object> params = new HashMap<>();
-        params.put("cmd", "sendSmsCode");
-        if (!TextUtils.isEmpty(userId)) {
-            params.put("userId", userId);
-        }
+    /**
+     * 1.0 发送验证码
+     */
+    public Observable<BaseBean> sendSmsCode(String userPhone, String type) {
+        Map<String, Object> params = getCommonMap("sendSmsCode");
         params.put("userPhone", userPhone);
         params.put("type", type);
         return getApi().sendSmsCode(toJson(params));
     }
 
-    public Observable<UserLoginBean> userLogin(String userPhone, String password) {
-        Map<String, Object> params = new HashMap<>();
-        params.put("cmd", "userLogin");
-        params.put("userPhone", userPhone);
-        params.put("password", password);
-        return getApi().userLogin(toJson(params));
-    }
-
-    public Observable<UserLoginBean> thirdLogin(String thirdUid, String nickName, String userIcon) {
-        Map<String, Object> params = new HashMap<>();
-        params.put("cmd", "thirdLogin");
-        params.put("thirdUid", thirdUid);
-        params.put("nickName", nickName);
-        params.put("userIcon", userIcon);
-        return getApi().thirdLogin(toJson(params));
-    }
-
-    public Observable<BaseBean> forgetPassword(String userPhone, String password, String smsCode) {
-        Map<String, Object> params = new HashMap<>();
-        params.put("cmd", "forgetPassword");
-        params.put("userPhone", userPhone);
-        params.put("password", password);
-        params.put("smsCode", smsCode);
-        return getApi().forgetPassword(toJson(params));
-    }
-
-
+    /**
+     * 1.1 用户注册
+     */
     public Observable<BaseBean> userRegister(String userPhone, String password, String smsCode) {
-        Map<String, Object> params = new HashMap<>();
-        params.put("cmd", "userRegister");
+        Map<String, Object> params = getCommonMap("userRegister");
         params.put("userPhone", userPhone);
         params.put("password", password);
         params.put("smsCode", smsCode);
         return getApi().userRegister(toJson(params));
     }
 
-
     /**
-     * 设置默认地址
-     *
-     * @param userId
-     * @param addrId
-     * @return
+     * 1.2 服务器登录
      */
-    public Observable<BaseBean> setDefaultAddr(String userId, String addrId) {
-        Map<String, Object> params = new HashMap<>();
-        params.put("cmd", "setDefaultAddr");
-        params.put("userId", userId);
-        params.put("addrId", addrId);
-        return getApi().setDefaultAddr(toJson(params));
+    public Observable<UserLoginBean> userLogin(String userPhone, String password) {
+        Map<String, Object> params = getCommonMap("userLogin");
+        params.put("userPhone", userPhone);
+        params.put("password", password);
+        return getApi().userLogin(toJson(params));
     }
 
     /**
-     * 我的地址管理
-     *
-     * @param userId
-     * @param nowPage
-     * @return
+     * 1.3忘记密码
      */
-    public Observable<MyAddrListBean> getMyAddrList(String userId, int nowPage) {
-        Map<String, Object> params = new HashMap<>();
-        params.put("cmd", "getMyAddrList");
-        params.put("userId", userId);
-        params.put("nowPage", nowPage);
-        return getApi().getMyAddrList(toJson(params));
+    public Observable<BaseBean> forgetPassword(String userPhone, String password, String smsCode) {
+        Map<String, Object> params = getCommonMap("forgetPassword");
+        params.put("userPhone", userPhone);
+        params.put("password", password);
+        params.put("smsCode", smsCode);
+        return getApi().forgetPassword(toJson(params));
     }
 
     /**
-     * 我的收藏
-     *
-     * @param userId
-     * @param type
-     * @param nowPage
-     * @return
+     * 1.4 第三方登录
      */
-    public Observable<MyCollectListBean> getMyCollectList(String userId, int type, int nowPage) {
-        Map<String, Object> params = new HashMap<>();
-        params.put("cmd", "getMyCollectList");
-        params.put("userId", userId);
+    public Observable<UserLoginBean> thirdLogin(String thirdUid, String nickName, String userIcon) {
+        Map<String, Object> params = getCommonMap("thirdLogin");
+        params.put("thirdUid", thirdUid);
+        params.put("nickName", nickName);
+        params.put("userIcon", userIcon);
+        return getApi().thirdLogin(toJson(params));
+    }
+
+    /**
+     * 6.8 我的收藏列表
+     *
+     * @param type    类型    0-零售商品收藏 1-店铺收藏 2-批发商品收藏 3-厂家收藏
+     * @param nowPage 页码
+     */
+    public Observable<MyCollectListBean> getMyCollectList(int type, int nowPage) {
+        Map<String, Object> params = getCommonMap("getMyCollectList");
         params.put("type", type);
         params.put("nowPage", nowPage);
         return getApi().getMyCollectList(toJson(params));
     }
 
     /**
-     * 意见反馈
-     *
-     * @param userId
-     * @param fdTitle
-     * @param fdContent
-     * @return
+     * 6.11 我的地址管理
      */
-    public Observable<BaseBean> feedBack(String userId, String fdTitle, String fdContent) {
-        Map<String, Object> params = new HashMap<>();
-        params.put("cmd", "feedBack");
-        params.put("userId", userId);
-        params.put("fdTitle", fdTitle);
-        params.put("fdContent", fdContent);
-        return getApi().feedBack(toJson(params));
+    public Observable<MyAddrListBean> getMyAddrList(int nowPage) {
+        Map<String, Object> params = getCommonMap("getMyAddrList");
+        params.put("nowPage", nowPage);
+        return getApi().getMyAddrList(toJson(params));
     }
+
+
+    /**
+     * 6.12 设置默认地址
+     */
+    public Observable<BaseBean> setDefaultAddr(String addrId) {
+        Map<String, Object> params = getCommonMap("setDefaultAddr");
+        params.put("addrId", addrId);
+        return getApi().setDefaultAddr(toJson(params));
+    }
+
 
     /**
      * 2.0 获取热门搜索列表
-     *
-     * @return
      */
     public Observable<CityIdBean> getLocationCity(String province, String city) {
-        Map<String, Object> params = new HashMap<>();
-        params.put("cmd", "getRecomSkeyList");
+        Map<String, Object> params = getCommonMap("getRecomSkeyList");
         params.put("province", province);
         params.put("city", city);
         return getApi().getLocationCityId(toJson(params));
     }
 
     /**
+     * 2.1 获取所有城市
+     */
+    public Observable<CityListBean> getAllCityList() {
+        Map<String, Object> params = getCommonMap("getCityList");
+        return getApi().getAllCityList(toJson(params));
+    }
+
+    /**
      * 2.2 获取热门搜索列表
-     *
-     * @return
      */
     public Observable<HomePageBean> getHomePageInfo() {
         Map<String, Object> params = getCommonMap("getMainInfo");
@@ -164,6 +140,7 @@ public class HttpClient {
 
     /**
      * 2.3 首页推荐商品
+     * flag 0-下单量 1-距离 2-店铺星级 3-商品好评率
      */
     public Observable<HomeRecommendGoodsBean> getHomeRecommendGoodsList(String flag, int nowPage) {
         Map<String, Object> params = getCommonMap("getRecomGoodsList");
@@ -184,40 +161,41 @@ public class HttpClient {
 
     /**
      * 2.5 获取商品列表
-     * {
-     * cmd:"searchGoodsList"
-     * userId:"5"   //用户id
-     * cityId:""       //城市id
-     * lng:""          //地理经度
-     * lat:""          //地理纬度
-     * searchKey:""    //搜索关键字
-     * nowPage:””
-     * }
      */
-    public Observable<MyGoodsListBean> searchGoodsList(String key, int nowPage) {
+    public Observable<MyGoodsListBean> searchGoodsList(String searchKey, int nowPage) {
         Map<String, Object> params = getCommonMap("searchGoodsList");
         params.put("cityId", CoreLib.getCityId());
         params.put("lng", CoreLib.getLongitude());
         params.put("lat", CoreLib.getLatitude());
-        params.put("key", key);
+        params.put("searchKey", searchKey);
         params.put("nowPage", nowPage);
         return getApi().searchGoodsList(toJson(params));
     }
 
     /**
-     * 2.17 附近好店 更多 店铺列表搜索
-     {
-     shopTypeId:""      //店铺分类id        传空默认全部
-     searchKey:""    //搜索关键字
-     nowPage:"1"     //页数
-     }
+     * 2.12 意见反馈
+     *
+     * @param fdTitle   反馈主题
+     * @param fdContent 反馈内容
      */
-    public Observable<ShopListResultBean> searchNearShopList(String key, int nowPage) {
+    public Observable<BaseBean> feedBack(String fdTitle, String fdContent) {
+        Map<String, Object> params = getCommonMap("feedBack");
+        params.put("fdTitle", fdTitle);
+        params.put("fdContent", fdContent);
+        return getApi().feedBack(toJson(params));
+    }
+
+    /**
+     * 2.17 附近好店 更多 店铺列表搜索
+     *
+     * @param shopTypeId 店铺分类id        传空默认全部
+     */
+    public Observable<ShopListResultBean> searchNearShopList(String shopTypeId, String key, int nowPage) {
         Map<String, Object> params = getCommonMap("getNearShopList");
         params.put("cityId", CoreLib.getCityId());
         params.put("lng", CoreLib.getLongitude());
         params.put("lat", CoreLib.getLatitude());
-        params.put("shopTypeId", "");
+        params.put("shopTypeId", shopTypeId);
         params.put("searchKey", key);
         params.put("nowPage", nowPage);
         return getApi().searchNearShopList(toJson(params));

@@ -13,8 +13,8 @@ public class RecommendShopListPresenter extends BasePresenter<IRecommendShopList
         super(iRecommendShopListView);
     }
 
-    public void getShopList(String key,int nowPage){
-        addDisposable(apiClient.searchNearShopList(key, nowPage), new BaseObserver<ShopListResultBean>(baseView) {
+    public void getShopList(String key, int nowPage) {
+        addDisposable(apiClient.searchNearShopList("", key, nowPage), new BaseObserver<ShopListResultBean>(baseView) {
             @Override
             public void onError(String str) {
                 baseView.hideLoading();
