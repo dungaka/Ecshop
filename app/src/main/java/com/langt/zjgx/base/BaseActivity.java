@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.langt.zjgx.R;
 import com.langt.zjgx.utils.LogUtils;
 import com.langt.zjgx.widget.LoadingDialog;
+import com.langt.zjgx.widget.stateview.StateView;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -26,6 +27,8 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
     public Toast toast;
     private Unbinder mUnbinder;
 
+    private StateView stateView;
+
     protected abstract P createPresenter();
 
     protected abstract int getLayoutId();
@@ -36,7 +39,7 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
     public abstract void initView();
 
     public void onErrorCode(BaseBean baseModel) {
-        LogUtils.i("请求失败："+baseModel);
+        LogUtils.i("请求失败：" + baseModel);
         hideLoading();
     }
 
@@ -49,6 +52,22 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
         initBack();
         initView();
         initData();
+    }
+
+    protected void injectStateView(View contentView) {
+        stateView = StateView.inject(contentView);
+    }
+
+    protected void showEmptyView(){
+        if (stateView != null) {
+            stateView.showEmpty();
+        }
+    }
+
+    protected void showContentView(){
+        if (stateView != null) {
+            stateView.showContent();
+        }
     }
 
     private void initBack() {
@@ -75,7 +94,7 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
     }
 
     public void showtoast(String str) {
-         Toast.makeText(getApplicationContext(), str, Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), str, Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -92,13 +111,13 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
         showtoast(str);
     }
 
-    protected void readyGo(Class clz){
-        Intent intent = new Intent(this,clz);
+    protected void readyGo(Class clz) {
+        Intent intent = new Intent(this, clz);
         startActivity(intent);
     }
 
-    protected void readyGoWithBundle(Bundle bundle,Class clz){
-        Intent intent = new Intent(this,clz);
+    protected void readyGoWithBundle(Bundle bundle, Class clz) {
+        Intent intent = new Intent(this, clz);
         intent.putExtras(bundle);
         startActivity(intent);
     }
@@ -135,6 +154,7 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
             Log.w(BaseActivity.class.getSimpleName(), "showSoftKeyboard: ", e);
         }
     }
+
     @Override
     protected void onPause() {
         super.onPause();

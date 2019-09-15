@@ -25,7 +25,8 @@ import butterknife.BindView;
  * 通知页面
  */
 public class NoticeActivity extends BaseActivity<NoticePresenter>
-        implements INoticeView, BaseQuickAdapter.OnItemClickListener, OnRefreshLoadMoreListener {
+        implements INoticeView, BaseQuickAdapter.OnItemClickListener,
+        OnRefreshLoadMoreListener {
     @BindView(R.id.refreshLayout)
     SmartRefreshLayout refreshLayout;
     @BindView(R.id.recyclerView)
@@ -53,7 +54,10 @@ public class NoticeActivity extends BaseActivity<NoticePresenter>
         recyclerView.setAdapter(adapter);
         adapter.setOnItemClickListener(this);
 
+        injectStateView(findViewById(R.id.view_content));
+
         refreshLayout.setOnRefreshLoadMoreListener(this);
+
     }
 
     @Override
@@ -84,11 +88,16 @@ public class NoticeActivity extends BaseActivity<NoticePresenter>
         refreshLayout.finishLoadMore();
         refreshLayout.finishRefresh();
         if (messageBeanList != null && messageBeanList.size() > 0) {
+            showContentView();
             if (nowPage == 1) {
                 list.clear();
             }
             list.addAll(messageBeanList);
             adapter.notifyDataSetChanged();
+        } else {
+            if (nowPage == 1) {
+                showEmptyView();
+            }
         }
     }
 

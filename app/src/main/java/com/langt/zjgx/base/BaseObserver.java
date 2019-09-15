@@ -40,6 +40,7 @@ public abstract class BaseObserver<T> extends DisposableObserver<T> {
             if (baseModel.isSuccess()) {
                 onSuccess(t);
             } else if (this.view != null) {
+                onError(baseModel.getResultNote());
                 this.view.onErrorCode(baseModel);
             }
         } catch (Throwable t2) {

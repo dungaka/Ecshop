@@ -67,6 +67,8 @@ public class GoodsSearchResultListActivity extends BaseActivity<SearchResultList
             }
         }
 
+        injectStateView(findViewById(R.id.view_content));
+
         list = new ArrayList<>();
         adapter = new HomeRecommendGoodsAdapter(list, Constant.HomeGoodsListOrderType.type_search);
         recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2,
@@ -132,8 +134,13 @@ public class GoodsSearchResultListActivity extends BaseActivity<SearchResultList
         }
         refreshLayout.finishLoadMore();
         refreshLayout.finishRefresh();
+        showContentView();
         if (goodsBeanList != null && goodsBeanList.size() > 0) {
             list.addAll(goodsBeanList);
+        }else{
+            if (nowPage == 1) {
+                showEmptyView();
+            }
         }
         adapter.notifyDataSetChanged();
     }

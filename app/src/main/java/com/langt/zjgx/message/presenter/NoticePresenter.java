@@ -14,7 +14,7 @@ public class NoticePresenter extends BasePresenter<INoticeView> {
         addDisposable(apiClient.getSystemMsgList(nowPage), new BaseObserver<SystemMessageListBean>(baseView) {
             @Override
             public void onError(String str) {
-
+                baseView.onGetNoticeList(null);
             }
 
             @Override

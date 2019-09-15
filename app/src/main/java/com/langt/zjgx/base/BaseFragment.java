@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.langt.zjgx.utils.LogUtils;
 import com.langt.zjgx.widget.LoadingDialog;
+import com.langt.zjgx.widget.stateview.StateView;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -25,6 +26,8 @@ public abstract class BaseFragment<P extends BasePresenter> extends Fragment imp
     protected P presenter;
     public Toast toast;
     protected Unbinder unbinder;
+
+    private StateView stateView;
 
     /**
      * 该页面是否已准备完毕，onCreTeView方法已调用完毕
@@ -48,6 +51,22 @@ public abstract class BaseFragment<P extends BasePresenter> extends Fragment imp
     public void onErrorCode(BaseBean baseModel) {
         LogUtils.i("请求失败："+baseModel);
         hideLoading();
+    }
+
+    protected void injectStateView(View contentView) {
+        stateView = StateView.inject(contentView);
+    }
+
+    protected void showEmptyView(){
+        if (stateView != null) {
+            stateView.showEmpty();
+        }
+    }
+
+    protected void showContentView(){
+        if (stateView != null) {
+            stateView.showContent();
+        }
     }
 
     @Nullable

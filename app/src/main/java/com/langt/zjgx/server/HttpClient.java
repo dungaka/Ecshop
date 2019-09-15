@@ -152,6 +152,16 @@ public class HttpClient {
     }
 
     /**
+     * 2.7 删除通知
+     * @param messageIds 通知id，删除多条，逗号分隔，例如1,2,3
+     */
+    public Observable<BaseBean> delSystemMsgList(String messageIds) {
+        Map<String, Object> params = getCommonMap("deleteSystemMsg");
+        params.put("messageIds", messageIds);
+        return getApi().method(toJson(params));
+    }
+
+    /**
      * 2.10 申诉列表
      *
      * @param state   0-待处理 1-已处理
