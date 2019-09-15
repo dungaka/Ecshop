@@ -15,7 +15,7 @@
         <TextView
             android:id="@+id/tv_back"
             style="@style/CommonBackIVStyle"
-            android:text="@string/goods_list_xianshiqianggou_title" />
+            android:text="@string/cantuan_immedialge_title" />
 
         <include layout="@layout/layout_goods_list_search_view" />
     </LinearLayout>

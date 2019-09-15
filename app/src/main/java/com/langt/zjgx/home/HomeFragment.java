@@ -201,7 +201,7 @@ public class HomeFragment extends BaseFragment<HomePresenter>
                 startActivity(new Intent(getActivity(), MessageActivity.class));
                 break;
             case R.id.iv_event_image:  // 中间的活动
-
+                startActivity(new Intent(getActivity(), CanTuanImmediateActivity.class));
                 break;
             case R.id.tv_recommend_shop_more: // 推荐好店-更多
                 ActivityUtils.startActivity(RecommendShopListActivity.class);

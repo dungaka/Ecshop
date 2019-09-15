@@ -27,7 +27,7 @@ import butterknife.BindView;
 public class GroupPurchaseActivity extends BaseActivity {
     @BindView(R.id.magic_indicator)
     MagicIndicator magicIndicator;
-    @BindView(R.id.view_pager)
+    @BindView(R.id.viewPager)
     ViewPager viewPager;
 
     private MyCommonNavigatorAdapter mCommonNavAdapter;

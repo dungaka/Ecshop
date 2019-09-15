@@ -75,6 +75,8 @@
     <string name="goods_list_shop_favorable_rate">好评率：%1$s</string>
     <string name="goods_list_xianshiqianggou_distance_end">距离结束:</string>
 
+    <string name="cantuan_immedialge_title">立即参团</string>
+
     <string name="shop_name">店铺</string>
     <string name="shop_introduction">店铺简介</string>
     <string name="shop_business_time">营业时间：%1$s</string>

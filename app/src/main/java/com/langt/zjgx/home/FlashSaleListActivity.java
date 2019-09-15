@@ -2,7 +2,6 @@ package com.langt.zjgx.home;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
-import android.view.View;
 
 import com.langt.zjgx.R;
 import com.langt.zjgx.adapter.MainFragmentVuPagerAdapter;
@@ -26,7 +25,7 @@ import butterknife.BindView;
 public class FlashSaleListActivity extends BaseActivity {
     @BindView(R.id.magic_indicator)
     MagicIndicator magicIndicator;
-    @BindView(R.id.view_pager)
+    @BindView(R.id.viewPager)
     ViewPager viewPager;
 
     private String[] mTabs;

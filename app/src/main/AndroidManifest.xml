@@ -73,6 +73,12 @@
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
+        <!-- 店铺基本信息-->
+        <activity
+            android:name=".home.CanTuanImmediateActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
             android:name=".mine.MyOrderActivity"
             android:configChanges="orientation|keyboardHidden"
