@@ -19,3 +19,7 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+#AopArms
+-keepclassmembers class * {
+    @cn.com.superLei.aoparms.annotation.Callback <methods>;
+}

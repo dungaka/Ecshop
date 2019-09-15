@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.jakewharton.butterknife'
+apply plugin: 'android-aspectjx'
 
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
@@ -63,6 +64,7 @@ dependencies {
     api rootProject.ext.dependencies.butterknife
     api rootProject.ext.dependencies.bottombarlayout
     api rootProject.ext.dependencies.roundimageview
+    api rootProject.ext.dependencies.aop_arms
     implementation 'com.squareup.retrofit2:adapter-rxjava2:2.5.0'
     implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0'
     implementation 'me.relex:circleindicator:1.2.2@aar'

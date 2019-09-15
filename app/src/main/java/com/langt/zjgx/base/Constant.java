@@ -84,4 +84,14 @@ public class Constant {
          */
         String type_search = "type_search";
     }
+
+    /**
+     * 拦截器拦截的key
+     */
+    public interface InterceptKey {
+        /**
+         * 登陆拦截
+         */
+        String LOGIN_INTERCEPT = "login_intercept";
+    }
 }

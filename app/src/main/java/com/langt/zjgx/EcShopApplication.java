@@ -1,8 +1,13 @@
 package com.langt.zjgx;
 
 import android.app.Application;
+import android.text.TextUtils;
 import android.util.Log;
 
+import com.langt.zjgx.base.Constant;
+import com.langt.zjgx.login.LoginActivity;
+import com.langt.zjgx.utils.ActivityUtils;
+import com.langt.zjgx.utils.CoreLib;
 import com.langt.zjgx.utils.LogUtils;
 import com.langt.zjgx.utils.Utils;
 import com.langt.zjgx.utils.carsh.SecyrityCrash;
@@ -15,6 +20,8 @@ import com.tencent.qcloud.tim.uikit.TUIKit;
 import com.tencent.qcloud.tim.uikit.base.IMEventListener;
 
 import java.util.List;
+
+import cn.com.superLei.aoparms.AopArms;
 
 public class EcShopApplication extends Application {
     private static final String TAG = "EcShopApplication";
@@ -31,6 +38,7 @@ public class EcShopApplication extends Application {
                         .setProgressResource(R.drawable.ic_refresh)
                         .setDrawableSize(20));
     }
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -39,10 +47,28 @@ public class EcShopApplication extends Application {
         initTIM();
         initBugly();
         Utils.init(this);
+        initAop();
+    }
+
+    private void initAop() {
+        // https://github.com/aicareles/AopArms
+        AopArms.init(this);
+        AopArms.setInterceptor((key, methodName) -> {
+            Log.e(TAG, "intercept methodName:>>>>>" + methodName);
+            if (TextUtils.equals(Constant.InterceptKey.LOGIN_INTERCEPT, key)) {
+                String userId = CoreLib.getUserId();
+                if (TextUtils.isEmpty(userId)) {
+                    // 用户id为空，拦截请求
+                    ActivityUtils.startActivity(LoginActivity.class);
+                    return true;//代表拦截
+                }
+            }
+            return false;//放行
+        });
     }
 
 
-    public static EcShopApplication getContext(){
+    public static EcShopApplication getContext() {
         return context;
     }
 
