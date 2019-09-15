@@ -112,12 +112,6 @@ public interface ApiServer {
     Observable<AppealDetailBean> getAppealMsgDetail(@Query("json") String json);
 
     /**
-     * 2.12 意见反馈
-     */
-    @POST("service")
-    Observable<BaseBean> feedBack(@Query("json") String json);
-
-    /**
      * 2.17 附近好店 更多 店铺列表搜索
      */
     @POST("service")

@@ -208,7 +208,7 @@ public class HttpClient {
         Map<String, Object> params = getCommonMap("feedBack");
         params.put("fdTitle", fdTitle);
         params.put("fdContent", fdContent);
-        return getApi().feedBack(toJson(params));
+        return getApi().method(toJson(params));
     }
 
     /**

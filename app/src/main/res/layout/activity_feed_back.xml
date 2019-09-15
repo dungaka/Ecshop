@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.langt.zjgx.widget.CommonTitle
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:showBack="true"
+        app:showDivideLine="true"
+        app:titleCenter="@string/feed_back_title" />
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/common_padding_left"
+            android:paddingBottom="@dimen/common_padding_left">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/common_padding_left"
+                android:paddingRight="@dimen/common_padding_left"
+                android:text="@string/feed_back_theme"
+                android:textColor="#252525"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/et_theme"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/common_padding_left"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="@dimen/common_padding_left"
+                android:background="@drawable/bg_feed_back_input"
+                android:ellipsize="end"
+                android:hint="@string/feed_back_theme_tip"
+                android:lines="1"
+                android:padding="15dp"
+                android:textColor="@color/global_text_color"
+                android:textColorHint="@color/global_hint_text_color"
+                android:textSize="12sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:paddingLeft="@dimen/common_padding_left"
+                android:paddingRight="@dimen/common_padding_left"
+                android:text="@string/feed_back_content"
+                android:textColor="#252525"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/et_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/common_padding_left"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="@dimen/common_padding_left"
+                android:background="@drawable/bg_feed_back_input"
+                android:ellipsize="end"
+                android:gravity="left|top"
+                android:hint="@string/feed_back_content_tip"
+                android:lines="1"
+                android:minHeight="184dp"
+                android:padding="15dp"
+                android:textColor="@color/global_text_color"
+                android:textColorHint="@color/global_hint_text_color"
+                android:textSize="12sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="4dp"
+                android:layout_marginTop="87dp"
+                android:layout_marginBottom="67dp"
+                android:background="@color/global_divide_line_color" />
+
+
+            <TextView
+                android:id="@+id/tv_submit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/common_padding_left"
+                android:layout_marginRight="@dimen/common_padding_left"
+                android:background="@drawable/bg_round_red_submit"
+                android:gravity="center"
+                android:paddingTop="17dp"
+                android:paddingBottom="17dp"
+                android:text="@string/feed_back_submit"
+                android:textColor="@color/white"
+                android:textSize="15sp" />
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+</LinearLayout>
